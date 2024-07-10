@@ -97,7 +97,7 @@ function MobileLayout({ isOpen, toggleMenu }) {
  */
 function HamburgerButton({ isOpen, toggleMenu }) {
   return (
-    <div className={`ml-${isOpen ? '10' : '2'}`}> {/* Increase ml value when isOpen */}
+    <div className={`ml-${isOpen ? '10' : '2'} transition-all duration-300`}>{/* Increase ml value when isOpen */}
       <button
         onClick={toggleMenu}
         type="button"
