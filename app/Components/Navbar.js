@@ -4,9 +4,10 @@ import Image from "next/image";
 
 function Navbar() {
   return (
-    <nav className=" bg-slate-300 w-full h-20 flex items-center justify-between px-8 py-4 border-b-1 border-charcoal">
+    <nav
+      className="sm: bg-white w-full h-20 flex items-center justify-between px-8 py-4 border-b-[1px] border-charcoal lg:  ">
       <Link href="/">
-        <Image src="/Logo.svg" alt="Logo" width={75} height={25}></Image>
+        <Image src="/Logo.svg" alt="Logo" width={110} height={0}></Image>
       </Link>
     </nav>
   );
