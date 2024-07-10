@@ -7,8 +7,8 @@ function PrimaryBtn() {
     <button 
     className="bg-primary-red px-3 py-2.5 rounded-full mr-0 text-white font-outfit text-xs
      sm:text-sm sm:px-5 
-     md:text-sm lg:text-sm 
-     lg:px-4 lg:py-2.5 
+     md:text-sm lg:text-base
+     lg:px-9  lg:py-2
      hover:bg-secondary-blue transition-all ease-in-out">
       ORDER NOW
     </button>
