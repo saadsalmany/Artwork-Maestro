@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./Components/Navbar";
 
 function page() {
   return (
-    <>
-      <div className='text-primary-red w-full h-screen bg-secondary-blue ' >Hello Saad</div>
-      <div className='text-primary-red w-full h-screen bg-primary-red ' >Hello Saad</div>
-    </>
-  )
+    <main className="w-full h-screen">
+      <Navbar />
+    </main>
+  );
 }
 
-export default page
+export default page;

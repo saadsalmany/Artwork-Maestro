@@ -14,6 +14,8 @@ module.exports = {
       colors: {
         'secondary-blue': '#272C6E',
         'primary-red': '#EF4344',
+        'charcoal': '#343434',
+        
       }
 
     },
