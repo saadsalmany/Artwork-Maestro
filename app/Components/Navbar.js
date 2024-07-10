@@ -97,11 +97,11 @@ function MobileLayout({ isOpen, toggleMenu }) {
  */
 function HamburgerButton({ isOpen, toggleMenu }) {
   return (
-    <div className="ml-3">
+    <div className={`ml-${isOpen ? '10' : '2'}`}> {/* Increase ml value when isOpen */}
       <button
         onClick={toggleMenu}
         type="button"
-        className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-600 focus:outline-none focus:ring-0 focus:ring-inset focus:ring-gray-500 transition-all duration-300"
+        className="inline-flex items-center justify-center pt-3.5 pr-4 rounded-md text-gray-800 hover:text-gray-600 focus:outline-none focus:ring-0 focus:ring-inset focus:ring-gray-500 transition-all duration-300"
       >
         <span className="sr-only">{isOpen ? 'Close main menu' : 'Open main menu'}</span>
         <div className={`w-6 h-6 relative ${isOpen ? 'rotate-180' : ''} transition-transform duration-500`}>
