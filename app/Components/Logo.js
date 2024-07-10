@@ -6,7 +6,7 @@ import Image from "next/image";
 function Logo() {
   return (
     <div>
-      <Image src="/Logo.svg" alt="Logo" width={120} height={0}></Image>
+      <Image className="sm: w-26 lg:w-44"  src="/Logo.svg" alt="Logo" width={120} height={0}></Image>
     </div>
   );
 }
