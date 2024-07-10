@@ -12,7 +12,8 @@
     "locomotive-scroll": "^5.0.0-beta.13",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^5.2.1"
   },
   "devDependencies": {
     "postcss": "^8",
