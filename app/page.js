@@ -9,6 +9,7 @@ function page() {
     <main className="w-full h-screen">
       <Navbar />
       <HeroSection/>
+
       
 
     </main>

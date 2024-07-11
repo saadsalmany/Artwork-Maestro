@@ -18,8 +18,13 @@ module.exports = {
         
       },
       screens: {
-        'ipad': { min: '768px', max: '1023px' }, // Target iPads generally
-      }
+        // iPhone 14 Pro Max (typical range)
+        'mobile': { min: '390px', max: '428px' },
+        // iPad Pro (typical range)
+        'tablet': { min: '768px', max: '1024px' },
+        // Desktop (flexible range)
+        'desktop': { min: '1024px', max: '1536px' },
+      },
 
     },
   },

@@ -1,178 +1,100 @@
+// components/Navbar.jsx
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { RiMenu3Fill, RiCloseFill } from "react-icons/ri";
-import Logo from "./Logo";
-import PrimaryBtn from "./PrimaryBtn";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import PrimaryBtn from './PrimaryBtn';
 
-/**
- * Navbar component for both desktop and mobile layouts
- */
-function Navbar() {
-  // State to manage mobile menu open/close
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  // Function to toggle mobile menu
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/products', label: 'Products' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  const NavLink = ({ href, label, isMobile }) => (
+    <Link
+      href={href}
+      className={`
+        relative overflow-hidden
+        ${isMobile 
+          ? 'block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ease-in-out'
+          : 'text-charcoal hover:text-secondary-blue transition-colors duration-300 py-2'
+        }
+        ${pathname === href ? (isMobile ? 'bg-secondary-blue text-white' : 'font-semibold') : ''}
+      `}
+      onClick={() => isMobile && setIsOpen(false)}
+    >
+      <span className="relative z-10">{label}</span>
+      {!isMobile && (
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary-blue transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+      )}
+    </Link>
+  );
 
   return (
     <>
-      <nav className="bg-white border-b-[2px] fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <DesktopMenu />
-            <MobileLayout isOpen={isOpen} toggleMenu={toggleMenu} />
+      <nav className="fixed w-full z-50 bg-white shadow-md py-4">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <Link href="/" className="flex-shrink-0 transition-transform duration-300 hover:scale-105">
+              <span className="text-2xl font-bold text-secondary-blue">Logo</span>
+            </Link>
+
+            <div className="hidden desktop:flex items-center justify-center flex-grow">
+              {navLinks.map((link) => (
+                <div key={link.href} className="group mx-3">
+                  <NavLink {...link} />
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden desktop:block">
+              <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
+            </div>
+
+            <div className="flex items-center desktop:hidden">
+              <div className="mr-2">
+                <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
+              </div>
+              <button 
+                onClick={() => setIsOpen(!isOpen)} 
+                className="text-charcoal focus:outline-none transition-transform duration-300 hover:scale-110"
+              >
+                <span className="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-        <MobileMenu isOpen={isOpen} />
+
+        <div 
+          className={`
+            desktop:hidden overflow-hidden transition-all duration-300 ease-in-out
+            ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}
+          `}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
+            {navLinks.map((link) => (
+              <NavLink key={link.href} {...link} isMobile />
+            ))}
+          </div>
+        </div>
       </nav>
-      <div className="h-20"></div> {/* This div acts as a spacer */}
+      <div className="h-16"></div>
     </>
   );
-}
-
-/**
- * Desktop menu component
- */
-function DesktopMenu() {
-  return (
-    <div className="hidden sm:flex sm:items-center sm:justify-between w-full">
-      {/* Logo */}
-      <div className="flex-shrink-0">
-        <Link href="/">
-          <Logo />
-        </Link>
-      </div>
-
-      {/* Navigation links */}
-      <div className="flex items-center gap-0 text-md font-light font-outfit">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/products">Products</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
-      </div>
-
-      {/* ORDER NOW button */}
-      <div>
-        <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Mobile layout component
- * @param {boolean} isOpen - State of mobile menu
- * @param {function} toggleMenu - Function to toggle mobile menu
- */
-function MobileLayout({ isOpen, toggleMenu }) {
-  return (
-    <div className="sm:hidden flex items-center justify-between w-full">
-      {/* Logo for mobile */}
-      <div className="flex-shrink-0">
-        <Link href="/">
-          <Logo />
-        </Link>
-      </div>
-
-      <div className="flex items-center">
-        {/* PrimaryBtn on the left of hamburger menu with dynamic margin */}
-        <div className={`transition-all duration-300 ${isOpen ? 'mr-8' : 'mr-2'}`}>
-          <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
-        </div>
-        
-        {/* Hamburger menu button */}
-        <HamburgerButton isOpen={isOpen} toggleMenu={toggleMenu} />
-      </div>
-    </div>
-  );
-}
-
-/**
- * Hamburger button component with animation
- * @param {boolean} isOpen - State of mobile menu
- * @param {function} toggleMenu - Function to toggle mobile menu
- */
-function HamburgerButton({ isOpen, toggleMenu }) {
-  return (
-    <button
-      onClick={toggleMenu}
-      type="button"
-      className="inline-flex items-center mr-4 mb-2 justify-center pt-3.5 rounded-md text-charcoa hover:text-gray-600 focus:outline-none focus:ring-0 focus:ring-inset focus:ring-gray-500 transition-all duration-300"
-    >
-      <span className="sr-only">{isOpen ? 'Close main menu' : 'Open main menu'}</span>
-      <div className={`w-6 h-6 relative ${isOpen ? 'rotate-180' : ''} transition-transform duration-500`}>
-        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
-        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'translate-y-2'}`}></span>
-        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 translate-y-2.5' : 'translate-y-4'}`}></span>
-      </div>
-    </button>
-  );
-}
-
-/**
- * Mobile menu component with enhanced animation
- * @param {boolean} isOpen - State of mobile menu
- */
-function MobileMenu({ isOpen }) {
-  return (
-    <div 
-      className={`sm:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-        isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-      }`}
-    >
-      <div className="px-6 py-8 bg-gradient-to-b from-white to-gray-50 rounded-b-2xl shadow-lg">
-        <div className="flex flex-col space-y-4 font-outfit">
-          <MobileNavLink href="/" delay="delay-100" isOpen={isOpen}>Home</MobileNavLink>
-          <MobileNavLink href="/about" delay="delay-200" isOpen={isOpen}>About</MobileNavLink>
-          <MobileNavLink href="/products" delay="delay-300" isOpen={isOpen}>Products</MobileNavLink>
-          <MobileNavLink href="/contact" delay="delay-400" isOpen={isOpen}>Contact</MobileNavLink>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Custom NavLink component for desktop menu
- * @param {string} href - Link destination
- * @param {React.ReactNode} children - Link text
- */
-function NavLink({ href, children }) {
-  return (
-    <Link href={href}>
-      <div className="text-charcoal  opacity-70 px-4 py-1.5 hover:text-ch hover:mb-1 hover:bg-gray-200 : rounded-lg hover:opacity-100 cursor-pointer mx-4 relative group transition-all duration-300 ease-in-out">
-        <span className="font-outfit">{children}</span>
-        {/* <span className="absolute bottom-[-5px] left-0 w-0 h-0.5 bg-secondary-blue transition-all duration-300 ease-in-out group-hover:w-full"></span> */}
-      </div>
-    </Link>
-  );
-}
-
-/**
- * Custom NavLink component for mobile menu with enhanced styling and animation
- * @param {string} href - Link destination
- * @param {React.ReactNode} children - Link text
- * @param {string} delay - CSS class for animation delay
- * @param {boolean} isOpen - State of mobile menu
- */
-function MobileNavLink({ href, children, delay, isOpen }) {
-  return (
-    <Link href={href}>
-      <div className={`
-        block text-gray-800 font-medium text-lg
-        py-3 px-4 rounded-lg
-        transform transition-all duration-300 ease-in-out
-        hover:bg-white hover:text-secondary-blue hover:shadow-md hover:scale-105
-        active:scale-95
-        ${delay} ${isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}
-      `}>
-        {children}
-      </div>
-    </Link>
-  );
-}
+};
 
 export default Navbar;
