@@ -4,9 +4,13 @@ import PrimaryBtn from "./Components/PrimaryBtn";
 
 function page() {
   return (
+    
     <main className="w-full h-screen">
       <Navbar />
+      <main className="w-full h-screen">
+      
 
+      </main>
     </main>
   );
 }

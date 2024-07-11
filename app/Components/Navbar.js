@@ -18,20 +18,18 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-b-[2px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          {/* Desktop menu */}
-          <DesktopMenu />
-
-          {/* Mobile layout */}
-          <MobileLayout isOpen={isOpen} toggleMenu={toggleMenu} />
+    <>
+      <nav className="bg-white border-b-[2px] fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-20 items-center">
+            <DesktopMenu />
+            <MobileLayout isOpen={isOpen} toggleMenu={toggleMenu} />
+          </div>
         </div>
-      </div>
-
-      {/* Mobile menu */}
-      <MobileMenu isOpen={isOpen} />
-    </nav>
+        <MobileMenu isOpen={isOpen} />
+      </nav>
+      <div className="h-20"></div> {/* This div acts as a spacer */}
+    </>
   );
 }
 
