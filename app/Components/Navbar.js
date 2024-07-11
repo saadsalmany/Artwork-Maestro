@@ -47,7 +47,7 @@ function DesktopMenu() {
       </div>
 
       {/* Navigation links */}
-      <div className="flex items-center gap-4 text-sm font-light font-outfit">
+      <div className="flex items-center gap-0 text-md font-light font-outfit">
         <NavLink href="/">Home</NavLink>
         <NavLink href="/about">About</NavLink>
         <NavLink href="/products">Products</NavLink>
@@ -143,9 +143,9 @@ function MobileMenu({ isOpen }) {
 function NavLink({ href, children }) {
   return (
     <Link href={href}>
-      <div className="text-gray-600 hover:text-secondary-blue cursor-pointer mx-4 relative group transition-colors duration-300 ease-in-out">
+      <div className="text-charcoal  opacity-70 px-4 py-1.5 hover:text-charcoal hover:mb-1 hover:bg-gray-200 : rounded-lg hover:opacity-100 cursor-pointer mx-4 relative group transition-all duration-300 ease-in-out">
         <span className="font-outfit">{children}</span>
-        <span className="absolute bottom-[-5px] left-0 w-0 h-0.5 bg-secondary-blue transition-all duration-300 ease-in-out group-hover:w-full"></span>
+        {/* <span className="absolute bottom-[-5px] left-0 w-0 h-0.5 bg-secondary-blue transition-all duration-300 ease-in-out group-hover:w-full"></span> */}
       </div>
     </Link>
   );

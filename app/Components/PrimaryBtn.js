@@ -9,7 +9,7 @@ function PrimaryBtn() {
      sm:text-sm sm:px-5 
      md:text-sm lg:text-base
      lg:px-9  lg:py-2
-     hover:bg-secondary-blue transition-all ease-in-out">
+     hover:bg-secondary-blue transition-all duration-300 ease-in-out">
       ORDER NOW
     </button>
   );
