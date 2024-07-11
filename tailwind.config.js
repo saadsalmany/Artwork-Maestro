@@ -16,6 +16,9 @@ module.exports = {
         'primary-red': '#EF4344',
         'charcoal': '#343434',
         
+      },
+      screens: {
+        'ipad': { min: '768px', max: '1023px' }, // Target iPads generally
       }
 
     },

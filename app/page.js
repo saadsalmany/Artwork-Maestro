@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
 import PrimaryBtn from "./Components/PrimaryBtn";
+import HeroSection from "./Components/HeroSection";
 
 function page() {
   return (
     
     <main className="w-full h-screen">
       <Navbar />
-      <main className="w-full h-screen">
+      <HeroSection/>
       
 
-      </main>
     </main>
   );
 }

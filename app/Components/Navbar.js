@@ -143,7 +143,7 @@ function MobileMenu({ isOpen }) {
 function NavLink({ href, children }) {
   return (
     <Link href={href}>
-      <div className="text-charcoal  opacity-70 px-4 py-1.5 hover:text-charcoal hover:mb-1 hover:bg-gray-200 : rounded-lg hover:opacity-100 cursor-pointer mx-4 relative group transition-all duration-300 ease-in-out">
+      <div className="text-charcoal  opacity-70 px-4 py-1.5 hover:text-ch hover:mb-1 hover:bg-gray-200 : rounded-lg hover:opacity-100 cursor-pointer mx-4 relative group transition-all duration-300 ease-in-out">
         <span className="font-outfit">{children}</span>
         {/* <span className="absolute bottom-[-5px] left-0 w-0 h-0.5 bg-secondary-blue transition-all duration-300 ease-in-out group-hover:w-full"></span> */}
       </div>
