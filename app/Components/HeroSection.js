@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,34 +14,37 @@ const HeroSection = () => {
   const infoRefs = useRef([]);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    let ctx = gsap.context(() => { 
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Opening animation
-    tl.fromTo(headingRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 })
-      .fromTo(subheadingRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-      .fromTo(imageRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1 }, '-=0.5')
-      .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.5')
-      .fromTo(infoRefs.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.2 }, '-=0.3');
+      // Opening animation
+      tl.fromTo(headingRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 })
+        .fromTo(subheadingRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+        .fromTo(imageRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1 }, '-=0.5')
+        .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.5')
+        .fromTo(infoRefs.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.2 }, '-=0.3');
 
-    // Scroll animation
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top center',
-      end: 'bottom center',
-      scrub: true,
-      animation: gsap.to(imageRef.current, { y: 50, scale: 1.05 }),
-    });
+      // Scroll animation
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+        animation: gsap.to(imageRef.current, { y: 50, scale: 1.05 }),
+      });
+    }, sectionRef); 
 
+    return () => ctx.revert(); 
   }, []);
 
   return (
-    <section ref={sectionRef} className="hero-section bg-gray-100 min-h-screen flex flex-col md:flex-row">
-      <div className="content-wrapper flex-1 p-6 md:p-12 flex flex-col justify-center">
-        <h1 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-4">Your Heading Here</h1>
+    <section ref={sectionRef} className="hero-section bg-gray-100 min-h-screen flex flex-col tablet:flex-row">
+      <div className="content-wrapper flex-1 px-6 pt-10 tablet:pt-16 desktop:pt-24 tablet:px-16 flex flex-col  max-w-7xl w-full mx-auto">
+        <h1 ref={headingRef} className="text-4xl tablet:text-5xl font-bold mb-4">Your Heading Here</h1>
         <p ref={subheadingRef} className="text-xl mb-6">Your subheading or description text goes here.</p>
-        
+
         {/* Hero image for mobile */}
-        <div ref={imageRef} className="md:hidden mb-6">
+        <div ref={imageRef} className="tablet:hidden mb-6">
           <img src="/path-to-your-image.jpg" alt="Hero" className="w-full h-auto object-cover rounded-lg" />
         </div>
 
@@ -50,7 +53,7 @@ const HeroSection = () => {
           <button className="bg-white text-blue-500 px-6 py-2 rounded-full border border-blue-500 hover:bg-blue-50 transition-colors">Secondary CTA</button>
         </div>
 
-        <div className="info-blocks grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="info-blocks grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5].map((_, index) => (
             <div 
               key={index}
@@ -65,7 +68,7 @@ const HeroSection = () => {
       </div>
 
       {/* Hero image for desktop and tablet */}
-      <div ref={imageRef} className="hidden md:block flex-1">
+      <div ref={imageRef} className="hidden tablet:block flex-1"> 
         <img src="/path-to-your-image.jpg" alt="Hero" className="w-full h-full object-cover" />
       </div>
     </section>
