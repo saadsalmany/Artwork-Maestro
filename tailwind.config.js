@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         openSans: ['Open Sans', 'sans-serif'],
         outfit: ['Outfit', 'sans-serif'],
+        caveat: ['Caveat', 'sans-serif'],
       },
       colors: {
         'secondary-blue': '#272C6E',
