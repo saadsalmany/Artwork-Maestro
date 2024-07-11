@@ -80,8 +80,10 @@ function MobileLayout({ isOpen, toggleMenu }) {
       </div>
 
       <div className="flex items-center">
-        {/* PrimaryBtn on the left of hamburger menu */}
-        <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
+        {/* PrimaryBtn on the left of hamburger menu with dynamic margin */}
+        <div className={`transition-all duration-300 ${isOpen ? 'mr-8' : 'mr-2'}`}>
+          <PrimaryBtn href="/signin">ORDER NOW</PrimaryBtn>
+        </div>
         
         {/* Hamburger menu button */}
         <HamburgerButton isOpen={isOpen} toggleMenu={toggleMenu} />
@@ -97,20 +99,18 @@ function MobileLayout({ isOpen, toggleMenu }) {
  */
 function HamburgerButton({ isOpen, toggleMenu }) {
   return (
-    <div className={`ml-${isOpen ? '10' : '2'} transition-all duration-300`}>{/* Increase ml value when isOpen */}
-      <button
-        onClick={toggleMenu}
-        type="button"
-        className="inline-flex items-center justify-center pt-3.5 pr-4 rounded-md text-charcoa hover:text-gray-600 focus:outline-none focus:ring-0 focus:ring-inset focus:ring-gray-500 transition-all duration-300"
-      >
-        <span className="sr-only">{isOpen ? 'Close main menu' : 'Open main menu'}</span>
-        <div className={`w-6 h-6 relative ${isOpen ? 'rotate-180' : ''} transition-transform duration-500`}>
-          <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
-          <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'translate-y-2'}`}></span>
-          <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 translate-y-2.5' : 'translate-y-4'}`}></span>
-        </div>
-      </button>
-    </div>
+    <button
+      onClick={toggleMenu}
+      type="button"
+      className="inline-flex items-center mr-4 mb-2 justify-center pt-3.5 rounded-md text-charcoa hover:text-gray-600 focus:outline-none focus:ring-0 focus:ring-inset focus:ring-gray-500 transition-all duration-300"
+    >
+      <span className="sr-only">{isOpen ? 'Close main menu' : 'Open main menu'}</span>
+      <div className={`w-6 h-6 relative ${isOpen ? 'rotate-180' : ''} transition-transform duration-500`}>
+        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
+        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'translate-y-2'}`}></span>
+        <span className={`absolute w-full h-0.5 bg-charcoal transform transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45 translate-y-2.5' : 'translate-y-4'}`}></span>
+      </div>
+    </button>
   );
 }
 
