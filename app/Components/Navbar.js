@@ -18,7 +18,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-b-[2px] ">
+    <nav className="bg-white border-b-[2px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Desktop menu */}
@@ -115,19 +115,23 @@ function HamburgerButton({ isOpen, toggleMenu }) {
 }
 
 /**
- * Mobile menu component with animation
+ * Mobile menu component with enhanced animation
  * @param {boolean} isOpen - State of mobile menu
  */
 function MobileMenu({ isOpen }) {
   return (
     <div 
-      className={`sm:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96' : 'max-h-0'}`}
+      className={`sm:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+        isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+      }`}
     >
-      <div className="px-2 pt-2 pb-3 font-outfit space-y-1 animate-fadeIn">
-        <MobileNavLink href="/" delay="delay-100">Home</MobileNavLink>
-        <MobileNavLink href="/about" delay="delay-200">About</MobileNavLink>
-        <MobileNavLink href="/products" delay="delay-300">Products</MobileNavLink>
-        <MobileNavLink href="/contact" delay="delay-400">Contact</MobileNavLink>
+      <div className="px-6 py-8 bg-gradient-to-b from-white to-gray-50 rounded-b-2xl shadow-lg">
+        <div className="flex flex-col space-y-4 font-outfit">
+          <MobileNavLink href="/" delay="delay-100" isOpen={isOpen}>Home</MobileNavLink>
+          <MobileNavLink href="/about" delay="delay-200" isOpen={isOpen}>About</MobileNavLink>
+          <MobileNavLink href="/products" delay="delay-300" isOpen={isOpen}>Products</MobileNavLink>
+          <MobileNavLink href="/contact" delay="delay-400" isOpen={isOpen}>Contact</MobileNavLink>
+        </div>
       </div>
     </div>
   );
@@ -150,15 +154,23 @@ function NavLink({ href, children }) {
 }
 
 /**
- * Custom NavLink component for mobile menu
+ * Custom NavLink component for mobile menu with enhanced styling and animation
  * @param {string} href - Link destination
  * @param {React.ReactNode} children - Link text
  * @param {string} delay - CSS class for animation delay
+ * @param {boolean} isOpen - State of mobile menu
  */
-function MobileNavLink({ href, children, delay }) {
+function MobileNavLink({ href, children, delay, isOpen }) {
   return (
     <Link href={href}>
-      <div className={`block text-gray-600 hover:text-secondary-blue hover:bg-gray-100 py-2 px-4 cursor-pointer font-outfit transition-all duration-300 ease-in-out rounded-md animate-slideIn ${delay}`}>
+      <div className={`
+        block text-gray-800 font-medium text-lg
+        py-3 px-4 rounded-lg
+        transform transition-all duration-300 ease-in-out
+        hover:bg-white hover:text-secondary-blue hover:shadow-md hover:scale-105
+        active:scale-95
+        ${delay} ${isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}
+      `}>
         {children}
       </div>
     </Link>
