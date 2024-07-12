@@ -46,13 +46,13 @@ const HeroSection = () => {
     <>
       <section ref={sectionRef} className="hero-section bg-white min-h-screen flex flex-col tablet:flex-row items-center justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto">
         <div className="content-wrapper flex-1 pt-10 tablet:pt-16 desktop:pt-24 flex flex-col tablet:max-w-[50%]">
-          <h1 ref={headingRef} className="text-4xl tablet:text-5xl font-medium font-outfit mb-4 text-[#2C2C54]">
+          <h1 ref={headingRef} className="text-[7vw] tablet:text-5xl font-medium font-outfit mb-0 text-[#2C2C54]">
             Where History Meets Home:
           </h1>
-          <p ref={subheadingRef} className="text-xl mb-6 font-outfit font-light text-[#2C2C54]">
+          <p ref={subheadingRef} className="text-xl mb-3 font-outfit font-light text-[#2C2C54]">
             Hornware Handicrafts for the Discerning Buyer
           </p>
-          <p ref={paragraphRef} className="text-sm font-openSans mb-6 text-[#2C2C54]">
+          <p ref={paragraphRef} className="text-xs font-openSans mb-6 text-[#2C2C54]">
             Artwork Maestro brings the world exquisite hornware, crafted from
             sustainable materials, such as beer cups, holders and many other
             households products made from natural bone.
@@ -92,13 +92,14 @@ const HeroSection = () => {
             alt="Hero"
             width={500}
             height={500}
+            quality={100}
             className="w-full h-auto object-cover"
           />
         </div>
       </section>
 
       {/* Responsive Marquee */}
-      <div className="bg-[#2C2C54] text-white py-4">
+      <div className="bg-secondary-blue text-white py-4">
         <Marquee speed={50} gradient={false}>
           <span className="mx-4">BONE INLAY PRODUCTS</span>
           <span className="mx-4">BUFFALO HORN PRODUCTS</span>
