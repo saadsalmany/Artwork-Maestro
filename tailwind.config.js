@@ -20,7 +20,7 @@ module.exports = {
       screens: {
         'mobile': '0px',
         'tablet': '640px',
-        'desktop': '1024px',
+        'desktop': '1026px',
       }
     },
   },

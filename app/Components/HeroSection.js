@@ -107,7 +107,7 @@ const HeroSection = () => {
     <>
       <section
         ref={sectionRef}
-        className="hero-section bg-white min-h-screen flex flex-col tablet:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto"
+        className="hero-section bg-white min-h-screen flex flex-col tablet:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto "
       >
         <div className="content-wrapper gap-1 flex-1 pt-7 tablet:pt-11 desktop:pt-12 flex flex-col tablet:max-w-[50%]">
           <h1
@@ -190,7 +190,7 @@ const HeroSection = () => {
         {/* Hero image for tablet and desktop */}
         <div
           ref={imageRefDesktop}
-          className="hidden tablet:block flex-1 relative tablet:left-16 desktop:left-32"
+          className="hidden tablet:block flex-1 relative tablet:left-0 desktop:left-16"
         >
           <Image
             src="/heroSvg.svg"
@@ -198,13 +198,16 @@ const HeroSection = () => {
             width={500}
             height={500}
             quality={100}
-            className="w-full h-auto object-contain tablet:w-[400px] tablet:h-[400px] desktop:w-[500px] desktop:h-[500px]"
+            className="w-full h-auto object-contain tablet:w-[100%] tablet:h-[25%] desktop:w-[500px] desktop:h-[500px]"
           />
         </div>
       </section>
 
       {/* Responsive Marquee */}
-      <div ref={marqueeRef} className="bg-secondary-blue text-white text-[8px] desktop:text-xs tablet:text-[10px] list-disc py-3 relative bottom-56 tablet:bottom-32 desktop:bottom-[20%]">
+      <div
+        ref={marqueeRef}
+        className="bg-secondary-blue text-white text-[8px] desktop:text-xs tablet:text-[10px] list-disc py-3 "
+      >
         <Marquee speed={50} gradient={false}>
           {[
             "BONE INLAY PRODUCTS",
