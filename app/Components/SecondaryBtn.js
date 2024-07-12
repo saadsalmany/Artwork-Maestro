@@ -22,7 +22,7 @@ const SecondaryBtn = ({ href, children }) => {
           transition-all duration-300 ease-in-out
           ${isClicked ? "scale-95" : ""}  
          hover:bg-white hover:shadow-sm hover:text-secondary-blue hover:-translate-y-1
-        mobile:text-sm mobile:px-6 mobile:py-2
+        mobile:text-xs mobile:px-6 mobile:py-2
         tablet:text-sm tablet:px-6 tablet:py-2
         desktop:text-base desktop:px-6 desktop:py-2
         `}

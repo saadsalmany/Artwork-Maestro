@@ -15,14 +15,14 @@ const PrimaryBtn = ({ href, children }) => {
         onMouseUp={handleMouseUp}
         className={`
           relative z-10
-          text-sm
-          px-4 py-1.5
+          text-xs
+          px-6 py-2
           bg-primary-red text-white font-outfit rounded-full
           border border-transparent hover:border-secondary-blue
           transition-all duration-300 ease-in-out
           ${isClicked ? "scale-95" : ""}
           hover:bg-white hover:shadow-sm hover:border border-secondary-blue hover:text-secondary-blue hover:-translate-y-1
-          mobile:text-sm mobile:px-6 mobile:py-2
+          mobile:text-xs mobile:px-6 mobile:py-2
           tablet:text-sm tablet:px-6 tablet:py-2
           desktop:text-base desktop:px-6 desktop:py-2
         `}
