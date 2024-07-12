@@ -23,8 +23,8 @@ const PrimaryBtn = ({ href, children }) => {
           ${isClicked ? "scale-95" : ""}
           hover:bg-white hover:shadow-sm hover:border border-secondary-blue hover:text-secondary-blue hover:-translate-y-1
           mobile:text-xs mobile:px-6 mobile:py-2
-          tablet:text-sm tablet:px-6 tablet:py-2
-          desktop:text-base desktop:px-6 desktop:py-2
+          tablet:text-xm tablet:px-6 tablet:py-2
+          desktop:text-sm desktop:px-6 desktop:py-2
         `}
       >
         {children}

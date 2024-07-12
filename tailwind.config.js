@@ -18,10 +18,10 @@ module.exports = {
         'charcoal': '#343434',
       },
       screens: {
-        'mobile': '390px',
-        'tablet': '768px',
+        'mobile': '0px',
+        'tablet': '640px',
         'desktop': '1024px',
-      },
+      }
     },
   },
   plugins: [],
