@@ -4,6 +4,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import SecondaryBtn from "./SecondaryBtn";
+import PrimaryBtn from "./PrimaryBtn";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,13 +112,9 @@ const HeroSection = () => {
             />
           </div>
 
-          <div ref={ctaRef} className="cta-buttons mb-8 flex">
-            <button className="bg-white text-[#2C2C54] px-6 py-2 rounded-full mr-4 border border-[#2C2C54] hover:bg-[#2C2C54] hover:text-white transition-colors">
-              KNOW MORE
-            </button>
-            <button className="bg-[#2C2C54] text-white px-6 py-2 rounded-full hover:bg-[#1E1E3F] transition-colors">
-              EXPLORE PRODUCTS
-            </button>
+          <div ref={ctaRef} className="cta-buttons mb-8 flex justify-center gap-3 ">
+          <SecondaryBtn href="/about">KNOW MORE</SecondaryBtn> {/* Add href */}
+          <PrimaryBtn href="/products">EXPLORE PRODUCTS</PrimaryBtn> {/* Add href */}
           </div>
 
           <div
