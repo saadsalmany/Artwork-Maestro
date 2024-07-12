@@ -11,54 +11,55 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/Components/About", label: "About" },
-    { href: "/Components/Products", label: "Products" },
-    { href: "/Components/Contact", label: "Contact" },
+    { href: "/about", label: "About" },
+    { href: "/products", label: "Products" },
+    { href: "/contact", label: "Contact" },
   ];
 
-  const NavLink = ({ href, label, isMobile }) => (
-    <Link
-      href={href}
-      className={`
-          relative overflow-hidden 
-          ${
-            isMobile
-              ? "block px-3 py-3 mt-6 mx-3  rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out" // Increased mobile padding
-              : "text-charcoal px-3  hover:bg-blue-100 rounded-md hover:text-charcoal transition-colors duration-300 py-2" // Increased desktop padding
-          } 
-          ${
-            pathname === href
-              ? isMobile
-                ? "bg-secondary-blue text-white"
-                : "font-normal border-b-[2px] rounded-none px-1 border-charcoal"
+  const NavLink = ({ href, label, isMobile }) => {
+    const isActive = pathname === href;
 
-              : ""
+    return (
+      <Link
+        href={href}
+        className={`
+          relative overflow-hidden 
+          ${isMobile 
+            ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out" 
+            : "text-charcoal px-3 hover:bg-blue-100 rounded-md hover:text-charcoal transition-colors duration-300 py-2"
+          }
+          ${isActive 
+            ? (isMobile 
+              ? "bg-secondary-blue text-white" 
+              : "font-semibold text-secondary-blue")
+            : ""
           }
         `}
-      onClick={() => isMobile && setIsOpen(false)}
-    >
-      <span className="relative z-10">{label}</span>
-      {!isMobile && (
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary-blue transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-      )}
-    </Link>
-  );
+        onClick={() => isMobile && setIsOpen(false)}
+      >
+        <span className="relative z-10">{label}</span>
+        {!isMobile && isActive && (
+          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary-blue"></span>
+        )}
+      </Link>
+    );
+  };
 
   return (
     <>
       <nav className="fixed w-full z-50 font-light bg-white shadow-md font-outfit py-5">
-        <div className="max-w-7xl mx-auto px-6 tablet:px-16  desktop:px-26">
+        <div className="max-w-7xl mx-auto px-6 tablet:px-16 desktop:px-26">
           <div className="flex justify-between items-center">
             <Link
               href="/"
-              className="flex-shrink-0 transition-transform duration-300 hover:scale-105 "
+              className="flex-shrink-0 transition-transform duration-300 hover:scale-105"
             >
               <Image
-                src="/Logo.svg" // Path to your logo in the public folder
+                src="/Logo.svg"
                 alt="Your Company Logo"
-                width={50} // Adjust width as needed
-                height={0} // Adjust height as needed
-                priority // Optional: Prioritizes loading
+                width={50}
+                height={50}
+                priority
               />
             </Link>
 
