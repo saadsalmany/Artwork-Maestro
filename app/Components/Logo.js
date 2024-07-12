@@ -1,12 +1,24 @@
 'use client'
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 function Logo() {
   return (
     <div>
-      <Image className="sm: w-26 lg:w-44"  src="/Logo.svg" alt="Logo" width={120} height={0}></Image>
+      <Link
+              href="/"
+              className="flex-shrink-0 transition-transform duration-300 hover:scale-105"
+            >
+              <Image
+                src="/Logo.svg"
+                alt="Your Company Logo"
+                width={50}
+                height={50}
+                priority
+              />
+            </Link>
     </div>
   );
 }

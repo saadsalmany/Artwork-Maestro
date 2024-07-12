@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import PrimaryBtn from "./PrimaryBtn";
 import Image from "next/image";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,18 +51,7 @@ const Navbar = () => {
       <nav className="fixed w-full z-50 font-light bg-white shadow-sm font-outfit py-3">
         <div className="max-w-7xl mx-auto px-6 tablet:px-16 desktop:px-26">
           <div className="flex justify-between items-center">
-            <Link
-              href="/"
-              className="flex-shrink-0 transition-transform duration-300 hover:scale-105"
-            >
-              <Image
-                src="/Logo.svg"
-                alt="Your Company Logo"
-                width={50}
-                height={50}
-                priority
-              />
-            </Link>
+            <Logo/>
 
             <div className="hidden desktop:flex items-center justify-center flex-grow">
               {navLinks.map((link) => (
