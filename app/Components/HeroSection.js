@@ -132,7 +132,7 @@ const HeroSection = () => {
 
           <p
             ref={paragraphRefDesktop}
-            className="hidden tablet:block text-xs tracking-wide font-openSans  desktop:text-sm desktop:leading-loose desktop:mt-0 text-charcoal mb-4 tablet:mb-2"
+            className="hidden tablet:block tablet:text-[10px] text-xs tracking-wide font-openSans  desktop:text-sm desktop:leading-loose desktop:mt-0 text-charcoal mb-4 tablet:mb-2"
           >
             Elevate your home with Artwork Maestro's exquisite hornware.
             Sustainable, handcrafted pieces tell a story of tradition and
@@ -198,7 +198,7 @@ const HeroSection = () => {
             width={500}
             height={500}
             quality={100}
-            className="w-full h-auto object-contain tablet:w-[100%] tablet:h-[25%] desktop:w-[500px] desktop:h-[500px]"
+            className="w-full h-auto mt-2 tablet:mt-5 object-contain tablet:w-[100%] tablet:h-[50%] desktop:w-[500px] desktop:h-[500px]"
           />
         </div>
       </section>
