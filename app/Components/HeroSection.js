@@ -21,6 +21,8 @@ const HeroSection = () => {
         .from(elementsRef.current.subheading, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
         .from(elementsRef.current.paragraph, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
         .from(elementsRef.current.image, { opacity: 0, scale: 0.8, duration: 0.5 }, "-=0.5")
+        .from(elementsRef.current.mobileParagraph, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
+        .from(elementsRef.current.mobileImage, { opacity: 0, scale: 0.8, duration: 0.5 }, "-=0.5")
         .from(elementsRef.current.cta, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
         .from(elementsRef.current.shipment, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
         .from(elementsRef.current.marquee, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3");
@@ -70,7 +72,7 @@ const HeroSection = () => {
             Hornware Handicrafts for the Discerning Buyer
           </p>
           <p
-            ref={(el) => (elementsRef.current.paragraph = el)}
+            ref={(el) => (elementsRef.current.mobileParagraph = el)}
             className="text-xs tablet:hidden font-openSans text-charcoal mb-4 tablet:mb-8"
           >
             Artwork Maestro offers exquisite hornware crafted from sustainable
@@ -89,8 +91,9 @@ const HeroSection = () => {
             eco-consciousness.
           </p>
 
+          {/* HeroImage for mobile layout */}
           <div
-            ref={(el) => (elementsRef.current.image = el)}
+            ref={(el) => (elementsRef.current.mobileImage = el)}
             className="w-72 tablet:hidden ml-10 mb-5 -mt-8"
           >
             <Image
