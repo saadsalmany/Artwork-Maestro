@@ -58,16 +58,16 @@ const HeroSection = () => {
         ref={sectionRef}
         className="hero-section bg-white min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
-        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-16 tablet:pt-16 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
+        <div className="content-wrapper desktop:gap-5 tablet:gap-7 gap-2 flex-1 pt-16 tablet:pt-28 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
           <h1
             ref={(el) => (elementsRef.current.heading = el)}
-            className="text-[7vw] tablet:text-[5vw] desktop:text-[3vw] font-medium font-outfit mb-0 desktop:leading-relaxed text-secondary-blue tablet:text-center desktop:text-left"
+            className="text-[7vw] tablet:text-[6vw] desktop:text-[3vw] font-medium font-outfit mb-0 desktop:leading-relaxed text-secondary-blue tablet:text-center desktop:text-left"
           >
             Where History Meets Home:
           </h1>
           <p
             ref={(el) => (elementsRef.current.subheading = el)}
-            className="text-xl tablet:text-3xl mb-3 font-outfit leading-tight font-light desktop:mt-0 desktop:text-[2.2vw] text-secondary-blue tablet:text-center desktop:text-left"
+            className="text-xl tablet:text-[4.5vw] tablet:w-[60vw] mb-3 font-outfit leading-tight font-light desktop:mt-0 desktop:text-[2.2vw] text-secondary-blue tablet:text-center desktop:text-left"
           >
             Hornware Handicrafts for the Discerning Buyer
           </p>
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
           <p
             ref={(el) => (elementsRef.current.paragraph = el)}
-            className="hidden tablet:block tablet:text-base text-xs tracking-wide font-openSans desktop:text-sm desktop:leading-loose desktop:mt-0 text-charcoal mb-4 tablet:mb-6 tablet:text-center desktop:text-left tablet:max-w-2xl"
+            className="hidden tablet:block tablet:w-[70vw] tablet:text-base tablet:tracking-wide text-xs tracking-wide font-openSans desktop:text-sm desktop:leading-loose desktop:mt-0 text-charcoal mb-4 tablet:mb-6 tablet:text-center desktop:text-left tablet:max-w-2xl"
           >
             Elevate your home with Artwork Maestro's exquisite hornware.
             Sustainable, handcrafted pieces tell a story of tradition and
@@ -94,7 +94,7 @@ const HeroSection = () => {
           {/* HeroImage for mobile layout */}
           <div
             ref={(el) => (elementsRef.current.mobileImage = el)}
-            className="w-72 desktop:hidden tablet:block ml-10 mb-5 -mt-8"
+            className="w-72 desktop:hidden tablet:w-[50vw] tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
               src="/heroSvg.svg"
@@ -107,7 +107,7 @@ const HeroSection = () => {
 
           <div
             ref={(el) => (elementsRef.current.cta = el)}
-            className="cta-buttons mb-7 flex justify-center desktop:justify-start gap-2 tablet:gap-4"
+            className="cta-buttons mb-7 flex justify-center desktop:justify-start gap-2 tablet:gap-7"
           >
             <SecondaryBtn href="/about">KNOW MORE</SecondaryBtn>
             <PrimaryBtn href="/products">EXPLORE PRODUCTS</PrimaryBtn>
@@ -123,7 +123,7 @@ const HeroSection = () => {
               width={20}
               height={20}
             />
-            <p className="mx-2">
+            <p className="mx-2 desktop:text-sm tablet:text-lg ">
               Initiated more than 100+ Shipment Successfully
             </p>
             <Image
