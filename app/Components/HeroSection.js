@@ -115,7 +115,7 @@ const HeroSection = () => {
             className="flex items-center text-xs tablet:text-sm justify-center desktop:justify-start font-openSans text-charcoal"
           >
             <Image
-              src="/truckIcon.svg"
+              src="/plane.gif"
               alt="Truck Icon"
               width={20}
               height={20}
