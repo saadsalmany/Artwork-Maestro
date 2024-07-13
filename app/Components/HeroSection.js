@@ -94,7 +94,7 @@ const HeroSection = () => {
           {/* HeroImage for mobile layout */}
           <div
             ref={(el) => (elementsRef.current.mobileImage = el)}
-            className="w-72 tablet:hidden ml-10 mb-5 -mt-8"
+            className="w-72 tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
               src="/heroSvg.svg"
@@ -137,7 +137,7 @@ const HeroSection = () => {
 
         <div
           ref={(el) => (elementsRef.current.image = el)}
-          className="hidden tablet:block flex-1 relative tablet:mt-8 desktop:mt-10 desktop:left-16"
+          className="hidden desktop:block tablet:hidden flex-1 relative tablet:mt-8 desktop:mt-10 desktop:left-16"
         >
           <Image
             src="/heroSvg.svg"
