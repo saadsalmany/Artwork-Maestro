@@ -94,7 +94,7 @@ const HeroSection = () => {
           {/* HeroImage for mobile layout */}
           <div
             ref={(el) => (elementsRef.current.mobileImage = el)}
-            className="w-72 tablet:block ml-10 mb-5 -mt-8"
+            className="w-72 desktop:hidden tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
               src="/heroSvg.svg"
