@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 import SecondaryBtn from "./SecondaryBtn";
 import PrimaryBtn from "./PrimaryBtn";
 
@@ -57,7 +56,7 @@ const HeroSection = () => {
         ref={sectionRef}
         className="hero-section bg-white min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
-        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-16 tablet:pt-11 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
+        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-16 tablet:pt-16 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
           <h1
             ref={(el) => (elementsRef.current.heading = el)}
             className="text-[7vw] tablet:text-[5vw] desktop:text-[3vw] font-medium font-outfit mb-0 desktop:leading-relaxed text-secondary-blue tablet:text-center desktop:text-left"

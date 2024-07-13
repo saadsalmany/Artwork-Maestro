@@ -19,7 +19,7 @@ const SecondaryBtn = ({ href, children }) => {
           px-4 py-1.5
           bg-none text-secondary-blue font-outfit rounded-full
           border border-secondary-blue
-          transition-all duration-300 ease-in-out
+          transition-all desktop:duration-300 mobile:duration-75 tablet:duration-75 ease-in-out
           ${isClicked ? "scale-95" : ""}  
          hover:bg-white hover:shadow-sm hover:text-secondary-blue hover:-translate-y-1
         mobile:text-xs mobile:px-6 mobile:py-2
@@ -31,7 +31,8 @@ const SecondaryBtn = ({ href, children }) => {
       </button>
 
       {/* Hover Effect Layers (from DefaultBtn) */}
-      <div className="absolute inset-0 bg-secondary-blue rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div> 
+      <div className="absolute inset-0 bg-secondary-blue rounded-full opacity-0 group-hover:opacity-100 transition-opacity 
+      desktop:duration-300 tablet:duration-75 mobile:duration-75 z-0"></div> 
     </Link>
   );
 };
