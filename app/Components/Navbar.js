@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full z-50 font-light bg-white border-b-[2px] font-outfit py-3">
+      <nav className="fixed w-full desktop:mt-10 mobile:mt-9 z-50 font-light bg-white border-b-[2px] font-outfit py-3">
         <div className="max-w-7xl mx-auto px-6 tablet:px-16 desktop:px-26">
           <div className="flex justify-between items-center">
             <Logo/>

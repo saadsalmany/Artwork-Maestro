@@ -1,15 +1,16 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import PrimaryBtn from "./Components/PrimaryBtn";
 import HeroSection from "./Components/HeroSection";
-import About from "./about/page";
+import Marquee from "./Components/Marquee";
 
 function page() {
   return (
     
     <main className="w-full h-screen">
+      <Marquee/>
       <Navbar />
       <HeroSection/>
+      <div className="h-screen bg-blue-100"></div>
 
       
 

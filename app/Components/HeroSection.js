@@ -57,7 +57,7 @@ const HeroSection = () => {
         ref={sectionRef}
         className="hero-section bg-white min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
-        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-7 tablet:pt-11 desktop:pt-0 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
+        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-16 tablet:pt-11 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
           <h1
             ref={(el) => (elementsRef.current.heading = el)}
             className="text-[7vw] tablet:text-[5vw] desktop:text-[3vw] font-medium font-outfit mb-0 desktop:leading-relaxed text-secondary-blue tablet:text-center desktop:text-left"
@@ -135,7 +135,7 @@ const HeroSection = () => {
 
         <div
           ref={(el) => (elementsRef.current.image = el)}
-          className="hidden tablet:block flex-1 relative tablet:mt-8 desktop:mt-0 desktop:left-16"
+          className="hidden tablet:block flex-1 relative tablet:mt-8 desktop:mt-10 desktop:left-16"
         >
           <Image
             src="/heroSvg.svg"
@@ -148,27 +148,7 @@ const HeroSection = () => {
         </div>
       </section>
 
-      <div
-        ref={(el) => (elementsRef.current.marquee = el)}
-        className="bg-secondary-blue text-white text-[8px] desktop:text-xs tablet:text-[10px] list-disc py-3 w-full fixed bottom-0 left-0 right-0 z-50"
-      >
-        <Marquee speed={50} gradient={false}>
-          {[
-            "BONE INLAY PRODUCTS",
-            "BUFFALO HORN PRODUCTS",
-            "COPPER MAGNETIC BRACELETS",
-            "FASHION JEWELLERY",
-            "MOTHER OF PEARL PRODUCTS",
-            "MUKHBAR BAKHOOR PRODUCTS",
-            "SHOFAR",
-            "WOOD HANDICRAFTS PRODUCTS",
-          ].map((item, index) => (
-            <span key={index} className="mx-4 flex items-center">
-              <span className="mr-2">•</span> {item}
-            </span>
-          ))}
-        </Marquee>
-      </div>
+    
     </>
   );
 };
