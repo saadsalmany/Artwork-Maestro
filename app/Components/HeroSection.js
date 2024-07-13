@@ -11,83 +11,32 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const subheadingRef = useRef(null);
-  const paragraphRef = useRef(null);
-  const paragraphRefDesktop = useRef(null);
-  const imageRef = useRef(null);
-  const ctaRef = useRef(null);
-  const shipmentRef = useRef(null);
-  const marqueeRef = useRef(null);
+  const elementsRef = useRef({});
 
   useEffect(() => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       // Initial animations
-      tl.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1 }
-      )
-        .fromTo(
-          subheadingRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.5"
-        )
-        .fromTo(
-          paragraphRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.5"
-        )
-        .fromTo(
-          [paragraphRefDesktop.current],
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.5"
-        )
-        .fromTo(
-          imageRef.current,
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 1 },
-          "-=0.5"
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.5"
-        )
-        .fromTo(
-          shipmentRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
-        )
-        .fromTo(
-          marqueeRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
-        );
+      tl.from(elementsRef.current.heading, { opacity: 0, y: 50, duration: 1 })
+        .from(elementsRef.current.subheading, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
+        .from(elementsRef.current.paragraph, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
+        .from(elementsRef.current.image, { opacity: 0, scale: 0.8, duration: 0.5 }, "-=0.5")
+        .from(elementsRef.current.cta, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
+        .from(elementsRef.current.shipment, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
+        .from(elementsRef.current.marquee, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3");
 
-      // Fade in/out scroll trigger for the entire section
+      // Fade out scroll trigger for the entire section
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
         end: "bottom top",
         scrub: true,
-        animation: gsap.fromTo(
-          sectionRef.current,
-          { opacity: 1, y: 0 },
-          { opacity: 0, y: -50 }
-        ),
+        animation: gsap.to(sectionRef.current, { opacity: 0, y: -50 }),
       });
 
       // Subtle parallax effect for images
-      gsap.to(imageRef.current, {
+      gsap.to(elementsRef.current.image, {
         y: 30,
         ease: "none",
         scrollTrigger: {
@@ -108,21 +57,21 @@ const HeroSection = () => {
         ref={sectionRef}
         className="hero-section bg-white min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
-        <div className="content-wrapper gap-1 flex-1 pt-7 tablet:pt-11 desktop:pt-12 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
+        <div className="content-wrapper desktop:gap-5 gap-2 flex-1 pt-7 tablet:pt-11 desktop:pt-0 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
           <h1
-            ref={headingRef}
+            ref={(el) => (elementsRef.current.heading = el)}
             className="text-[7vw] tablet:text-[5vw] desktop:text-[3vw] font-medium font-outfit mb-0 desktop:leading-relaxed text-secondary-blue tablet:text-center desktop:text-left"
           >
             Where History Meets Home:
           </h1>
           <p
-            ref={subheadingRef}
+            ref={(el) => (elementsRef.current.subheading = el)}
             className="text-xl tablet:text-3xl mb-3 font-outfit leading-tight font-light desktop:mt-0 desktop:text-[2.2vw] text-secondary-blue tablet:text-center desktop:text-left"
           >
             Hornware Handicrafts for the Discerning Buyer
           </p>
           <p
-            ref={paragraphRef}
+            ref={(el) => (elementsRef.current.paragraph = el)}
             className="text-xs tablet:hidden font-openSans text-charcoal mb-4 tablet:mb-8"
           >
             Artwork Maestro offers exquisite hornware crafted from sustainable
@@ -130,7 +79,7 @@ const HeroSection = () => {
           </p>
 
           <p
-            ref={paragraphRefDesktop}
+            ref={(el) => (elementsRef.current.paragraph = el)}
             className="hidden tablet:block tablet:text-base text-xs tracking-wide font-openSans desktop:text-sm desktop:leading-loose desktop:mt-0 text-charcoal mb-4 tablet:mb-6 tablet:text-center desktop:text-left tablet:max-w-2xl"
           >
             Elevate your home with Artwork Maestro's exquisite hornware.
@@ -141,9 +90,8 @@ const HeroSection = () => {
             eco-consciousness.
           </p>
 
-          {/* Hero image for mobile - keep as is */}
           <div
-            ref={imageRef}
+            ref={(el) => (elementsRef.current.image = el)}
             className="w-72 tablet:hidden ml-10 mb-5 -mt-8"
           >
             <Image
@@ -156,7 +104,7 @@ const HeroSection = () => {
           </div>
 
           <div
-            ref={ctaRef}
+            ref={(el) => (elementsRef.current.cta = el)}
             className="cta-buttons mb-7 flex justify-center desktop:justify-start gap-2 tablet:gap-4"
           >
             <SecondaryBtn href="/about">KNOW MORE</SecondaryBtn>
@@ -164,7 +112,7 @@ const HeroSection = () => {
           </div>
 
           <div
-            ref={shipmentRef}
+            ref={(el) => (elementsRef.current.shipment = el)}
             className="flex items-center text-xs tablet:text-sm justify-center desktop:justify-start font-openSans text-charcoal"
           >
             <Image
@@ -185,9 +133,8 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Hero image for tablet and desktop */}
         <div
-          ref={imageRef}
+          ref={(el) => (elementsRef.current.image = el)}
           className="hidden tablet:block flex-1 relative tablet:mt-8 desktop:mt-0 desktop:left-16"
         >
           <Image
@@ -201,9 +148,8 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* Responsive Marquee */}
       <div
-        ref={marqueeRef}
+        ref={(el) => (elementsRef.current.marquee = el)}
         className="bg-secondary-blue text-white text-[8px] desktop:text-xs tablet:text-[10px] list-disc py-3 w-full fixed bottom-0 left-0 right-0 z-50"
       >
         <Marquee speed={50} gradient={false}>

@@ -4,3 +4,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@media (min-width: 768px) {
+    .hero-section {
+      padding-bottom: 3rem; /* Adjust this value as needed */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-section {
+      padding-bottom: 8rem; /* Adjust this value as needed */
+    }
+  }
