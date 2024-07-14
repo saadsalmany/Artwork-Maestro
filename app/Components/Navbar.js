@@ -102,11 +102,11 @@ const Navbar = () => {
 
         <div
           className={`
-            desktop:hidden overflow-hidden transition-all duration-300 ease-in-out 
-            ${isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"} 
+            desktop:hidden overflow-hidden transition-all duration-300 shadow-md ease-in-out 
+            ${isOpen ? "max-h-68 opacity-100" : "max-h-0 opacity-0"} 
           `}
         >
-          <div className="px-2 pt-4 pb-5 space-y-2 bg-white shadow-lg">
+          <div className="px-2 pt-4 pb-5 space-y-2 bg-white ">
             {navLinks.map((link) => (
               <NavLink key={link.href} {...link} isMobile />
             ))}

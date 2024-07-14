@@ -26,7 +26,7 @@ function CollectionSection() {
     <>
       <div className="w-full min-h-screen bg-gray-900 text-white mobile:p-8 desktop:p-44  flex-col ">
         <h6
-          className="text-center text-xs  mb-14 pt-5
+          className="text-center text-xs opacity-50  mb-14 pt-5
     desktop:mb-24"
         >
           Elevate
@@ -34,14 +34,14 @@ function CollectionSection() {
         <div className="w-full h-min flex justify-center items-center">
           <h1
             className="text-[6.5vw] tablet:text-[8vw] 
-      desktop:text-[3vw] desktop:w-[50vw] font-bold mb-4  text-center"
+      desktop:text-[3vw] desktop:w-[50vw] font-bold mb-4 opacity-90 text-center"
           >
             Discover Our <span className="text-primary-red">Handcrafted</span>{" "}
             Hornware Collection
           </h1>
         </div>
         <p className="mb-8 text-sm mobile:text-xs mobile:leading-relaxed tracking-wide 
-            desktop:hidden tablet:hidden text-center">
+            desktop:hidden tablet:hidden text-center opacity-80">
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
           meticulously crafted from ethically sourced horn. We invite you to
@@ -72,16 +72,16 @@ function CollectionSection() {
           explore the rich heritage and captivating designs that define
           hornware.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {products.map((product, index) => (
-            <div key={index} className="bg-gray-800 p-4 rounded-lg">
+            <div key={index} className="bg-gray-800 text-center p-4 rounded-lg">
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-48 object-cover mb-4 rounded"
+                className="w-full h-48 object-cover mb-3 rounded opacity-80"
               />
-              <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
-              <p className="text-sm">{product.description}</p>
+              <h2 className="text-xl font-normal opacity-90 tracking-tight mb-4">{product.title}</h2>
+              <p className="text-[2.5vw] opacity-80 tracking-wide px-5">{product.description}</p>
             </div>
           ))}
         </div>
