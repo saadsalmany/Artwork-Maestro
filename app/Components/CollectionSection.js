@@ -100,7 +100,7 @@ function CollectionSection() {
               Get Info
             </button>
           </Link>
-          <Link href="/contact">
+          <Link href="/">
             <button class="bg-primary-red hover:bg-gray-400 transition-all delay-100 text-white font-medium py-2 px-6 font-outfit rounded-full inline-flex items-center">
               <RxDownload />
 
