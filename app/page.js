@@ -7,12 +7,11 @@ import CollectionSection from "./Components/CollectionSection";
 function page() {
   return (
     
-    <main className="w-full h-screen">
+    <main className="w-full h-[400vh]">
       <Marquee/>
       <Navbar />
       <HeroSection/>
       <CollectionSection/>
-      <div className="h-screen bg-blue-100"></div>
 
       
 

@@ -1,4 +1,7 @@
+import Link from "next/link";
 import React from "react";
+import { RxDownload } from "react-icons/rx";
+
 
 const products = [
   {
@@ -24,7 +27,7 @@ const products = [
 function CollectionSection() {
   return (
     <>
-      <div className="w-full min-h-screen bg-gray-900 text-white mobile:p-8 desktop:p-44  flex-col ">
+      <div className="w-full min-h-screen bg-gray-900 text-white mobile:p-8 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
           className="text-center text-xs opacity-50  mb-14 pt-5
     desktop:mb-24"
@@ -40,58 +43,69 @@ function CollectionSection() {
             Hornware Collection
           </h1>
         </div>
-        <p className="mb-8 text-sm mobile:text-xs mobile:leading-relaxed tracking-wide 
-            desktop:hidden tablet:hidden text-center opacity-80">
+        <p
+          className="mb-8 text-xs  mobile:leading-relaxed tracking-wide 
+            desktop:hidden tablet:hidden text-center opacity-80"
+        >
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
           meticulously crafted from ethically sourced horn. We invite you to
           explore the rich heritage and captivating designs that define
           hornware.
         </p>
-        <p className="mobile:hidden desktop:block tablet:block text-center
-        desktop:leading-relaxed desktop:tracking-wide desktop:text-sm desktop:mt-7 desktop:px-14
-        desktop:mb-20">
-        At Artwork Maestro, we curate a collection of exquisite hornware
-          handcrafted by skilled artisans. Each piece is a unique masterpiece,
-          meticulously crafted from ethically sourced horn. We invite you to
-          explore the rich heritage and captivating designs that define
-          hornware.
+        <p
+          className="mobile:hidden desktop:block tablet:block text-center
+        desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-7 desktop:px-14
+        desktop:mb-20"
+        >
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
           meticulously crafted from ethically sourced horn. We invite you to
           explore the rich heritage and captivating designs that define
-          hornware.
-          At Artwork Maestro, we curate a collection of exquisite hornware
-          handcrafted by skilled artisans. Each piece is a unique masterpiece,
-          meticulously crafted from ethically sourced horn. We invite you to
-          explore the rich heritage and captivating designs that define
-          hornware.
-          At Artwork Maestro, we curate a collection of exquisite hornware
-          handcrafted by skilled artisans. Each piece is a unique masterpiece,
-          meticulously crafted from ethically sourced horn. We invite you to
-          explore the rich heritage and captivating designs that define
-          hornware.
+          hornware. At Artwork Maestro, we curate a collection of exquisite
+          hornware handcrafted by skilled artisans. Each piece is a unique
+          masterpiece, meticulously crafted from ethically sourced horn. We
+          invite you to explore the rich heritage and captivating designs that
+          define hornware. At Artwork Maestro, we curate a collection of
+          exquisite hornware handcrafted by skilled artisans. Each piece is a
+          unique masterpiece, meticulously crafted from ethically sourced horn.
+          We invite you to explore the rich heritage and captivating designs
+          that define hornware. At Artwork Maestro, we curate a collection of
+          exquisite hornware handcrafted by skilled artisans. Each piece is a
+          unique masterpiece, meticulously crafted from ethically sourced horn.
+          We invite you to explore the rich heritage and captivating designs
+          that define hornware.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
-            <div key={index} className="bg-gray-800 text-center p-4 rounded-lg">
+            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-[48vh] desktop:h-[60vh] p-4 rounded-lg">
               <img
                 src={product.image}
                 alt={product.title}
                 className="w-full h-48 object-cover mb-3 rounded opacity-80"
               />
-              <h2 className="text-xl font-normal opacity-90 tracking-tight mb-4">{product.title}</h2>
-              <p className="text-[2.5vw] opacity-80 tracking-wide px-5">{product.description}</p>
+              <h2 className="text-xl font-medium desktop:mt-6 opacity-90 desktop:text-2xl desktop:font-medium tracking-tight mobile:mb-5">
+                {product.title}
+              </h2>
+              <p className="text-[2.5vw] desktop:text-xs desktop:mt-4 desktop:leading-relaxed opacity-80 tracking-wider px-5">
+                {product.description}
+              </p>
             </div>
           ))}
         </div>
-        <div className="mt-8 flex flex-col md:flex-row gap-4">
-          <button className="bg-yellow-500 text-black px-6 py-2 rounded">
-            Inquire
-          </button>
-          <button className="bg-transparent border border-yellow-500 text-yellow-500 px-6 py-2 rounded">
-            Contact
-          </button>
+        <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-3 ">
+          <Link href="/">
+            <button class="bg-transparent font-outfit hover:bg-secondary-blue text-white  hover:text-white py-2 px-6 border border-white hover:border-transparent rounded-full">
+              Get Info
+            </button>
+          </Link>
+          <Link href="/contact">
+            <button class="bg-primary-red hover:bg-gray-400 text-white font-medium py-2 px-6 font-outfit rounded-full inline-flex items-center">
+              <RxDownload />
+
+              <span className=" font-outfit ml-2">Brochure</span>
+            </button>
+          </Link>
         </div>
       </div>
     </>
