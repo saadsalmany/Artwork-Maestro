@@ -27,7 +27,7 @@ const products = [
 function CollectionSection() {
   return (
     <>
-      <div className="w-full min-h-screen bg-gray-900 text-white mobile:p-8 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full mobile:h-[220vh] tablet:h-[90vh] desktop:h-[190vh] bg-gray-900 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
           className="text-center text-xs opacity-50  mb-14 pt-5
     desktop:mb-24"
@@ -36,8 +36,8 @@ function CollectionSection() {
         </h6>
         <div className="w-full h-min flex justify-center items-center">
           <h1
-            className="text-[6.5vw] tablet:text-[8vw] 
-      desktop:text-[3vw] desktop:w-[50vw] font-bold mb-4 opacity-90 text-center"
+            className="text-[6.5vw] tablet:text-[4vw] 
+      desktop:text-[3vw] desktop:w-[50vw] tablet:w-[70vw] font-bold mb-4 tablet:mb-10 opacity-90 text-center"
           >
             Discover Our <span className="text-primary-red">Handcrafted</span>{" "}
             Hornware Collection
@@ -45,7 +45,7 @@ function CollectionSection() {
         </div>
         <p
           className="mb-8 text-xs  mobile:leading-relaxed tracking-wide 
-            desktop:hidden tablet:hidden text-center opacity-80"
+            desktop:hidden tablet:block text-center opacity-80 tablet:text-lg tablet:mb-20 tablet:leading-relaxed "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
@@ -54,9 +54,9 @@ function CollectionSection() {
           hornware.
         </p>
         <p
-          className="mobile:hidden desktop:block tablet:block text-center
+          className="mobile:hidden tablet:hidden desktop:block text-center
         desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-7 desktop:px-14
-        desktop:mb-20"
+        desktop:mb-20 "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
@@ -78,29 +78,30 @@ function CollectionSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
-            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-[48vh] desktop:h-[60vh] p-4 rounded-lg">
+            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-[48vh] desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg">
               <img
                 src={product.image}
                 alt={product.title}
                 className="w-full h-48 object-cover mb-3 rounded opacity-80"
               />
-              <h2 className="text-xl font-medium desktop:mt-6 opacity-90 desktop:text-2xl desktop:font-medium tracking-tight mobile:mb-5">
+              <h2 className="text-xl font-medium tablet:pt-5 desktop:mt-6 opacity-90 desktop:text-2xl
+                 desktop:font-medium tracking-tight mobile:mb-5">
                 {product.title}
               </h2>
-              <p className="text-[2.5vw] desktop:text-xs desktop:mt-4 desktop:leading-relaxed opacity-80 tracking-wider px-5">
+              <p className="text-[2.5vw] desktop:text-xs desktop:mt-4 tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider px-5">
                 {product.description}
               </p>
             </div>
           ))}
         </div>
-        <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-3 ">
+        <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <button class="bg-transparent font-outfit hover:bg-secondary-blue text-white  hover:text-white py-2 px-6 border border-white hover:border-transparent rounded-full">
+            <button class="bg-transparent font-outfit hover:bg-secondary-blue transition-all delay-100 text-white  hover:text-white py-2 px-6 border border-white hover:border-transparent rounded-full">
               Get Info
             </button>
           </Link>
           <Link href="/contact">
-            <button class="bg-primary-red hover:bg-gray-400 text-white font-medium py-2 px-6 font-outfit rounded-full inline-flex items-center">
+            <button class="bg-primary-red hover:bg-gray-400 transition-all delay-100 text-white font-medium py-2 px-6 font-outfit rounded-full inline-flex items-center">
               <RxDownload />
 
               <span className=" font-outfit ml-2">Brochure</span>
