@@ -40,7 +40,32 @@ function CollectionSection() {
             Hornware Collection
           </h1>
         </div>
-        <p className="mb-8 text-sm md:text-base text-center">
+        <p className="mb-8 text-sm mobile:text-xs mobile:leading-relaxed tracking-wide 
+            desktop:hidden tablet:hidden text-center">
+          At Artwork Maestro, we curate a collection of exquisite hornware
+          handcrafted by skilled artisans. Each piece is a unique masterpiece,
+          meticulously crafted from ethically sourced horn. We invite you to
+          explore the rich heritage and captivating designs that define
+          hornware.
+        </p>
+        <p className="mobile:hidden desktop:block tablet:block text-center
+        desktop:leading-relaxed desktop:tracking-wide desktop:text-sm desktop:mt-7 desktop:px-14
+        desktop:mb-20">
+        At Artwork Maestro, we curate a collection of exquisite hornware
+          handcrafted by skilled artisans. Each piece is a unique masterpiece,
+          meticulously crafted from ethically sourced horn. We invite you to
+          explore the rich heritage and captivating designs that define
+          hornware.
+          At Artwork Maestro, we curate a collection of exquisite hornware
+          handcrafted by skilled artisans. Each piece is a unique masterpiece,
+          meticulously crafted from ethically sourced horn. We invite you to
+          explore the rich heritage and captivating designs that define
+          hornware.
+          At Artwork Maestro, we curate a collection of exquisite hornware
+          handcrafted by skilled artisans. Each piece is a unique masterpiece,
+          meticulously crafted from ethically sourced horn. We invite you to
+          explore the rich heritage and captivating designs that define
+          hornware.
           At Artwork Maestro, we curate a collection of exquisite hornware
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
           meticulously crafted from ethically sourced horn. We invite you to
