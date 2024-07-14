@@ -25,15 +25,17 @@ const Navbar = () => {
         href={href}
         className={`
           relative overflow-hidden 
-          ${isMobile 
-            ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out" 
-            : "text-charcoal px-3 hover:bg-blue-100 rounded-md hover:text-charcoal transition-colors duration-300 py-2"
+          ${
+            isMobile
+              ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out"
+              : "text-charcoal px-3 hover:bg-blue-100 rounded-md hover:text-charcoal transition-colors duration-300 py-2"
           }
-          ${isActive 
-            ? (isMobile 
-              ? "bg-secondary-blue text-white" 
-              : "font-semibold text-secondary-blue")
-            : ""
+          ${
+            isActive
+              ? isMobile
+                ? "bg-secondary-blue text-white"
+                : "font-semibold text-secondary-blue"
+              : ""
           }
         `}
         onClick={() => isMobile && setIsOpen(false)}
@@ -48,10 +50,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full desktop:mt-10 mobile:mt-9 z-50 font-light bg-white border-b-[2px] mobile:h-20 font-outfit tablet:h-24 desktop:h-[11vh] py-3">
+      <nav className="fixed w-full desktop:mt-10 mobile:mt-9 z-50 font-light bg-white border-b-[2px] shadow-sm mobile:h-20 font-outfit tablet:h-24 desktop:h-[11vh] py-3">
         <div className="max-w-7xl mx-auto px-6 tablet:px-16 desktop:px-26">
           <div className="flex justify-between items-center">
-            <Logo/>
+            <Logo />
 
             <div className="hidden desktop:flex items-center justify-center flex-grow">
               {navLinks.map((link) => (
