@@ -21,30 +21,30 @@ const Navbar = () => {
     const isActive = pathname === href;
 
     return (
-      <Link
-        href={href}
-        className={`
-          relative overflow-hidden 
-          ${
-            isMobile
-              ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out"
-              : "text-charcoal px-3 hover:bg-blue-100 rounded-md hover:text-charcoal transition-colors duration-300 py-2"
-          }
-          ${
-            isActive
-              ? isMobile
-                ? "bg-secondary-blue text-white"
-                : "font-semibold text-secondary-blue"
-              : ""
-          }
-        `}
-        onClick={() => isMobile && setIsOpen(false)}
-      >
-        <span className="relative z-10">{label}</span>
-        {!isMobile && isActive && (
-          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary-blue"></span>
-        )}
-      </Link>
+     <Link
+      href={href}
+      className={`
+        relative overflow-hidden 
+        ${
+          isMobile
+            ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out"
+            : "text-charcoal px-3 rounded-md transition-all duration-300 py-2"
+        }
+        ${
+          isActive
+            ? isMobile
+              ? "bg-secondary-blue text-white"
+              : "font-medium text-secondary-blue bg-blue-100"
+            : "hover:bg-blue-50"
+        }
+      `}
+      onClick={() => isMobile && setIsOpen(false)}
+    >
+      <span className="relative z-10">{label}</span>
+      {!isMobile && isActive && (
+        <span className="absolute bottom-0 left-0 w-full  bg-secondary-blue"></span>
+      )}
+    </Link>
     );
   };
 
