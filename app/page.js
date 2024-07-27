@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import HeroSection from "./Components/HeroSection";
 import Marquee from "./Components/Marquee";
 import CollectionSection from "./Components/CollectionSection";
+import BenefitSection from "./Components/BenefitSection";
 
 function page() {
   return (
@@ -12,6 +13,7 @@ function page() {
       <Navbar />
       <HeroSection/>
       <CollectionSection/>
+      <BenefitSection/>
 
       
 
