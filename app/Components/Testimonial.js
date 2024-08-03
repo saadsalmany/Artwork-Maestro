@@ -27,7 +27,7 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white via-white to-white py-20">
+    <div className="bg-white py-20">
       <div className="container max-w-6xl flex flex-col gap-16 mx-auto px-4">
         {/* Title */}
         <h2 className="text-4xl font-bold text-secondary-blue text-center mb-10">
