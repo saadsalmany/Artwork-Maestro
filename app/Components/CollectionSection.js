@@ -95,7 +95,7 @@ function CollectionSection() {
   {products.map((product, index) => (
     <div
       key={index}
-      className="bg-gray-800 flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center mobile:h-[28rem] desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg relative overflow-hidden"
+      className="bg-gray-800 tablet:w-72  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
       onClick={(event) => handleRipple(event, index)}
     >
       {ripple.active && ripple.index === index && (
@@ -111,7 +111,7 @@ function CollectionSection() {
       <img
         src={product.image}
         alt={product.title}
-        className="w-70 h-48 object-cover mb-3 rounded opacity-80"
+        className="w-auto h-48 desktop:h-48 tablet:h-auto object-cover mb-3 rounded opacity-80"
       />
       <h2
         className="text-xl desktop:w-80 mobile:w-64 font-outfit font-normal  pt-0 tablet:pt-5 desktop:-mt-6 desktop:text-2xl
