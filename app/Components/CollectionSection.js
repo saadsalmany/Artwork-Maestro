@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { RxDownload } from "react-icons/rx";
 
-
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -36,7 +35,7 @@ function CollectionSection() {
         </h6>
         <div className="w-full h-min flex justify-center items-center">
           <h1
-            className="text-[6.5vw] tablet:text-[4vw] 
+            className=" font-outfit text-[6.5vw] tablet:text-[4vw] 
       desktop:text-[3vw] desktop:w-[50vw] tablet:w-[70vw] font-bold mb-4 tablet:mb-10 opacity-90 text-center"
           >
             Discover Our <span className="text-primary-red">Handcrafted</span>{" "}
@@ -44,7 +43,7 @@ function CollectionSection() {
           </h1>
         </div>
         <p
-          className="mb-10 text-xs  mobile:leading-relaxed tracking-wide 
+          className="mb-10 text-xs font-openSans mobile:leading-relaxed tracking-wide 
             desktop:hidden tablet:block text-center opacity-80 tablet:text-lg tablet:mb-20 tablet:leading-relaxed "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -54,7 +53,7 @@ function CollectionSection() {
           hornware.
         </p>
         <p
-          className="mobile:hidden tablet:hidden desktop:block text-center
+          className="mobile:hidden font-openSans tablet:hidden desktop:block text-center
         desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-2 desktop:px-14
         desktop:mb-20 "
         >
@@ -78,17 +77,24 @@ function CollectionSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
-            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-96 desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg">
+            <div
+              key={index}
+              className="bg-gray-800 flex flex-col gap-3 justify-center items-center hover:opacity-80 text-center mobile:h-96 desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg"
+            >
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-48 object-cover mb-3 rounded opacity-80"
+                className="w-70 h-48 object-cover mb-3 rounded opacity-80"
               />
-              <h2 className="text-xl font-medium pt-2 tablet:pt-5 desktop:mt-0 opacity-90 desktop:text-2xl
-                 desktop:font-medium tracking-tight mobile:mb-4 desktop:mb-5">
+              <h2
+                className="text-xl font-outfit font-medium pt-0 tablet:pt-5 desktop:-mt-6 opacity-90 desktop:text-2xl
+                 desktop:font-medium tracking-tight mobile:mb-0 desktop:mb-3"
+              >
                 {product.title}
+              <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-2 mb-0 "></div>
               </h2>
-              <p className="text-[2.5vw] desktop:text-xs desktop:mt-4 tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider px-5">
+
+              <p className="text-[2.5vw] desktop:text-xs font-openSans tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider">
                 {product.description}
               </p>
             </div>

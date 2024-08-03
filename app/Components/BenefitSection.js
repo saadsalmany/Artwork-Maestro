@@ -7,7 +7,7 @@ function BenefitSection() {
       <div className="max-w-6xl mx-auto mobile:p-5 mobile:pt-0">
         <div className="desktop:flex desktop:gap-8">
           <div className="desktop:w-2/3">
-            <h2 className="text-[7.5vw] tracking-wide leading-snug tablet:text-4xl font-bold mb-6  desktop:mt-10
+            <h2 className="text-[7.5vw] font-outfit tracking-wide leading-snug tablet:text-4xl font-bold mb-6  desktop:mt-10
             desktop:leading-tight desktop:text-4xl desktop:mb-8">
               Discover the Benefits of Handmade Products for 
               <span className="text-yellow-300"> Lasting Durability</span> and
