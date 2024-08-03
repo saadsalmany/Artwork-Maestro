@@ -95,7 +95,7 @@ function CollectionSection() {
   {products.map((product, index) => (
     <div
       key={index}
-      className="bg-gray-800 flex cursor-pointer flex-col gap-3 justify-center items-center hover:opacity-90 text-center mobile:h-[28rem] desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg relative overflow-hidden"
+      className="bg-gray-800 flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center mobile:h-[28rem] desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg relative overflow-hidden"
       onClick={(event) => handleRipple(event, index)}
     >
       {ripple.active && ripple.index === index && (
@@ -118,10 +118,10 @@ function CollectionSection() {
          desktop:font-normal tracking-tight mobile:mb-0 desktop:mb-3"
       >
         {product.title}
-        <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-2 mb-0 "></div>
+        <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-4 mb-2 "></div>
       </h2>
 
-      <p className="text-[2.5vw] desktop:text-xs w-64 desktop:w-80 font-openSans tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider">
+      <p className="text-[2.5vw] desktop:text-xs w-64 desktop:w-80 font-openSans tablet:text-xs desktop:leading-relaxed opacity-70 tracking-wider">
         {product.description}
       </p>
     </div>
