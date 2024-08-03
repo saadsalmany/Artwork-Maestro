@@ -4,6 +4,7 @@ import HeroSection from "./Components/HeroSection";
 import Marquee from "./Components/Marquee";
 import CollectionSection from "./Components/CollectionSection";
 import BenefitSection from "./Components/BenefitSection";
+import Testimonial from "./Components/Testimonial";
 
 function page() {
   return (
@@ -14,6 +15,7 @@ function page() {
       <HeroSection/>
       <CollectionSection/>
       <BenefitSection/>
+      <Testimonial/>
 
       
 
