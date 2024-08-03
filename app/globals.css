@@ -1,21 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @media (min-width: 768px) {
-    .hero-section {
-      padding-bottom: 3rem; /* Adjust this value as needed */
-    }
+  .hero-section {
+    padding-bottom: 3rem; /* Adjust this value as needed */
   }
-  
-  @media (min-width: 1024px) {
-    .hero-section {
-      padding-bottom: 8rem; /* Adjust this value as needed */
-    }
-  }
+}
 
-  
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-bottom: 8rem; /* Adjust this value as needed */
+  }
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}

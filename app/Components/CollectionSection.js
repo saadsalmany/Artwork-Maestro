@@ -1,6 +1,7 @@
+'use client'
 import Link from "next/link";
-import React from "react";
 import { RxDownload } from "react-icons/rx";
+import React, { useState } from "react";
 
 const products = [
   {
@@ -24,6 +25,21 @@ const products = [
 ];
 
 function CollectionSection() {
+    const [ripple, setRipple] = useState({ x: 0, y: 0, active: false, index: null });
+  
+    const handleRipple = (event, index) => {
+      const button = event.currentTarget;
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+  
+      setRipple({ x, y, active: true, index });
+  
+      setTimeout(() => {
+        setRipple({ x: 0, y: 0, active: false, index: null });
+      }, 1000);
+    };
+
   return (
     <>
       <div className="w-full mobile:h-[220vh] tablet:h-[90vh] desktop:h-[180vh] bg-gray-900 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
@@ -76,30 +92,41 @@ function CollectionSection() {
           that define hornware.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 flex flex-col gap-3 justify-center items-center hover:opacity-80 text-center mobile:h-96 desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg"
-            >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-70 h-48 object-cover mb-3 rounded opacity-80"
-              />
-              <h2
-                className="text-xl font-outfit font-medium pt-0 tablet:pt-5 desktop:-mt-6 opacity-90 desktop:text-2xl
-                 desktop:font-medium tracking-tight mobile:mb-0 desktop:mb-3"
-              >
-                {product.title}
-              <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-2 mb-0 "></div>
-              </h2>
+  {products.map((product, index) => (
+    <div
+      key={index}
+      className="bg-gray-800 flex flex-col gap-3 justify-center items-center hover:opacity-90 text-center mobile:h-96 desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg relative overflow-hidden"
+      onClick={(event) => handleRipple(event, index)}
+    >
+      {ripple.active && ripple.index === index && (
+        <span
+          className="ripple"
+          style={{
+            top: `${ripple.y}px`,
+            left: `${ripple.x}px`,
+            
+          }}
+        />
+      )}
+      <img
+        src={product.image}
+        alt={product.title}
+        className="w-70 h-48 object-cover mb-3 rounded opacity-80"
+      />
+      <h2
+        className="text-xl font-outfit font-medium pt-0 tablet:pt-5 desktop:-mt-6 opacity-90 desktop:text-2xl
+         desktop:font-medium tracking-tight mobile:mb-0 desktop:mb-3"
+      >
+        {product.title}
+        <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-2 mb-0 "></div>
+      </h2>
 
-              <p className="text-[2.5vw] desktop:text-xs font-openSans tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider">
-                {product.description}
-              </p>
-            </div>
-          ))}
-        </div>
+      <p className="text-[2.5vw] desktop:text-xs font-openSans tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider">
+        {product.description}
+      </p>
+    </div>
+  ))}
+</div>
         <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
             <button class="bg-transparent font-outfit hover:bg-secondary-blue hover: transition-all delay-100 text-white  hover:text-white py-2 px-6 border border-white hover:border-white rounded-full">
