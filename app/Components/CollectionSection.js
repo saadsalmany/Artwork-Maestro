@@ -27,7 +27,7 @@ const products = [
 function CollectionSection() {
   return (
     <>
-      <div className="w-full mobile:h-[220vh] tablet:h-[90vh] desktop:h-[190vh] bg-gray-900 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full mobile:h-[220vh] tablet:h-[90vh] desktop:h-[180vh] bg-gray-900 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
           className="text-center text-xs opacity-50  mb-14 pt-5
     desktop:mb-24"
@@ -55,7 +55,7 @@ function CollectionSection() {
         </p>
         <p
           className="mobile:hidden tablet:hidden desktop:block text-center
-        desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-7 desktop:px-14
+        desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-2 desktop:px-14
         desktop:mb-20 "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -96,7 +96,7 @@ function CollectionSection() {
         </div>
         <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <button class="bg-transparent font-outfit hover:bg-secondary-blue transition-all delay-100 text-white  hover:text-white py-2 px-6 border border-white hover:border-transparent rounded-full">
+            <button class="bg-transparent font-outfit hover:bg-secondary-blue hover: transition-all delay-100 text-white  hover:text-white py-2 px-6 border border-white hover:border-white rounded-full">
               Get Info
             </button>
           </Link>
