@@ -44,7 +44,7 @@ function CollectionSection() {
           </h1>
         </div>
         <p
-          className="mb-8 text-xs  mobile:leading-relaxed tracking-wide 
+          className="mb-10 text-xs  mobile:leading-relaxed tracking-wide 
             desktop:hidden tablet:block text-center opacity-80 tablet:text-lg tablet:mb-20 tablet:leading-relaxed "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -78,14 +78,14 @@ function CollectionSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
-            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-[48vh] desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg">
+            <div key={index} className="bg-gray-800 hover:opacity-80 text-center mobile:h-96 desktop:h-[60vh] tablet:h-[35vh] p-4 rounded-lg">
               <img
                 src={product.image}
                 alt={product.title}
                 className="w-full h-48 object-cover mb-3 rounded opacity-80"
               />
-              <h2 className="text-xl font-medium tablet:pt-5 desktop:mt-6 opacity-90 desktop:text-2xl
-                 desktop:font-medium tracking-tight mobile:mb-5">
+              <h2 className="text-xl font-medium pt-2 tablet:pt-5 desktop:mt-0 opacity-90 desktop:text-2xl
+                 desktop:font-medium tracking-tight mobile:mb-4 desktop:mb-5">
                 {product.title}
               </h2>
               <p className="text-[2.5vw] desktop:text-xs desktop:mt-4 tablet:text-xs desktop:leading-relaxed opacity-80 tracking-wider px-5">
