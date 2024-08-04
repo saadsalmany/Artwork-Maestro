@@ -3,22 +3,24 @@ import Image from 'next/image'
 
 function BenefitSection() {
   return (
-    <div className="bg-gray-800 text-white py-16 px-4 tablet:px-8 desktop:px-16">
+    <div className="bg-secondary-blue text-white py-16 px-4 tablet:px-8 desktop:px-16">
       <div className="max-w-6xl mx-auto mobile:p-5 mobile:pt-0">
         <div className="desktop:flex desktop:gap-8">
           <div className="desktop:w-2/3">
-            <h2 className="text-3xl font-outfit tracking-wide leading-snug tablet:text-4xl font-bold mb-6  desktop:mt-10
+            <h2 className="text-3xl font-outfit tracking-wide leading-snug tablet:text-6xl
+            tablet:leading-tight font-bold mb-6  desktop:mt-10
             desktop:leading-tight desktop:text-4xl desktop:mb-8">
               Discover the Benefits of Handmade Products for 
               <span className="text-yellow-300"> Lasting Durability</span> and
               <span className="text-white"> Unique Craftsmanship</span>
             </h2>
-            <p className="mb-10 text-white font-openSans  text-sm desktop:text-base desktop:mb-12 opacity-70">
+            <p className="mb-10 text-white font-openSans  text-sm desktop:text-base 
+            tablet:text-xl desktop:mb-12 opacity-70">
               Owning a handmade product means owning a piece of history - a 
               unique creation that tells a story and becomes a cherished part of your 
               home for generations to come.
             </p>
-          <div className=" desktop:hidden mobile:block tablet:block w-[81vw] mb-10">
+          <div className=" desktop:hidden mobile:block tablet:block tablet:w-[50vw] w-[81vw] mb-10">
             <Image
               src="/BenefitImage.png"
               alt="Handmade crafts"
