@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
 import React, { useState } from "react";
-
+import PrimaryBtn from "./PrimaryBtn";
+import SecondaryBtn from "./SecondaryBtn";
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -47,16 +48,16 @@ function CollectionSection() {
 
   return (
     <>
-      <div className="w-full h-auto bg-gray-900 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full h-auto bg-zinc-100 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
-          className="text-center text-xs opacity-50  mb-14 pt-5
-    desktop:mb-24"
+          className="text-center text-xs opacity-70 text-charcoal  mb-14 pt-5
+    desktop:mb-12"
         >
           Elevate
         </h6>
         <div className="w-full h-min flex justify-center items-center">
           <h1
-            className=" font-outfit text-[6.5vw] tablet:text-[4vw] 
+            className="text-charcoal font-outfit text-[6.5vw] tablet:text-[4vw] 
       desktop:text-[3vw] desktop:w-[50vw] tablet:w-[70vw] font-bold mb-4 tablet:mb-10 opacity-90 text-center"
           >
             Discover Our <span className="text-primary-red">Handcrafted</span>{" "}
@@ -64,7 +65,7 @@ function CollectionSection() {
           </h1>
         </div>
         <p
-          className="mb-10 text-xs font-openSans mobile:leading-relaxed tracking-wide 
+          className="mb-10 text-cha text-xs text-charcoal font-openSans mobile:leading-relaxed tracking-wide 
             desktop:hidden tablet:block text-center opacity-80 tablet:text-lg tablet:mb-20 tablet:leading-relaxed "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -74,8 +75,8 @@ function CollectionSection() {
           hornware.
         </p>
         <p
-          className="mobile:hidden font-openSans tablet:hidden desktop:block text-center
-        desktop:leading-loose desktop:tracking-wider  desktop:text-xs desktop:mt-2 desktop:px-14
+          className="mobile:hidden text-charcoal font-openSans tablet:hidden desktop:block text-center
+        desktop:leading-loose desktop:tracking-wider  desktop:text-sm desktop:font-medium desktop:mt-2 desktop:px-14
         desktop:mb-20 "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -100,7 +101,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-gray-800 tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
+              className="bg-secondary-blue tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
               onClick={(event) => handleRipple(event, index)}
             >
               {ripple.active && ripple.index === index && (
@@ -133,16 +134,13 @@ function CollectionSection() {
         </div>
         <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <button class="bg-transparent font-outfit hover:bg-secondary-blue hover: transition-all delay-100 text-white  hover:text-white py-2 px-6 border border-white hover:border-white rounded-full">
-              Get Info
-            </button>
+            <SecondaryBtn>Get Info</SecondaryBtn>
           </Link>
           <Link href="/">
-            <button class="bg-primary-red hover:bg-gray-400 transition-all delay-100 text-white font-medium py-2 px-6 font-outfit rounded-full inline-flex items-center">
-              <RxDownload />
 
-              <span className=" font-outfit ml-2">Brochure</span>
-            </button>
+            <PrimaryBtn>
+              Brochure
+            </PrimaryBtn>
           </Link>
         </div>
       </div>

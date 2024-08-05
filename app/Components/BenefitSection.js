@@ -3,66 +3,50 @@ import Image from 'next/image'
 
 function BenefitSection() {
   return (
-    <div className="bg-gray-900 text-white py-16 px-4 tablet:px-8 desktop:px-16">
-      <div className="max-w-6xl mx-auto mobile:p-5 mobile:pt-0">
-        <div className="desktop:flex desktop:gap-8">
-          <div className="desktop:w-2/3">
-            <h2 className="text-3xl font-outfit tracking-wide leading-snug tablet:text-6xl
-            tablet:leading-tight font-bold mb-6  desktop:mt-10
-            desktop:leading-tight desktop:text-4xl desktop:mb-8">
-              Discover the Benefits of Handmade Products for 
-              <span className="text-yellow-300"> Lasting Durability</span> and
-              <span className="text-white"> Unique Craftsmanship</span>
-            </h2>
-            <p className="mb-10 text-white font-openSans  text-sm desktop:text-base 
-            tablet:text-xl desktop:mb-12 opacity-70">
-              Owning a handmade product means owning a piece of history - a 
-              unique creation that tells a story and becomes a cherished part of your 
-              home for generations to come.
-            </p>
-          <div className=" desktop:hidden mobile:block tablet:block tablet:w-[50vw] w-[81vw] mb-10">
-            <Image
-              src="/BenefitImage.png"
-              alt="Handmade crafts"
-              width={500}
-              height={400}
-              className="rounded-desktop shadow-desktop object-cover w-full h-full mt-10 desktop:mt-0"
-            />
-          </div>
-            <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Durability</h3>
-                <ul className="list-disc list-inside text-white opacity-70">
-                  <li>Naturally Strong Material</li>
-                  <li>Lasts for Generations</li>
-                  <li>Easy Maintenance</li>
-                  <li>Resistant to Temperature Changes</li>
-                  <li>Naturally Antibacterial</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Benefits</h3>
-                <ul className="list-disc list-inside text-white opacity-70">
-                  <li>Natural Insulation</li>
-                  <li>Enhanced Taste</li>
-                  <li>Elegant Appeal</li>
-                  <li>Sustainable Choice</li>
-                  <li>Conversation Starter</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className=" mobile:hidden desktop:flex tablet:hidden mt-9 desktop:w-1/3">
-            <Image
-              src="/BenefitImage.png"
-              alt="Handmade crafts"
-              width={500}
-              height={400}
-              className="rounded-desktop shadow-desktop object-cover w-full h-full mt-10 desktop:mt-0"
-            />
-          </div>
+    <div className="bg-secondary-blue py-16 px-4 tablet:px-8 desktop:px-16">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl leading-snug desktop:text-4xl font-outfit font-medium text-white text-center mb-6">
+          Where Nature Meets Artistry
+        </h2>
+        <p className="text-center desktop:text-lg tracking-wider font-outfit mb-12">
+          <span className="text-green-200">Sustainable.</span>{' '}
+          <span className="text-red-200">Durable.</span>{' '}
+          <span className="text-yellow-200">Flavor-Enhancing.</span>
+        </p>
+        <div className="grid grid-cols-1 tablet:grid-cols-1 desktop:grid-cols-4 gap-2 desktop:gap-8">
+          <BenefitItem
+            icon="/durable.svg"
+            title="Durability"
+            altText="durable-icon 1.svg"
+          />
+          <BenefitItem
+            icon="/taste.svg"
+            title="Enhanced Taste"
+            altText="enhancedTaste.svg"
+          />
+          <BenefitItem
+            icon="/historyViking.svg"
+            title="Historical Connection"
+            altText="Historical connection icon"
+          />
+          <BenefitItem
+            icon="/sustainable.svg"
+            title="Sustainable Choice"
+            altText="Sustainable choice icon"
+          />
         </div>
       </div>
+    </div>
+  )
+}
+
+function BenefitItem({ icon, title, altText }) {
+  return (
+    <div className="flex flex-col items-center mb-8 desktop:mb-0 animate-fadeIn">
+      <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mb-3 hover:scale-110 transition-transform duration-300 ease-in-out">
+        <Image src={icon} alt={altText} width={48} height={48} />
+      </div>
+      <p className="text-center text-white font-outfit text-sm">{title}</p>
     </div>
   )
 }
