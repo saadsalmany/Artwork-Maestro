@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
 import React, { useState } from "react";
-import PrimaryBtn from "./PrimaryBtn";
-import SecondaryBtn from "./SecondaryBtn";
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -48,7 +46,7 @@ function CollectionSection() {
 
   return (
     <>
-      <div className="w-full h-auto bg-zinc-100 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full h-auto bg-zinc-200 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
           className="text-center text-xs opacity-70 text-charcoal  mb-14 pt-5
     desktop:mb-12"
@@ -101,7 +99,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-charcoal tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
+              className="bg-white tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
               onClick={(event) => handleRipple(event, index)}
             >
               {ripple.active && ripple.index === index && (
@@ -110,23 +108,24 @@ function CollectionSection() {
                   style={{
                     top: `${ripple.y}px`,
                     left: `${ripple.x}px`,
+                    
                   }}
                 />
               )}
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-auto h-48 desktop:h-48 tablet:h-auto object-cover mb-3 rounded opacity-80"
+                className="w-auto rounded-lg h-48 desktop:h-48 tablet:h-auto object-cover mb-3 opacity-80"
               />
               <h2
-                className="text-xl desktop:w-80 mobile:w-64 font-outfit font-normal  pt-0 tablet:pt-5 desktop:-mt-6 desktop:text-2xl
+                className="text-xl text-charcoal desktop:w-80 mobile:w-64 font-outfit font-normal  pt-0 tablet:pt-5 desktop:-mt-6 desktop:text-2xl
          desktop:font-normal tracking-tight mobile:mb-0 desktop:mb-3"
               >
                 {product.title}
-                <div className="w-full bg-white bg-gradient-to-r from-gray-800 via-white to-gray-800 h-[1px] opacity-50 mt-4 mb-2 "></div>
+                <div className="w-full bg-white bg-gradient-to-r from-white via-black to-white h-[1px] opacity-50 mt-4 mb-2 "></div>
               </h2>
 
-              <p className="text-[2.5vw] desktop:text-xs w-64 desktop:w-80 font-openSans tablet:text-[.7rem] desktop:leading-relaxed opacity-70 tracking-wider">
+              <p className="text-[2.5vw] text-charcoal desktop:text-xs w-64 desktop:w-80 font-openSans tablet:text-[.7rem] desktop:leading-relaxed tracking-wider">
                 {product.description}
               </p>
             </div>
@@ -134,11 +133,15 @@ function CollectionSection() {
         </div>
         <div className="mt-12 desktop:mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <button className="text-sm flex gap-2 items-center
+            <button
+              className="text-sm flex gap-2 items-center
             px-6 py-2
             bg-transparent text-secondary-blue font-outfit rounded-full
             border border-secondary-blue hover:text-white hover:bg-secondary-blue
-            transition-all desktop:duration-300 mobile:duration-75 ease-in-out">Get Info</button>
+            transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
+            >
+              Get Info
+            </button>
           </Link>
           <Link href="/">
             <button
