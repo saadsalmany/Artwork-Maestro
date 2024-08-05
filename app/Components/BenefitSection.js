@@ -13,7 +13,7 @@ function BenefitSection() {
           <span className="text-red-200">Durable.</span>{' '}
           <span className="text-yellow-200">Flavor-Enhancing.</span>
         </p>
-        <div className="grid grid-cols-1 tablet:grid-cols-1 desktop:grid-cols-4 gap-2 desktop:gap-8">
+        <div className="grid grid-cols-1 tablet:grid-cols-1 desktop:grid-cols-4 gap-2 desktop:gap-0 desktop:pt-10 desktop:pb-12">
           <BenefitItem
             icon="/durable.svg"
             title="Durability"
@@ -43,8 +43,8 @@ function BenefitSection() {
 function BenefitItem({ icon, title, altText }) {
   return (
     <div className="flex flex-col items-center mb-8 desktop:mb-0 animate-fadeIn">
-      <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mb-3 hover:scale-110 transition-transform duration-300 ease-in-out">
-        <Image src={icon} alt={altText} width={48} height={48} />
+      <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-3 hover:scale-110 transition-transform duration-300 ease-in-out">
+        <Image src={icon} alt={altText} width={70} height={70} />
       </div>
       <p className="text-center text-white font-outfit text-sm">{title}</p>
     </div>
