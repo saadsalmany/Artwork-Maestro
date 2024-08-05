@@ -75,9 +75,9 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="bg-white py-20">
+    <div className="bg-zinc-100 py-20">
       <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-secondary-blue text-center mb-10">
+        <h2 className="text-2xl desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32">
           Customer Reviews and Testimonials
         </h2>
 
@@ -87,13 +87,13 @@ const Testimonial = () => {
           ))}
         </div>
 
-        <div className="bg-blue-50 rounded-lg shadow-lg p-8 h-[44rem] ">
-          <h3 className="text-2xl font-bold text-secondary-blue mb-6">
-            Submit Your Review
+        <div className="bg-white rounded-lg shadow-lg p-8 h-[46rem] ">
+          <h3 className="text-2xl desktop:text-3xl font-semibold desktop:text-center font-outfit text-secondary-blue mb-10 desktop:mb-12 mt-4">
+            Rate Our Products!
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="quote" className="block mb-1 font-medium">
+              <label htmlFor="quote" className="block mb-1 font-outfit font-medium">
                 Your Review
               </label>
               <textarea
@@ -101,13 +101,13 @@ const Testimonial = () => {
                 name="quote"
                 value={newReview.quote}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 font-outfit border rounded"
                 rows="4"
                 required
               />
             </div>
             <div>
-              <label htmlFor="author" className="block mb-1 font-medium">
+              <label htmlFor="author" className="block mb-1 font-outfit font-medium">
                 Your Name
               </label>
               <input
@@ -116,12 +116,12 @@ const Testimonial = () => {
                 name="author"
                 value={newReview.author}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 font-outfit border rounded"
                 required
               />
             </div>
             <div>
-              <label htmlFor="country" className="block mb-1 font-medium">
+              <label htmlFor="country" className="block font-outfit mb-1 font-medium">
                 Country
               </label>
               <input
@@ -130,12 +130,12 @@ const Testimonial = () => {
                 name="country"
                 value={newReview.country}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border font-outfit rounded"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-1 font-medium">
+              <label htmlFor="email" className="block mb-1 font-outfit font-medium">
                 Your Email
               </label>
               <input
@@ -144,12 +144,12 @@ const Testimonial = () => {
                 name="email"
                 value={newReview.email}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border font-outfit rounded"
                 required
               />
             </div>
             <div>
-              <label htmlFor="rating" className="block mb-1 font-medium">
+              <label htmlFor="rating" className="block mb-1 font-outfit font-medium">
                 Rating
               </label>
               <select
@@ -157,7 +157,7 @@ const Testimonial = () => {
                 name="rating"
                 value={newReview.rating}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded mb-5 "
+                className="w-full p-2 border font-outfit rounded mb-5 "
                 required
               >
                 {[1, 2, 3, 4, 5].map((num) => (
@@ -193,9 +193,9 @@ const Testimonial = () => {
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-blue-100 rounded-lg shadow-lg p-8 flex flex-col items-center">
+  <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
     <div className="flex flex-col items-center mb-6">
-      <p className="text-lg font-medium text-center mb-2">
+      <p className="text-lg font-outfit text-center mb-2">
         "{testimonial.quote}"
       </p>
       <div className="flex space-x-1">
@@ -220,8 +220,8 @@ const TestimonialCard = ({ testimonial }) => (
         className="w-12 h-12 rounded-full mb-2"
       />
       <div className="text-center">
-        <h5 className="text-lg font-bold">{testimonial.author}</h5>
-        <p className="text-sm text-gray-600">{testimonial.country}</p>
+        <h5 className="text-lg font-outfit font-medium">{testimonial.author}</h5>
+        <p className="text-xs font-openSans text-gray-600">{testimonial.country}</p>
       </div>
     </div>
   </div>

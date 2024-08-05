@@ -46,7 +46,7 @@ function CollectionSection() {
 
   return (
     <>
-      <div className="w-full h-auto bg-zinc-200 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full h-auto bg-zinc-100 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
         <h6
           className="text-center text-xs opacity-70 text-charcoal  mb-14 pt-5
     desktop:mb-12"
@@ -99,7 +99,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
+              className="bg-white shadow-xl tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
               onClick={(event) => handleRipple(event, index)}
             >
               {ripple.active && ripple.index === index && (
