@@ -87,7 +87,7 @@ const Testimonial = () => {
           ))}
         </div>
 
-        <div className="bg-blue-50 rounded-lg shadow-lg p-8">
+        <div className="bg-blue-50 rounded-lg shadow-lg p-8 h-[44rem] ">
           <h3 className="text-2xl font-bold text-secondary-blue mb-6">
             Submit Your Review
           </h3>
@@ -157,7 +157,7 @@ const Testimonial = () => {
                 name="rating"
                 value={newReview.rating}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border rounded mb-5 "
                 required
               >
                 {[1, 2, 3, 4, 5].map((num) => (
@@ -168,7 +168,7 @@ const Testimonial = () => {
               </select>
             </div>
 
-            <div className="flex justify-start space-x-4 ">
+            <div className="flex justify-start gap-4">
               <PrimaryBtn type="submit">Submit</PrimaryBtn>
               <SecondaryBtn
                 type="reset"

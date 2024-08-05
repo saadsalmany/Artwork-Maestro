@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function BenefitSection() {
   return (
-    <div className="bg-secondary-blue text-white py-16 px-4 tablet:px-8 desktop:px-16">
+    <div className="bg-gray-900 text-white py-16 px-4 tablet:px-8 desktop:px-16">
       <div className="max-w-6xl mx-auto mobile:p-5 mobile:pt-0">
         <div className="desktop:flex desktop:gap-8">
           <div className="desktop:w-2/3">
