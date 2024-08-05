@@ -27,14 +27,6 @@ const HeroSection = () => {
         .from(elementsRef.current.shipment, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
         .from(elementsRef.current.marquee, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3");
 
-      // Fade out scroll trigger for the entire section
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        animation: gsap.to(sectionRef.current, { opacity: 0, y: -50 }),
-      });
 
       // Subtle parallax effect for images
       gsap.to(elementsRef.current.image, {

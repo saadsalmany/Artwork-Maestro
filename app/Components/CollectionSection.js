@@ -101,7 +101,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-secondary-blue tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
+              className="bg-charcoal tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center hover:opacity-90 text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
               onClick={(event) => handleRipple(event, index)}
             >
               {ripple.active && ripple.index === index && (
@@ -132,15 +132,25 @@ function CollectionSection() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
+        <div className="mt-12 desktop:mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <SecondaryBtn>Get Info</SecondaryBtn>
+            <button className="text-sm flex gap-2 items-center
+            px-6 py-2
+            bg-transparent text-secondary-blue font-outfit rounded-full
+            border border-secondary-blue hover:text-white hover:bg-secondary-blue
+            transition-all desktop:duration-300 mobile:duration-75 ease-in-out">Get Info</button>
           </Link>
           <Link href="/">
-
-            <PrimaryBtn>
+            <button
+              className="text-sm flex gap-2 items-center
+            px-6 py-2
+            bg-primary-red text-white font-outfit rounded-full
+            border border-transparent hover:bg-secondary-blue
+            transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
+            >
+              <RxDownload />
               Brochure
-            </PrimaryBtn>
+            </button>
           </Link>
         </div>
       </div>
