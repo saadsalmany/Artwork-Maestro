@@ -5,6 +5,7 @@ import Marquee from "./Components/Marquee";
 import CollectionSection from "./Components/CollectionSection";
 import BenefitSection from "./Components/BenefitSection";
 import Testimonial from "./Components/Testimonial";
+import DiscoverSection from "./Components/DiscoverSection";
 
 function page() {
   return (
@@ -16,6 +17,7 @@ function page() {
       <CollectionSection/>
       <BenefitSection/>
       <Testimonial/>
+      <DiscoverSection/>
 
       
 
