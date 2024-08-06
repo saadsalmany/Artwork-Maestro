@@ -6,6 +6,7 @@ import CollectionSection from "./Components/CollectionSection";
 import BenefitSection from "./Components/BenefitSection";
 import Testimonial from "./Components/Testimonial";
 import DiscoverSection from "./Components/DiscoverSection";
+import Footer from "./Components/Footer";
 
 function page() {
   return (
@@ -18,6 +19,7 @@ function page() {
       <BenefitSection/>
       <Testimonial/>
       <DiscoverSection/>
+      {/* <Footer/> */}
 
       
 
