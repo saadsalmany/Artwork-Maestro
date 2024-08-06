@@ -3,14 +3,15 @@ import Image from 'next/image';
 
 const ProductRangeCard = () => {
   return (
-    <div className="parent-container w-full  bg-blue-100">
+    <div className="parent-container w-full  bg-white">
       <div className="max-w-6xl mx-auto py-12 desktop:py-20 overflow-hidden">
-        <div className="flex flex-col px-4 items-center justify-center md:flex-row">
-          <div className="md:w-1/2 p-4 mt-4 flex flex-col justify-center">
-            <h2 className="text-secondary-blue text-3xl md:text-4xl font-outfit font-bold mb-4">
+        <div className="flex flex-col px-4 items-center justify-center tablet:flex-row tablet:ml-24 tablet:mt-8
+        desktop:ml-6 desktop:mt-0">
+          <div className="tablet:w-1/2 p-4 mt-4 flex flex-col desktop:gap-4 justify-center">
+            <h2 className="text-secondary-blue text-3xl tablet:text-4xl desktop:text-5xl desktop:w-full tablet:w-96  font-outfit font-bold mb-4">
               Discover our exquisite product range
             </h2>
-            <p className="text-charcoal text-sm md:text-base font-openSans mb-6">
+            <p className="text-charcoal text-sm tablet:text-base tablet:w-96 font-openSans mb-6">
               Experience the beauty and craftsmanship of our handcrafted hornware collection
             </p>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
@@ -22,8 +23,8 @@ const ProductRangeCard = () => {
               </button>
             </div>
           </div>
-          <div className="md:w-1/2">
-            <div className="relative w-80 md:h-full">
+          <div className="tablet:w-1/2">
+            <div className="relative w-80 desktop:w-full">
               <Image
                 src="/discover.svg"
                 alt="Handcrafted hornware collection"
