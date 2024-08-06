@@ -10,19 +10,15 @@ import Footer from "./Components/Footer";
 
 function page() {
   return (
-    
-    <main className="w-full h-[400vh]">
-      <Marquee/>
+    <main className="w-full bg-zinc-100 h-[400vh]">
+      <Marquee />
       <Navbar />
-      <HeroSection/>
-      <CollectionSection/>
-      <BenefitSection/>
-      <Testimonial/>
-      <DiscoverSection/>
-      <Footer/>
-
-      
-
+      <HeroSection />
+      <CollectionSection />
+      <BenefitSection />
+      <Testimonial />
+      <DiscoverSection />
+      <Footer />
     </main>
   );
 }

@@ -48,7 +48,7 @@ const HeroSection = () => {
     <>
       <section
         ref={sectionRef}
-        className="hero-section bg-white min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
+        className="hero-section bg-zinc-100 min-h-screen flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
         <div className="content-wrapper desktop:gap-5 tablet:gap-7 gap-2 flex-1 pt-16 tablet:pt-28 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:max-w-[50%]">
           <h1
