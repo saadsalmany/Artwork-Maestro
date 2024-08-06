@@ -19,7 +19,7 @@ function page() {
       <BenefitSection/>
       <Testimonial/>
       <DiscoverSection/>
-      {/* <Footer/> */}
+      <Footer/>
 
       
 

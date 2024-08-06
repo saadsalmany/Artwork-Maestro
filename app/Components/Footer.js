@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary-blue text-white py-8">
-      <div className="container mx-auto px-6">
+    <footer className="bg-secondary-blue  text-white py-8">
+      <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col desktop:flex-row justify-between items-center desktop:items-start">
           <div className="mb-6 desktop:mb-0">
             <Image src="/path-to-logo.png" alt="Artwork Maestro" width={200} height={50} />
