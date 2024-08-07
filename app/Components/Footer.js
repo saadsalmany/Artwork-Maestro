@@ -14,14 +14,14 @@ const Footer = () => {
 
   return (
     <footer className="bg-white text-charcoal font-openSans">
-      <div className="container max-w-6xl mx-auto px-4 py-8">
+      <div className="container max-w-6xl  mx-auto px-8 py-16">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
           <div className="mb-8 lg:mb-0">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center flex-col desktop:flex-row space-x-3 mb-16 desktop:mb-6">
               <img
                 src="/Logo.svg"
                 alt="Artwork Maestro"
-                className="w-12 h-12"
+                className="w-12 h-12 mb-4"
               />
               <h2 className="text-2xl font-bold font-outfit text-secondary-blue">
                 Artwork Maestro
@@ -40,8 +40,10 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
+              
               <div className="space-y-1">
-                <p className="font-semibold">Contact</p>
+                
+                <p className="font-semibold"> Contact</p>
                 <a
                   href="tel:+919876543210"
                   className="flex items-center space-x-2 group hover:text-primary-red transition-all duration-300 ease-in-out"
@@ -63,19 +65,8 @@ const Footer = () => {
                   <span className="text-sm">artworkmaestro@site.com</span>
                 </a>
               </div>
-            </div>
-          </div>
-
-          <div className="mb-8 lg:mb-0">
-            <img
-              src="/Logo.svg"
-              alt="Artwork Maestro Logo"
-              className="w-40 h-40 object-contain"
-            />
-          </div>
-
-          <div className="space-y-4">
-            <div className="flex justify-center items-center space-x-4">
+              <div className="space-y-4">
+            <div className="flex items-center space-x-4">
              
               <a
                 href="#"
@@ -107,6 +98,18 @@ const Footer = () => {
               </a>
             </div>
           </div>
+            </div>
+          </div>
+
+          <div className="mb-8 lg:mb-0">
+            <img
+              src="/footerLogo.svg"
+              alt="Artwork Maestro Logo"
+              className="w-40 h-40 object-contain"
+            />
+          </div>
+
+         
         </div>
 
         <hr className="my-6 border-gray-200" />
@@ -137,3 +140,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
