@@ -16,8 +16,8 @@ const Footer = () => {
     <footer className="bg-white text-charcoal font-openSans">
       <div className="container max-w-6xl  mx-auto px-8 py-16">
         <div className="flex flex-col desktop:flex-row justify-between items-start desktop::items-center">
-          <div className="mb-8 flex flex-col desktop:mb-0 w-full">
-            <div className="flex items-center flex-col desktop:flex-row space-x-3 mb-16 desktop:mb-10">
+          <div className="mb-8 flex flex-col tablet:px-14 desktop:px-0 desktop:mb-0 w-full">
+            <div className="flex items-center tablet:items-start flex-col desktop:flex-row space-x-3 mb-16 desktop:mb-10">
               <img
                 src="/Logo.svg"
                 alt="Artwork Maestro"
@@ -64,16 +64,16 @@ const Footer = () => {
                   />
                   <span className="text-sm">artworkmaestro@site.com</span>
                 </a>
-                <div className="mb-8 justify-center  desktop:mb-0 w-full desktop:hidden flex items-center">
+                <div className="mb-8 justify-center tablet:justify-start  desktop:mb-0 w-full desktop:hidden flex items-center">
                   <img
                     src="/footerLogo.svg"
                     alt="Artwork Maestro Logo"
-                    className="w-40 h-40 object-contain mt-8"
+                    className="w-40 h-40 object-contain tablet:ml-6 tablet:mt-16 mt-8"
                   />
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex items-center desktop:justify-start justify-center space-x-6 desktop:space-x-4">
+                <div className="flex items-center desktop:-ml-2 desktop:justify-start tablet:justify-start  justify-center space-x-6 desktop:space-x-4">
                   <a
                     href="#"
                     className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6"
@@ -125,7 +125,7 @@ const Footer = () => {
                Saad Salmany
             </span>
           </p>
-          <div className="flex mt-4 flex-wrap justify-center sm:justify-end space-x-4">
+          <div className="flex mt-4 desktop:-mt-3 flex-wrap justify-center sm:justify-end space-x-4">
             {["Certifications","|", "FAQs","|", "Privacy Policy"].map((item, index) => (
               <a
                 key={index}
