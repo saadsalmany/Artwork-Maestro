@@ -111,7 +111,7 @@ const Footer = () => {
             <img
               src="/footerLogo.svg"
               alt="Artwork Maestro Logo"
-              className="w-40 h-40 object-contain"
+              className="w-72 h-72 object-contain mt-6"
             />
           </div>
         </div>
