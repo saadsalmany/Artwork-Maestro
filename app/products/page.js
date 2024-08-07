@@ -1,17 +1,18 @@
-import React from "react";
-import Navbar from "../Components/Navbar";
+import React from 'react'
+import ProductShowcase from '../Components/ProductsShowcase'
+import Marquee from '../Components/Marquee'
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/Footer'
 
-function Products() {
+function page() {
   return (
-    <>
-      <Navbar />
-      <div className="w-full h-screen pt-56 text-3xl bg-slate-100" >
-        <h1 className="text-center text-secondary-blue">
-          This is the Product page
-        </h1>
-      </div>
-    </>
-  );
+    <div className='bg-zinc-100'>
+      <Marquee/>
+      <Navbar/>
+      <ProductShowcase/>
+      <Footer/>
+    </div>
+  )
 }
 
-export default Products;
+export default page
