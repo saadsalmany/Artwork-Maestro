@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 1,
-    name: "Drinking Horn",
+    name: "Drinking Porn",
     slug: "drinking-horn",
     category: "Buffalo Horn Products",
     tags: ["Drinking Horn", "Horn"],
