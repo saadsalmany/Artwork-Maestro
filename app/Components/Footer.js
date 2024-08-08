@@ -13,21 +13,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white text-charcoal border-t-[1px] border-charcoal font-openSans">
-      <div className="container max-w-6xl   mx-auto px-8 py-16">
+    <footer className="bg-white text-charcoal  font-openSans">
+      <div className="container max-w-6xl   mx-auto px-8 py-6">
         <div className="flex flex-col desktop:flex-row justify-between items-start desktop::items-center">
           <div className="mb-8 flex flex-col tablet:px-14 desktop:px-0 desktop:mb-0 w-full">
-            <div className="flex items-center tablet:items-start flex-col desktop:flex-row space-x-3 mb-16 desktop:mb-10">
+            <div className="flex items-center tablet:items-start flex-col desktop:flex-row desktop:items-center space-x-3 mb-12 desktop:mb-10">
               <img
                 src="/Logo.svg"
                 alt="Artwork Maestro"
-                className="w-12 h-12 mb-4 desktop:mb-0"
+                className="w-12 h-12 mb-2 desktop:mb-0"
               />
-              <h2 className="text-2xl font-bold font-outfit text-secondary-blue">
+              <h2 className="text-xl desktop:text-2xl font-semibold font-timesNewRoman text-secondary-blue">
                 Artwork Maestro
               </h2>
             </div>
-            <div className="space-y-12">
+            <div className="space-y-8">
               <div className="flex items-start space-x-2">
                 <div>
                   <p className="font-semibold text-lg desktop:text-base desktop:text-left mb-1 desktop:mb-1 ">
@@ -39,8 +39,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="space-y-2 desktop:space-y-3">
-                <p className="font-semibold text-lg desktop:text-base mb-4 desktop:mb-4">
+              <div className="space-y-2 desktop:space-y-2">
+                <p className="font-semibold text-lg desktop:text-base ">
                   {" "}
                   Contact
                 </p>
