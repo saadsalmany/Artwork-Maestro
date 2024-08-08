@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ProductRangeCard = () => {
   return (
-    <div className="parent-container w-full  bg-zinc-100 tablet:mb-16">
+    <div className="parent-container w-full  bg-zinc-100 tablet:mb-16 desktop:mb-0">
       <div className="max-w-6xl mx-auto py-12 desktop:py-20 overflow-hidden">
         <div className="flex flex-col px-4 items-center justify-center tablet:flex-row tablet:ml-24 tablet:mt-0
         desktop:ml-6 desktop:mt-0">
