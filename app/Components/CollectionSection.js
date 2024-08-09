@@ -46,9 +46,9 @@ function CollectionSection() {
 
   return (
     <>
-      <div className="w-full h-auto bg-zinc-100 text-white mobile:p-8 tablet:p-16 desktop:p-44 desktop:pt-16 mobile:pb-16  flex-col ">
+      <div className="w-full h-auto bg-zinc-100 text-white max-w-6xl px-8 mx-auto tablet:px-16 desktop:px-0 mobile:pb-16  flex-col ">
         <h6
-          className="text-center text-xs opacity-70 text-charcoal  mb-14 pt-5
+          className="text-center text-xs opacity-70 text-charcoal  mb-8 pt-5
     desktop:mb-12"
         >
           Elevate
@@ -81,19 +81,13 @@ function CollectionSection() {
           handcrafted by skilled artisans. Each piece is a unique masterpiece,
           meticulously crafted from ethically sourced horn. We invite you to
           explore the rich heritage and captivating designs that define
-          hornware. At Artwork Maestro, we curate a collection of exquisite
-          hornware handcrafted by skilled artisans. Each piece is a unique
-          masterpiece, meticulously crafted from ethically sourced horn. We
-          invite you to explore the rich heritage and captivating designs that
-          define hornware. At Artwork Maestro, we curate a collection of
-          exquisite hornware handcrafted by skilled artisans. Each piece is a
-          unique masterpiece, meticulously crafted from ethically sourced horn.
-          We invite you to explore the rich heritage and captivating designs
-          that define hornware. At Artwork Maestro, we curate a collection of
-          exquisite hornware handcrafted by skilled artisans. Each piece is a
-          unique masterpiece, meticulously crafted from ethically sourced horn.
-          We invite you to explore the rich heritage and captivating designs
-          that define hornware.
+          hornware. With a passion for preserving traditional craftsmanship, we
+          bring you a selection of exceptional hornware pieces that embody the
+          perfect blend of artistry and functionality. From statement-making
+          decorative items to functional everyday essentials, our hornware
+          collection has something for everyone. Join us on a journey to
+          discover the beauty and elegance of hornware, and experience the
+          Artwork Maestro difference.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
@@ -108,7 +102,6 @@ function CollectionSection() {
                   style={{
                     top: `${ripple.y}px`,
                     left: `${ripple.x}px`,
-                    
                   }}
                 />
               )}

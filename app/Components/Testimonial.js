@@ -82,13 +82,13 @@ const Testimonial = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tablet:gap-5 desktop:gap-8 
-        tablet:w-[54rem] tablet:mx-auto desktop:w-auto mb-16">
+        tablet:w-[54rem] tablet:mx-auto px-4 tablet:px-0 desktop:px-0 desktop:w-auto mb-16">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg tablet:w-[54rem] desktop:w-auto tablet:mx-auto tablet:px-16 p-8 tablet:h-[48rem] h-[46rem] ">
+        <div className="bg-white rounded-lg w-[21rem] mx-auto shadow-lg tablet:w-[54rem] desktop:w-auto tablet:mx-auto tablet:px-16 p-8 tablet:h-[48rem] h-[46rem] ">
           <h3 className="text-2xl desktop:text-3xl font-semibold desktop:text-center font-outfit text-secondary-blue mb-10 desktop:mb-12 mt-4">
             Rate Our Products!
           </h3>
