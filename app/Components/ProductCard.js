@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
           {product.description.substring(0, 100)}...
         </p>
         <Link href={`/products/${product.slug}`} className="w-full bg-primary-red text-white font-outfit py-2 px-4 rounded-full flex items-center justify-center">
-          Learn More
+          Get Info
           <ChevronRight className="ml-2 h-5 w-5" />
         </Link>
       </div>

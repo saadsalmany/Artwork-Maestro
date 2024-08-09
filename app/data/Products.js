@@ -14,6 +14,7 @@ export const products = [
       "/productsImages/DH4.jpeg",
     ],
   },
+  
   {
     id: 2,
     name: "Horn Comb",
@@ -28,47 +29,103 @@ export const products = [
       "/images/horn-comb-3.jpg"
     ]
   },
-  {
-    id: 3,
-    name: "Horn Serving Spoon",
-    slug: "horn-serving-spoon",
-    category: "Kitchen Utensils",
-    tags: ["Spoon", "Horn", "Kitchen"],
-    image: "/images/horn-spoon.jpg",
-    description: "Elevate your dining experience with our exquisite horn serving spoon. Carved from high-quality buffalo horn, this spoon combines rustic charm with elegant design. Its large bowl is perfect for serving salads, rice, or any side dish. The natural properties of horn make it resistant to heat and gentle on your cookware.",
-    images: [
-      "/images/horn-spoon-1.jpg",
-      "/images/horn-spoon-2.jpg",
-      "/images/horn-spoon-3.jpg"
-    ]
-  },
-  {
-    id: 4,
-    name: "Horn Jewelry Box",
-    slug: "horn-jewelry-box",
-    category: "Home Decor",
-    tags: ["Jewelry Box", "Horn", "Decor"],
-    image: "/images/horn-jewelry-box.jpg",
-    description: "Store your precious jewelry in style with our handcrafted horn jewelry box. Each box is a unique piece of art, featuring intricate inlay work and a smooth, polished finish. The natural properties of horn create a stable environment for your jewelry, protecting it from tarnish and scratches.",
-    images: [
-      "/images/horn-jewelry-box-1.jpg",
-      "/images/horn-jewelry-box-2.jpg",
-      "/images/horn-jewelry-box-3.jpg"
-    ]
-  },
-  {
-    id: 5,
-    name: "Horn Salad Servers",
-    slug: "horn-salad-servers",
-    category: "Kitchen Utensils",
-    tags: ["Salad Servers", "Horn", "Kitchen"],
-    image: "/images/horn-salad-servers.jpg",
-    description: "Make a statement at your next dinner party with our elegant horn salad servers. Crafted from polished buffalo horn, these servers are not only beautiful but also practical. The natural properties of horn make them perfect for serving salads without bruising delicate leaves. Each set is unique, showcasing the natural variations in the horn.",
-    images: [
-      "/images/horn-salad-servers-1.jpg",
-      "/images/horn-salad-servers-2.jpg",
-      "/images/horn-salad-servers-3.jpg"
-    ]
-  }
+  
+    {
+      id: 1,
+      name: "Decorative and Multipurpose Box",
+      slug: "decorative-multipurpose-box",
+      category: "Home Decor",
+      tags: ["Box", "Decorative", "Multipurpose"],
+      image: "/productsImages/AWM2447.jpeg",
+      description: "A versatile decorative and multipurpose box available in various sizes. Perfect for storage and home decoration.",
+      images: [
+        "/productsImages/AWM2447.jpeg",
+        "/productsImages/AWM2447_2.jpeg",
+        "/productsImages/AWM2447_3.jpeg",
+      ],
+      sizes: [
+        "4x6x2 Inches",
+        "5x7x3 Inches",
+        "6x4x2 Inches",
+        "6x8x2 Inches",
+        "7x5x3 Inches",
+        "8x6x3 Inches",
+        "10x6x4 Inches"
+      ],
+      customSizes: true
+    },
+    {
+      id: 2,
+      name: "Suri Box and Decorative Homeware",
+      slug: "suri-box-decorative-homeware",
+      category: "Home Decor",
+      tags: ["Box", "Suri", "Decorative", "Homeware"],
+      image: "/productsImages/AWM2448.jpeg",
+      description: "Elegant Suri box and decorative homeware piece, available in multiple sizes to suit your home decor needs.",
+      images: [
+        "/productsImages/AWM2448.jpeg",
+        "/productsImages/AWM2448_2.jpeg",
+        "/productsImages/AWM2448_3.jpeg",
+      ],
+      sizes: [
+        "Large - 19x19x16 cm",
+        "Medium - 13x13x12 cm",
+        "Small – 10x10x10 cm"
+      ],
+      customSizes: true
+    },
+    {
+      id: 3,
+      name: "Mini Jewellery Box",
+      slug: "mini-jewellery-box",
+      category: "Jewelry Storage",
+      tags: ["Box", "Jewelry", "Mini"],
+      image: "/productsImages/AWM2452.jpeg",
+      description: "Compact and elegant mini jewellery box, perfect for storing and displaying your precious items.",
+      images: [
+        "/productsImages/AWM2452.jpeg",
+        "/productsImages/AWM2452_2.jpeg",
+        "/productsImages/AWM2452_3.jpeg",
+      ],
+      sizes: ["6x4x1.75 Inches"],
+      customSizes: true
+    },
+    {
+      id: 4,
+      name: "Round Mini Suri Decorative Box",
+      slug: "round-mini-suri-decorative-box",
+      category: "Home Decor",
+      tags: ["Box", "Suri", "Decorative", "Round"],
+      image: "/productsImages/AWM2474.jpeg",
+      description: "Charming round mini Suri decorative box, adding a touch of elegance to any space.",
+      images: [
+        "/productsImages/AWM2474.jpeg",
+        "/productsImages/AWM2474_2.jpeg",
+        "/productsImages/AWM2474_3.jpeg",
+      ],
+      sizes: ["Height – 3.5 Inches", "Diameter – 6.5 Inches"],
+      customSizes: true
+    },
+    {
+      id: 5,
+      name: "Transparently Attractive Mini Jewellery Box",
+      slug: "transparent-mini-jewellery-box",
+      category: "Jewelry Storage",
+      tags: ["Box", "Jewelry", "Transparent", "Mini"],
+      image: "/productsImages/AWM2499.jpeg",
+      description: "Elegant transparent mini jewellery box, showcasing your precious items while keeping them protected.",
+      images: [
+        "/productsImages/AWM2499.jpeg",
+        "/productsImages/AWM2499_2.jpeg",
+        "/productsImages/AWM2499_3.jpeg",
+      ],
+      sizes: [
+        "4x4x1.5 Inches",
+        "6.5x5.5x2.5 Inches",
+        "7x5.5x1.5 Inches",
+        "8x4x2 Inches"
+      ],
+      customSizes: true
+    }
+  ];
   // Add more products here...
-];
