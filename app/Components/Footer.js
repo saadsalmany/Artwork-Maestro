@@ -17,11 +17,11 @@ const Footer = () => {
       <div className="container max-w-6xl   mx-auto px-8 py-6">
         <div className="flex flex-col desktop:flex-row justify-between items-start desktop::items-center">
           <div className="mb-8 flex flex-col tablet:px-14 desktop:px-0 desktop:mb-0 w-full">
-            <div className="flex items-center tablet:items-start flex-col desktop:flex-row desktop:items-center space-x-3 mb-12 desktop:mb-10">
+            <div className="flex items-center flex-col tablet:flex-row tablet:items-center desktop:flex-row desktop:items-center space-x-3 mb-12 desktop:mb-10">
               <img
                 src="/Logo.svg"
                 alt="Artwork Maestro"
-                className="w-12 h-12 mb-2 desktop:mb-0"
+                className="w-12 h-12 mb-2 tablet:mb-0 desktop:mb-0"
               />
               <h2 className="text-xl desktop:text-2xl font-semibold font-timesNewRoman text-secondary-blue">
                 Artwork Maestro
