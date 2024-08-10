@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
 import React, { useState } from "react";
+import SecondaryBtn from "./SecondaryBtn";
+import PrimaryBtn from "./PrimaryBtn";
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -126,27 +128,15 @@ function CollectionSection() {
         </div>
         <div className="mt-12 desktop:mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
           <Link href="/">
-            <button
-              className="text-sm flex gap-2 items-center
-            px-6 py-2
-            bg-transparent text-secondary-blue font-outfit rounded-full
-            border border-secondary-blue hover:text-white hover:bg-secondary-blue
-            transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
-            >
-              Get Info
-            </button>
+            <SecondaryBtn>Get Info</SecondaryBtn>
           </Link>
           <Link href="/">
-            <button
-              className="text-sm flex gap-2 items-center
-            px-6 py-2
-            bg-primary-red text-white font-outfit rounded-full
-            border border-transparent hover:bg-secondary-blue
-            transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
-            >
-              <RxDownload />
-              Brochure
-            </button>
+            <PrimaryBtn>
+              <div className="flex flex-row items-center">
+                <RxDownload className="mr-2" />
+                <span>Brochure</span>
+              </div>
+            </PrimaryBtn>
           </Link>
         </div>
       </div>

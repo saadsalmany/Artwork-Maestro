@@ -120,8 +120,8 @@ const ProductShowcase = () => {
   return (
     <div className="bg-gray-100 min-h-screen py-12">
       <div className="max-w-6xl px-8 tablet:px-16 desktop:px-0 mx-auto">
-        <h1 className="text-3xl desktop:text-4xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-8">
-          Our Exquisite Hornware and Coaster Collection
+        <h1 className="text-4xl leading-tight desktop:text-4xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-8">
+          Our Exquisite Collection
         </h1>
         <p className="text-sm font-openSans text-charcoal text-center mb-12 max-w-3xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware
@@ -133,8 +133,17 @@ const ProductShowcase = () => {
           {/* Categories and Subcategories */}
           <div className="desktop:w-1/4">
             <h2 className="text-2xl text-charcoal font-outfit font-semibold mb-4">
-              Filter Items
+              Categories
             </h2>
+            <button
+              className="text-sm flex gap-2  active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full shadow-md my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
+              onClick={() => {
+                setSelectedCategory(null);
+                setSelectedSubcategory(null);
+              }}
+            >
+              Show All Products
+            </button>
             {categories.map((category) => (
               <div key={category.name} className="mb-4 text-charcoal">
                 <button
@@ -169,7 +178,7 @@ const ProductShowcase = () => {
                           setSelectedCategory(null);
                           setSelectedSubcategory(null);
                         }}
-                        className="text-sm flex gap-2 mt-4 items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
+                        className="text-sm flex gap-2 mt-4 items-center shadow-md px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
                       >
                         Remove Filters
                         <svg
@@ -199,7 +208,7 @@ const ProductShowcase = () => {
             <h2 className="text-2xl font-outfit text-charcoal font-semibold mb-4">
               Products
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

@@ -11,50 +11,63 @@ const PrimaryBtn = ({ href, children, type = "submit" }) => {
   if (href) {
     return (
       <Link href={href} className="group relative inline-block">
+        <div className="relative">
+          <button
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            style={{
+              zIndex: 10,
+            }}
+            className={`
+              relative z-auto
+              text-xs
+              px-6 py-2
+              bg-primary-red text-white font-outfit rounded-full
+              border border-transparent desktop:hover:border-secondary-blue
+              transition-all desktop:duration-300 mobile:duration-75 ease-in-out
+              desktop:hover:bg-white desktop:hover:shadow-sm desktop:hover:text-secondary-blue desktop:hover:-translate-y-1
+              mobile:text-xs mobile:px-6 mobile:py-2
+              tablet:text-xm tablet:px-6 tablet:py-2
+              desktop:text-sm desktop:px-6 desktop:py-2
+              mobile:active:bg-secondary-blue mobile:active:opacity-100
+              tablet:active:bg-secondary-blue tablet:active:opacity-100
+            `}
+          >
+            {children}
+          </button>
+          <div className="absolute inset-0 bg-secondary-blue rounded-full opacity-0 group-hover:opacity-100 transition-opacity mobile:duration-75 desktop:duration-300 z-0"></div>
+        </div>
+      </Link>
+    );
+  } else {
+    return (
+      <div className="group relative inline-block">
         <button
+          type={type}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
+          style={{
+            zIndex: 10,
+          }}
           className={`
-            relative z-10
+            relative z-auto
             text-xs
             px-6 py-2
             bg-primary-red text-white font-outfit rounded-full
-            border border-transparent hover:border-secondary-blue
+            border border-transparent desktop:hover:border-secondary-blue
             transition-all desktop:duration-300 mobile:duration-75 ease-in-out
-            ${isClicked ? "scale-95" : ""}
-            hover:bg-white hover:shadow-sm hover:border border-secondary-blue hover:text-secondary-blue hover:-translate-y-1
+            desktop:hover:bg-white desktop:hover:shadow-sm desktop:hover:text-secondary-blue desktop:hover:-translate-y-1
             mobile:text-xs mobile:px-6 mobile:py-2
             tablet:text-xm tablet:px-6 tablet:py-2
             desktop:text-sm desktop:px-6 desktop:py-2
+            mobile:active:bg-secondary-blue mobile:active:opacity-100
+            tablet:active:bg-secondary-blue tablet:active:opacity-100
           `}
         >
           {children}
         </button>
         <div className="absolute inset-0 bg-secondary-blue rounded-full opacity-0 group-hover:opacity-100 transition-opacity mobile:duration-75 desktop:duration-300 z-0"></div>
-      </Link>
-    );
-  } else {
-    return (
-      <button
-        type={type}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        className={`
-          relative z-10
-          text-xs
-          px-6 py-2
-          bg-primary-red text-white font-outfit rounded-full
-          border border-transparent hover:border-secondary-blue
-          transition-all desktop:duration-300 mobile:duration-75 ease-in-out
-          ${isClicked ? "scale-95" : ""}
-          hover:bg-white hover:shadow-sm hover:border border-secondary-blue hover:text-secondary-blue hover:-translate-y-1
-          mobile:text-xs mobile:px-6 mobile:py-2
-          tablet:text-xm tablet:px-6 tablet:py-2
-          desktop:text-sm desktop:px-6 desktop:py-2
-        `}
-      >
-        {children}
-      </button>
+      </div>
     );
   }
 };
