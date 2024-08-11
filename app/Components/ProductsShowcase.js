@@ -208,7 +208,7 @@ const ProductShowcase = () => {
             <h2 className="text-2xl font-outfit text-charcoal font-semibold mb-4">
               Products
             </h2>
-            <div className="grid grid-cols-2 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
