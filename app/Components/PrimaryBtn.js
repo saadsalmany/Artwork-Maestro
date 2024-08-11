@@ -1,8 +1,14 @@
-'use client';
-import Link from 'next/link';
+"use client";
+import Link from "next/link";
 import { useState } from "react";
 
-const PrimaryBtn = ({ href, children, type = "submit", onClick }) => {
+const PrimaryBtn = ({
+  href,
+  children,
+  type = "submit",
+  onClick,
+  blank = false, // Add a default value for blank
+}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => setIsClicked(true);
@@ -10,8 +16,8 @@ const PrimaryBtn = ({ href, children, type = "submit", onClick }) => {
 
   if (href) {
     return (
-      <Link href={href} className="group relative inline-block">
-        <div className="relative">
+      <Link href={href} target={blank ? "_blank" : undefined}>
+        <div className="group relative inline-block">
           <button
             onClick={onClick}
             onMouseDown={handleMouseDown}
