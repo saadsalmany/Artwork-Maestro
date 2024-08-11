@@ -2,13 +2,16 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const SecondaryBtn = ({ href, children, type = "button", formReset }) => {
+const SecondaryBtn = ({ href, children, type = "button", formReset, onClick, loadMore }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => setIsClicked(true);
   const handleClick = (e) => {
     if (type === "reset" && formReset) {
       formReset();
+    }
+    if (onClick) {
+      onClick(e);
     }
     setIsClicked(false);
   };

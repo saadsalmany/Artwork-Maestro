@@ -99,16 +99,19 @@ const categories = [
 const ProductShowcase = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [visibleProducts, setVisibleProducts] = useState(6);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category === selectedCategory ? null : category);
     setSelectedSubcategory(null);
+    setVisibleProducts(6);
   };
 
   const handleSubcategoryClick = (subcategory) => {
     setSelectedSubcategory(
       subcategory === selectedSubcategory ? null : subcategory
     );
+    setVisibleProducts(6);
   };
 
   const filteredProducts = products.filter((product) => {
@@ -117,6 +120,10 @@ const ProductShowcase = () => {
     if (!selectedSubcategory) return true;
     return selectedSubcategory.items.includes(product.name);
   });
+
+  const handleLoadMore = () => {
+    setVisibleProducts((prev) => prev + 6);
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">
@@ -141,6 +148,7 @@ const ProductShowcase = () => {
               onClick={() => {
                 setSelectedCategory(null);
                 setSelectedSubcategory(null);
+                setVisibleProducts(6);
               }}
             >
               Show All Products
@@ -178,6 +186,7 @@ const ProductShowcase = () => {
                         onClick={() => {
                           setSelectedCategory(null);
                           setSelectedSubcategory(null);
+                          setVisibleProducts(6);
                         }}
                         className="text-sm flex gap-2 mt-4 items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
                       >
@@ -210,24 +219,20 @@ const ProductShowcase = () => {
               Products
             </h2>
             <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
-              {filteredProducts.map((product) => (
+              {filteredProducts.slice(0, visibleProducts).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
+            {visibleProducts < filteredProducts.length && (
+              <div className="mt-8 text-center">
+                <SecondaryBtn onClick={handleLoadMore}>
+                  Load More...
+                </SecondaryBtn>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <motion.a
-            href="/contact"
-            className="inline-block bg-secondary-blue text-white font-outfit text-lg py-3 px-8 rounded-full shadow-lg"
-            whileHover={{ scale: 1.05, backgroundColor: "#EF4344" }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            Request Custom Order
-          </motion.a>
-        </div>
       </div>
     </div>
   );

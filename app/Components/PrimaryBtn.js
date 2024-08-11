@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from "react";
 
-const PrimaryBtn = ({ href, children, type = "submit" }) => {
+const PrimaryBtn = ({ href, children, type = "submit", onClick }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => setIsClicked(true);
@@ -13,6 +13,7 @@ const PrimaryBtn = ({ href, children, type = "submit" }) => {
       <Link href={href} className="group relative inline-block">
         <div className="relative">
           <button
+            onClick={onClick}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             style={{
@@ -44,6 +45,7 @@ const PrimaryBtn = ({ href, children, type = "submit" }) => {
       <div className="group relative inline-block">
         <button
           type={type}
+          onClick={onClick}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           style={{
