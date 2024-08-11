@@ -26,10 +26,10 @@ function ClientComponent({ params, products }) {
   if (!product) return <div>Product not found</div>;
 
   return (
-    <div className='bg-zinc-100 min-h-screen flex flex-col'>
+    <div className='bg-zinc-100  flex flex-col'>
       <Navbar />
       <Marquee />
-      <main className="flex-grow container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-56 mt-20">
+      <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 desktop:px-26 pb-56 mt-20 desktop:mt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <div className="relative w-full pb-[80%] overflow-hidden rounded-lg bg-gray-200">
@@ -47,7 +47,7 @@ function ClientComponent({ params, products }) {
               {product.images?.map((img, index) => (
                 <button
                   key={index}
-                  className={`relative pb-[80%] overflow-hidden rounded-md ${img === mainImage ? 'shadow-lg ring-2 ring-charcoal' : ' opacity-70'}`}
+                  className={`relative pb-[80%] overflow-hidden rounded-md ${img === mainImage ? 'shadow-lg ring-2 ring-charcoal' : ' scale-95 opacity-70'}`}
                   onClick={() => setMainImage(img)}
                 >
                   <Image
@@ -77,7 +77,7 @@ function ClientComponent({ params, products }) {
                 Tags: {product.tags.join(', ')}
               </span>
             </div>
-            <p className="text-lg font-openSans text-charcoal">
+            <p className="text-sm desktop:text-lg font-openSans text-charcoal">
               {product.description}
             </p>
             <PrimaryBtn href={'/contact'}>Send Enquiry</PrimaryBtn>
