@@ -1,69 +1,91 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { products } from '../data/Products';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { ChevronRight, Link } from 'lucide-react';
 import Navbar from './Navbar';
 import Marquee from './Marquee';
 import Footer from './Footer';
+import PrimaryBtn from './PrimaryBtn';
 
-function ClientComponent({ params }) {
-  const product = products.find(p => p.slug === params.slug);
-  const [mainImage, setMainImage] = useState(product.image);
-  const [activeImage, setActiveImage] = useState(product.image);
+function ClientComponent({ params, products }) {
+  const [product, setProduct] = useState(null);
+  const [mainImage, setMainImage] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    if (products && params.slug) {
+      const foundProduct = products.find(p => p.slug === params.slug);
+      setProduct(foundProduct);
+      setMainImage(foundProduct?.image);
+      setLoading(false);
+    }
+  }, [products, params.slug]);
+
+  if (loading) return <div>Loading...</div>;
   if (!product) return <div>Product not found</div>;
 
   return (
-    <div className='bg-zinc-100'>
-    <Navbar />
-    <Marquee />
-    <div className="container max-w-6xl  mx-auto px-4 py-8 mt-20">
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/2">
-          <img
-            src={mainImage}
-            alt={product.name}
-            className="w-full h-96 object-contain rounded-lg shadow-lg"
-          />
-          <div className="mt-4 grid grid-cols-4 gap-2">
-            {product.images &&
-              product.images.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`${product.name} ${index + 1}`}
-                  className={`w-full h-auto rounded-lg shadow-md cursor-pointer ${img === activeImage ? 'active' : ''}`}
-                  style={{
-                    opacity: img === activeImage ? 1 : 0.5,
-                    border: img === activeImage ? '2px solid #333' : 'none',
-                  }}
-                  onClick={() => {
-                    setMainImage(img);
-                    setActiveImage(img);
-                  }}
+    <div className='bg-zinc-100 min-h-screen flex flex-col'>
+      <Navbar />
+      <Marquee />
+      <main className="flex-grow container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-56 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <div className="relative w-full pb-[80%] overflow-hidden rounded-lg bg-gray-200">
+              {mainImage && (
+                <Image
+                  src={mainImage}
+                  alt={product.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute inset-0 w-full h-full object-center object-cover"
                 />
+              )}
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {product.images?.map((img, index) => (
+                <button
+                  key={index}
+                  className={`relative pb-[80%] overflow-hidden rounded-md ${img === mainImage ? 'shadow-lg ring-2 ring-charcoal' : ' opacity-70'}`}
+                  onClick={() => setMainImage(img)}
+                >
+                  <Image
+                    src={img}
+                    alt={`${product.name} ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="absolute inset-0 w-full h-full object-center object-cover"
+                  />
+                </button>
               ))}
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <h1 className="text-3xl font-outfit font-bold text-secondary-blue">
+              {product.name}
+            </h1>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-sm font-openSans text-gray-600">
+                Category: {product.category}
+              </span>
+              <span className="text-sm font-openSans text-gray-600">
+                |
+              </span>
+              <span className="text-sm font-openSans text-gray-600">
+                Tags: {product.tags.join(', ')}
+              </span>
+            </div>
+            <p className="text-lg font-openSans text-charcoal">
+              {product.description}
+            </p>
+            <PrimaryBtn href={'/contact'}>Send Enquiry</PrimaryBtn>
           </div>
         </div>
-        <div className="md:w-1/2">
-          <h1 className="text-3xl font-outfit font-bold text-secondary-blue mb-4">
-            {product.name}
-          </h1>
-          <p className="text-sm font-openSans text-gray-600 mb-4">
-            Category: {product.category} | Tags: {product.tags.join(', ')}
-          </p>
-          <p className="text-lg font-openSans text-charcoal mb-6">
-            {product.description}
-          </p>
-          <button className="bg-primary-red text-white font-outfit py-2 px-6 rounded-full hover:bg-red-600 transition-colors">
-            Send Enquiry
-          </button>
-        </div>
-      </div>
+      </main>
+      <Footer />
     </div>
-    
-    <Footer />
-  </div>
   );
 }
 

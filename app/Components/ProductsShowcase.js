@@ -137,7 +137,7 @@ const ProductShowcase = () => {
               Categories
             </h2>
             <button
-              className="text-sm flex gap-2  active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full shadow-md my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
+              className="text-sm flex gap-2  active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
               onClick={() => {
                 setSelectedCategory(null);
                 setSelectedSubcategory(null);
@@ -179,7 +179,7 @@ const ProductShowcase = () => {
                           setSelectedCategory(null);
                           setSelectedSubcategory(null);
                         }}
-                        className="text-sm flex gap-2 mt-4 items-center shadow-md px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
+                        className="text-sm flex gap-2 mt-4 items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
                       >
                         Remove Filters
                         <svg

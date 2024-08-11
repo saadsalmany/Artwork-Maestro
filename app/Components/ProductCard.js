@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   return (
@@ -34,10 +35,12 @@ const ProductCard = ({ product }) => {
         <p className="text-sm desktop:hidden flex font-openSans text-charcoal mb-4 min-h-[40px]">
           {product.description.substring(0, 70)}...
         </p>
-        <button className="w-full bg-primary-red rounded-full text-white font-outfit py-2 px-4 hover:bg-red-600 transition duration-300 flex items-center justify-center">
+        <Link href={`/products/${product.slug}`}>
+        <button className="w-full bg-primary-red rounded-full active:bg-transparent active:text-charcoal text-white font-outfit py-2 px-4 hover:bg-red-600 transition desktop:duration-300 duration-200 flex items-center justify-center">
           <span>Learn More</span>
           <ChevronRight className="ml-2 h-5 w-5" />
         </button>
+        </Link>
       </div>
     </div>
   );
