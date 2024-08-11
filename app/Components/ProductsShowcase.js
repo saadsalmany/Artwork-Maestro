@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { products } from "../data/Products";
+import SecondaryBtn from "./SecondaryBtn";
 
 const categories = [
   {
