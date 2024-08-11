@@ -1,17 +1,16 @@
-'use client';
-import Link from 'next/link';
+"use client";
+import Link from "next/link";
 import { useState } from "react";
 
 const SecondaryBtn = ({ href, children, type = "button", formReset }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => setIsClicked(true);
-  const handleMouseUp = () => setIsClicked(false);
-
   const handleClick = (e) => {
     if (type === "reset" && formReset) {
       formReset();
     }
+    setIsClicked(false);
   };
 
   if (href) {
@@ -20,7 +19,6 @@ const SecondaryBtn = ({ href, children, type = "button", formReset }) => {
         <div className="relative">
           <button
             onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
             onClick={handleClick}
             style={{
               zIndex: 10,
@@ -53,7 +51,6 @@ const SecondaryBtn = ({ href, children, type = "button", formReset }) => {
         <button
           type={type}
           onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
           onClick={handleClick}
           style={{
             zIndex: 10,

@@ -1,8 +1,8 @@
-// Testimonial.js
 "use client";
 import React, { useState, useEffect } from "react";
-import SecondaryBtn from "./SecondaryBtn";
+import { Star } from "lucide-react";
 import PrimaryBtn from "./PrimaryBtn";
+import SecondaryBtn from "./SecondaryBtn";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([
@@ -76,25 +76,30 @@ const Testimonial = () => {
 
   return (
     <div className="bg-zinc-100 py-20">
-      <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32">
+      <div className="container max-w-7xl mx-auto px-10">
+        <h2 className="text-2xl desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32 animate-fade-in">
           Customer Reviews and Testimonials
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tablet:gap-5 desktop:gap-8 
-        tablet:w-[54rem] tablet:mx-auto px-4 tablet:px-0 desktop:px-0 desktop:w-auto mb-16">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tablet:gap-5 desktop:gap-8 
+        tablet:w-[54rem] tablet:mx-auto  tablet:px-0 desktop:px-0 desktop:w-auto mb-16"
+        >
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
 
-        <div className="bg-white rounded-lg w-[21rem] mx-auto shadow-lg tablet:w-[54rem] desktop:w-auto tablet:mx-auto tablet:px-16 p-8 tablet:h-[48rem] h-[46rem] ">
-          <h3 className="text-2xl desktop:text-3xl font-semibold desktop:text-center font-outfit text-secondary-blue mb-10 desktop:mb-12 mt-4">
+        <div className="bg-white rounded-lg max-w-4xl mx-auto shadow-lg p-8 animate-slide-up">
+          <h3 className="text-2xl font-semibold text-center text-secondary-blue mb-8 font-outfit">
             Rate Our Products!
           </h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="quote" className="block mb-1 font-outfit font-medium">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="group">
+              <label
+                htmlFor="quote"
+                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
+              >
                 Your Review
               </label>
               <textarea
@@ -102,41 +107,52 @@ const Testimonial = () => {
                 name="quote"
                 value={newReview.quote}
                 onChange={handleInputChange}
-                className="w-full p-2 font-outfit border rounded"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
                 rows="4"
                 required
               />
             </div>
-            <div>
-              <label htmlFor="author" className="block mb-1 font-outfit font-medium">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="author"
-                name="author"
-                value={newReview.author}
-                onChange={handleInputChange}
-                className="w-full p-2 font-outfit border rounded"
-                required
-              />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="group">
+                <label
+                  htmlFor="author"
+                  className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="author"
+                  name="author"
+                  value={newReview.author}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
+                  required
+                />
+              </div>
+              <div className="group">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
+                >
+                  Country
+                </label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value={newReview.country}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label htmlFor="country" className="block font-outfit mb-1 font-medium">
-                Country
-              </label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={newReview.country}
-                onChange={handleInputChange}
-                className="w-full p-2 border font-outfit rounded"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-1 font-outfit font-medium">
+            <div className="group">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
+              >
                 Your Email
               </label>
               <input
@@ -145,32 +161,41 @@ const Testimonial = () => {
                 name="email"
                 value={newReview.email}
                 onChange={handleInputChange}
-                className="w-full p-2 border font-outfit rounded"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
                 required
               />
             </div>
-            <div>
-              <label htmlFor="rating" className="block mb-1 font-outfit font-medium">
+            <div className="group">
+              <label
+                htmlFor="rating"
+                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
+              >
                 Rating
               </label>
-              <select
-                id="rating"
-                name="rating"
-                value={newReview.rating}
-                onChange={handleInputChange}
-                className="w-full p-2 border font-outfit rounded mb-5 "
-                required
-              >
-                {[1, 2, 3, 4, 5].map((num) => (
-                  <option key={num} value={num}>
-                    {num} Star{num !== 1 ? "s" : ""}
-                  </option>
+              <div className="flex items-center space-x-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    onClick={() =>
+                      setNewReview((prev) => ({ ...prev, rating: star }))
+                    }
+                    className="focus:outline-none transition-colors duration-300 ease-in-out hover:text-yellow-400"
+                  >
+                    <Star
+                      className={`w-8 h-8 ${
+                        star <= newReview.rating
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                      }`}
+                      fill={star <= newReview.rating ? "currentColor" : "none"}
+                    />
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
-
-            <div className="flex justify-start gap-4">
-              <PrimaryBtn type="submit">Submit</PrimaryBtn>
+            <div className="flex justify-start space-x-4 pt-4">
+              <PrimaryBtn>Submit Review</PrimaryBtn>
               <SecondaryBtn
                 type="reset"
                 formReset={() =>
@@ -194,23 +219,20 @@ const Testimonial = () => {
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-white rounded-lg tablet:w-70 shadow-lg p-8 flex flex-col items-center">
+  <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-105">
     <div className="flex flex-col items-center mb-6">
       <p className="text-lg font-outfit text-center mb-2">
         "{testimonial.quote}"
       </p>
       <div className="flex space-x-1">
         {[...Array(5)].map((_, i) => (
-          <svg
+          <Star
             key={i}
-            className={`w-4 h-4 fill-current ${
+            className={`w-4 h-4 ${
               i < testimonial.rating ? "text-yellow-500" : "text-gray-300"
             }`}
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
+            fill={i < testimonial.rating ? "currentColor" : "none"}
+          />
         ))}
       </div>
     </div>
@@ -221,8 +243,12 @@ const TestimonialCard = ({ testimonial }) => (
         className="w-12 h-12 rounded-full mb-2"
       />
       <div className="text-center">
-        <h5 className="text-lg font-outfit font-medium">{testimonial.author}</h5>
-        <p className="text-xs font-openSans text-gray-600">{testimonial.country}</p>
+        <h5 className="text-lg font-outfit font-medium">
+          {testimonial.author}
+        </h5>
+        <p className="text-xs font-openSans text-gray-600">
+          {testimonial.country}
+        </p>
       </div>
     </div>
   </div>
