@@ -2,7 +2,8 @@
 import React, { useEffect, useRef } from "react";
 import Marquee from "../Components/Marquee";
 import Navbar from "../Components/Navbar";
-import About from "../Components/About";
+import About from "../Components/AboutUs";
+import Footer from "../Components/Footer";
 
 const page = () => {
 
@@ -11,6 +12,7 @@ const page = () => {
       <Marquee />
       <Navbar />
       <About />
+      <Footer/>
     </div>
   );
 };
