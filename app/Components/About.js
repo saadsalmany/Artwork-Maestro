@@ -55,15 +55,12 @@ const About = () => {
           >
             <span>Maestro</span>
           </h1>
+
         </div>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 desktop::grid-row-1 ">
             <div>
-              <h1 className="text-center text-secondary-blue text-3xl mb-10">
-                About Us
-              </h1>
-              <h2 className="text-secondary-blue text-2xl mb-4">Who we are?</h2>
-              <p>
+              <p className="text-center text-lg mt-7 font-openSans  desktop:text-xl tracking-wide leading-relaxed">
                 Award-winning Artwork Maestro crafts and exports all types of
                 handcrafted items. From home decor like boxes and trays to
                 handmade jewelry and hornware like mugs and spoons, we use
