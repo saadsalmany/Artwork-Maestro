@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white text-charcoal font-openSans">
-      <div className="container max-w-6xl   mx-auto px-8 py-6">
+      <div className="container max-w-6xl   mx-auto desktop:pt-12 px-8 py-6">
         <div className="flex flex-col desktop:flex-row justify-between items-start desktop::items-center">
           <div className="mb-8 flex flex-col tablet:px-14 desktop:px-0 desktop:mb-0 w-full">
             <div className="flex items-center flex-col tablet:flex-row tablet:items-center desktop:flex-row desktop:items-center space-x-3 mb-12 desktop:mb-10">
