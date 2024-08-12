@@ -20,7 +20,7 @@ const AnimatedLogo = () => {
     <div className="flex items-center flex-col justify-center">
       <h1 className="font-outfit flex font-semibold text-secondary-blue text-5xl desktop:text-9xl items-center">
         <span>Artw</span>
-        <span className=" w-10 h-10 mt-1 flex justify-center items-center">
+        <span className=" w-12 h-12 mx-[1px] flex justify-center items-center">
           <svg
             ref={globeRef}
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const AnimatedLogo = () => {
             height="100%" // Set height to 100%
             viewBox="0 0 40 40"
             fill="none"
-            className=" justify-center items-center  w-10 h-10"
+            className=" justify-center items-center  w-12 h-12"
           >
             {/* SVG content */}
             <path
@@ -47,8 +47,8 @@ const AnimatedLogo = () => {
         <span>rk</span>
       </h1>
       <h1
-        className="font-outfit flex font-semibold text-primary-red relative left-[9.7rem] -top-5
-      text-5xl desktop:text-9xl"
+        className="font-outfit flex font-semibold text-primary-red text-5xl desktop:text-9xl
+        ml-64 -mt-4"
       >
         <span>Maestro</span>
       </h1>
