@@ -20,10 +20,10 @@ const About = () => {
   return (
     <div className="bg-slate-100 mt-20">
       <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26">
-        <div className="relative left-8  flex justify-center flex-col">
+        <div className="relative left-8 desktop:left-40  flex justify-center flex-col">
           <h1 className="font-outfit flex font-semibold text-secondary-blue justify-start text-5xl desktop:text-9xl items-center">
             <span>Artw</span>
-            <span className=" w-12 h-12 mx-[1px] flex justify-center items-center">
+            <span className=" w-9 h-9 desktop:w-20 mt-1 desktop:mt-6 desktop:h-20 mx-[1px] flex justify-center items-center">
               <svg
                 ref={globeRef}
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const About = () => {
                 height="100%" // Set height to 100%
                 viewBox="0 0 40 40"
                 fill="none"
-                className=" justify-center items-center  w-12 h-12"
+                className=" justify-center items-center  w-9 h-9 desktop:w-20 desktop:h-20"
               >
                 {/* SVG content */}
                 <path
@@ -51,7 +51,7 @@ const About = () => {
           </h1>
           <h1
             className="font-outfit flex font-semibold text-secondary-blue text-5xl desktop:text-9xl
-        justify-center -mt-2"
+        justify-center desktop:mr-40 -mt-2 desktop:-mt-6"
           >
             <span>Maestro</span>
           </h1>
