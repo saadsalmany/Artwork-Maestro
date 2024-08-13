@@ -2,8 +2,8 @@
 
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { LoadingProvider } from "./Components/LoadingProvider";
-import LoadingOverlay from "./Components/LoadingOverlay";
+// import { LoadingProvider } from "./Components/LoadingProvider";
+// import LoadingOverlay from "./Components/LoadingOverlay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,10 +58,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LoadingProvider>
-          <LoadingOverlay />
+        {/* <LoadingProvider> */}
+          {/* <LoadingOverlay /> */}
           {children}
-        </LoadingProvider>
+        {/* </LoadingProvider> */}
       </body>
     </html>
   );
