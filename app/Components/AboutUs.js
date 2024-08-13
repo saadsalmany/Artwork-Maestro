@@ -34,7 +34,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 tablet:px-16 desktop:px-26 my-24">
+    <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl mb-4 flex items-center justify-center">
@@ -47,7 +47,7 @@ const AboutUs = () => {
               height="100%" // Set height to 100%
               viewBox="0 0 40 40"
               fill="none"
-              className=" justify-center items-center  w-9 h-9 desktop:w-20 desktop:h-20 animate-spin-slow"
+              className=" justify-center items-center  w-9 h-9 tablet:w-14 tablet:h-14 desktop:w-16 desktop:h-16 desktop:mt-2 animate-spin-slow"
             >
               {/* SVG content */}
               <path
@@ -65,11 +65,10 @@ const AboutUs = () => {
           </span>
           rk
           <span>
-          <h1 className="ml-4">Maestro</h1>
-
+            <h1 className="ml-3 desktop:ml-6">Maestro</h1>
           </span>
         </h1>
-        <p className="font-openSans text-charcoal text-xl">
+        <p className="font-openSans text-charcoal text-md desktop:text-xl">
           Crafting Excellence, Inspiring Homes
         </p>
       </div>
@@ -80,11 +79,18 @@ const AboutUs = () => {
           Hornware Magic: A Glimpse from Our Expo
         </h2>
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/2">
-            <div className="bg-gray-300 w-full h-64 rounded-lg"></div>
+          <div className="w-1/2">
+              <div className="bg-white shadow-md w-full h-64 rounded-lg relative">
+                <Image
+                src={"/expo.png"}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-2xl shadow-md w-full h-full"
+                   />
+            </div>
           </div>
           <div className="md:w-1/2">
-            <p className="font-openSans text-charcoal">
+            <p className="font-openSans leading-loose tracking-wide text-charcoal">
               We showcased our latest collection of handcrafted homeware at Expo
               Mart, featuring a stunning blend of contemporary design and
               timeless elegance. This event wasn't just about products - it was
@@ -103,10 +109,10 @@ const AboutUs = () => {
           Our Skilled Artisans
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gray-300 aspect-square rounded-lg"></div>
-          <div className="bg-gray-300 aspect-square rounded-lg"></div>
-          <div className="bg-gray-300 aspect-square rounded-lg"></div>
-          <div className="bg-gray-300 aspect-square rounded-lg"></div>
+          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
+          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
+          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
+          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
         </div>
       </div>
 
@@ -119,7 +125,7 @@ const AboutUs = () => {
           {sections.map((section, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-md rounded-lg p-6 cursor-pointer"
+              className="bg-white shadow-md  rounded-lg p-6 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() =>
@@ -134,7 +140,7 @@ const AboutUs = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="font-openSans text-charcoal"
+                  className="font-openSans  text-charcoal"
                 >
                   {section.content}
                 </motion.p>
@@ -151,7 +157,7 @@ const AboutUs = () => {
         </h2>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-2/3">
-            <p className="font-openSans text-charcoal">
+            <p className="font-openSans leading-loose tracking-wide text-charcoal">
               We offer a vast selection of the latest home decor, with endless
               possibilities for customization. Whether you prefer a specific
               size or a design tailored to your vision, we can create unique
@@ -161,7 +167,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <div className="bg-gray-300 w-full h-48 rounded-lg"></div>
+            <div className="bg-white shadow-md w-full h-48 rounded-lg"></div>
           </div>
         </div>
       </div>
@@ -171,13 +177,13 @@ const AboutUs = () => {
         <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
           Your Vision, Our Craftsmanship
         </h2>
-        <p className="font-openSans text-charcoal mb-6">
+        <p className="font-openSans leading-loose tracking-wide text-charcoal mb-6">
           We specialize in tailor-made handcrafted products. Tell us your ideas
           and specifications, and we'll develop unique pieces that meet your
           exact needs. No matter the market you cater to, we can create
           something special, just for you.
         </p>
-        <div className="bg-gray-300 w-full h-64 rounded-lg"></div>
+        <div className="bg-white shadow-md w-full h-64 rounded-lg"></div>
       </div>
     </div>
   );
