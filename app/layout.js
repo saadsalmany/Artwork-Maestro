@@ -1,5 +1,9 @@
+//layout.js
+
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LoadingProvider } from "./Components/LoadingProvider";
+import LoadingOverlay from "./Components/LoadingOverlay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,15 +52,17 @@ export const metadata = {
   },
 };
 
+
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
-        <body className={inter.className}>{children}</body>
-
+      <body className={inter.className}>
+        <LoadingProvider>
+          <LoadingOverlay />
+          {children}
+        </LoadingProvider>
+      </body>
     </html>
   );
 }

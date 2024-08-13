@@ -12,6 +12,7 @@
     "animejs": "^3.2.2",
     "framer-motion": "^11.3.21",
     "gsap": "^3.12.5",
+    "ldrs": "^1.0.2",
     "locomotive-scroll": "^5.0.0-beta.13",
     "lucide-react": "^0.424.0",
     "next": "^14.2.5",
