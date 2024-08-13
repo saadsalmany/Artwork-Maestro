@@ -80,11 +80,11 @@ const AboutUs = () => {
         </h2>
         <div className="flex flex-col md:flex-row gap-8">
           <Image
-            src={"/expo.png"}
-            objectFit="cover"
+            src={"/expo.jpeg"}
+            objectFit="contain"
             width={1000}
             height={1000}
-            className="rounded-2xl w-full desktop:w-1/2 shadow-md"
+            className="rounded-2xl desktop:w-1/2 shadow-md"
           />
           <div className="md:w-1/2">
             <p className="font-openSans leading-loose tracking-wide text-charcoal">

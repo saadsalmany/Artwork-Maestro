@@ -20,10 +20,10 @@ const ProductRangeCard = () => {
               hornware collection
             </p>
             <div className="flex flex-row gap-2 ">
-              <PrimaryBtn>
+              <PrimaryBtn href='/products'>
                   Explore Products
               </PrimaryBtn>
-              <SecondaryBtn>
+              <SecondaryBtn href='/contact'>
                   Contact us
               </SecondaryBtn>
             </div>

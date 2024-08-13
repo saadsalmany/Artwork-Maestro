@@ -69,7 +69,7 @@ const Navbar = () => {
 
             <div className="flex items-center desktop:hidden">
               <div className="mr-5">
-              <PrimaryBtn href="https://wa.me/8267925470" blank>Let's chat</PrimaryBtn>
+              <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
               </div>
               <button
                 onClick={() => setIsOpen(!isOpen)}

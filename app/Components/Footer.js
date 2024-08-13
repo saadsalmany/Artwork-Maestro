@@ -105,21 +105,23 @@ const Footer = () => {
                     <Facebook size={35} />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/artworkmaestro/"
+                    target="_blank"
                     className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6"
                     aria-label="Instagram"
                   >
                     <Instagram size={35} />
                   </a>
                   <a
-                    href="#"
+                    href="https://wa.me/9045067866"
                     className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6"
                     aria-label="WhatsApp"
                   >
                     <FaWhatsapp size={36} />
                   </a>
                   <a
-                    href="#"
+                    target="_blank"
+                    href="https://www.linkedin.com/in/artworkmaestro/"
                     className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-6"
                     aria-label="Linkedin"
                   >
