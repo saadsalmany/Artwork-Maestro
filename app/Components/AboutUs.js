@@ -79,17 +79,13 @@ const AboutUs = () => {
           Hornware Magic: A Glimpse from Our Expo
         </h2>
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="w-full desktop:w-1/2">
-              <div className="bg-white shadow-md w-full h-64 rounded-lg relative">
-                <Image
-                src={"/expo.png"}
-                objectFit="cover"
-                width={1000}
-                height={1000}
-                className="rounded-2xl shadow-md w-full h-full"
-                   />
-            </div>
-          </div>
+          <Image
+            src={"/expo.png"}
+            objectFit="cover"
+            width={1000}
+            height={1000}
+            className="rounded-2xl w-full desktop:w-1/2 shadow-md"
+          />
           <div className="md:w-1/2">
             <p className="font-openSans leading-loose tracking-wide text-charcoal">
               We showcased our latest collection of handcrafted homeware at Expo
