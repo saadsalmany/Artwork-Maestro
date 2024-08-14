@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Heart, Archive, Diamond, BadgeCheck, User } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs = () => {
-  const [activeSection, setActiveSection] = useState(null);
-
+  const chooseUsSectionRef = React.useRef(null);
   const sections = [
     {
       title: "Unique Charm",
@@ -39,6 +42,22 @@ const AboutUs = () => {
     },
   ];
 
+  const hoverAnimation = (target) => {
+    gsap.to(target, {
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const leaveAnimation = (target) => {
+    gsap.to(target, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
@@ -47,7 +66,6 @@ const AboutUs = () => {
           Artw
           <span className="inline-block relative">
             <svg
-              // ref={globeRef}
               xmlns="http://www.w3.org/2000/svg"
               width="100%" // Set width to 100%
               height="100%" // Set height to 100%
@@ -91,6 +109,8 @@ const AboutUs = () => {
             width={1000}
             height={1000}
             className="rounded-2xl desktop:w-1/2 shadow-md"
+            onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
+            onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
           />
           <div className="md:w-1/2">
             <p className="font-openSans leading-loose tracking-wide text-charcoal">
@@ -112,34 +132,23 @@ const AboutUs = () => {
           Our Skilled Artisans
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Image
-            src={"/artisans/1.jpg"}
-            objectFit="fit"
-            width={1000}
-            height={1000}
-            className="bg-white aspect-square shadow-md rounded-lg"
-          />
-          <Image
-            src={"/artisans/2.jpg"}
-            objectFit="fit"
-            width={1000}
-            height={1000}
-            className="bg-white aspect-square shadow-md rounded-lg"
-          />
-          <Image
-            src={"/artisans/3.jpeg"}
-            objectFit="fit"
-            width={1000}
-            height={1000}
-            className="bg-white aspect-square shadow-md rounded-lg"
-          />
-          <Image
-            src={"/artisans/4.jpeg"}
-            objectFit="fit"
-            width={1000}
-            height={1000}
-            className="bg-white aspect-square shadow-md rounded-lg"
-          />
+          {[
+            "/artisans/1.jpg",
+            "/artisans/2.jpg",
+            "/artisans/3.jpeg",
+            "/artisans/4.jpeg",
+          ].map((src, index) => (
+            <Image
+              key={index}
+              src={src}
+              objectFit="fit"
+              width={1000}
+              height={1000}
+              className="bg-white aspect-square shadow-md rounded-lg"
+              onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
+              onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
+            />
+          ))}
         </div>
       </div>
 
@@ -148,32 +157,33 @@ const AboutUs = () => {
         <h2 className="font-outfit text-secondary-blue text-3xl mb-6">
           Why Choose Artwork Maestro?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          ref={chooseUsSectionRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {sections.map((section, index) => (
-            <motion.div
+            <div
               key={index}
-              className="bg-white shadow-md  rounded-lg p-6 cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                setActiveSection(activeSection === index ? null : index)
-              }
+              className="bg-white shadow-md rounded-lg p-6"
+              onMouseEnter={(e) => {
+                gsap.to(e.target, { scale: 1.05, duration: 0.3 });
+              }}
+              onMouseLeave={(e) => {
+                gsap.to(e.target, { scale: 1, duration: 0.3 });
+              }}
+              onClick={(e) => {
+                gsap.to(e.target, { scale: 0.95, duration: 0.2 });
+                gsap.to(e.target, { scale: 1, duration: 0.2, delay: 0.2 });
+              }}
             >
-              <h3 className="font-outfit flex items-center gap-3 tracking-wide  text-secondary-blue text-xl mb-2">
+              <h3 className="font-outfit flex items-center gap-3 tracking-wide text-secondary-blue text-xl mb-2">
                 <span className="text-primary-red">{section.icon}</span>
                 <span>{section.title}</span>
               </h3>
-              {activeSection === index && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="font-openSans px-10 leading-snug text-xs tracking-wide text-charcoal"
-                >
-                  {section.content}
-                </motion.p>
-              )}
-            </motion.div>
+              <p className="font-openSans px-10 leading-snug text-xs tracking-wide text-charcoal">
+                {section.content}
+              </p>
+            </div>
           ))}
         </div>
       </div>
@@ -195,7 +205,11 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <div className="bg-white shadow-md w-full h-48 rounded-lg"></div>
+            <div
+              className="bg-white shadow-md w-full h-48 rounded-lg"
+              onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
+              onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
+            ></div>
           </div>
         </div>
       </div>
@@ -211,7 +225,11 @@ const AboutUs = () => {
           exact needs. No matter the market you cater to, we can create
           something special, just for you.
         </p>
-        <div className="bg-white shadow-md w-full h-64 rounded-lg"></div>
+        <div
+          className="bg-white shadow-md w-full h-64 rounded-lg"
+          onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
+          onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
+        ></div>
       </div>
     </div>
   );
