@@ -102,17 +102,17 @@ const AboutUs = () => {
         <h2 className="font-outfit text-secondary-blue text-2xl mb-6">
           Hornware Magic: A Glimpse from Our Expo
         </h2>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-col items-center lg:flex-row gap-8">
           <Image
             src={"/expo.jpeg"}
             objectFit="contain"
             width={1000}
             height={1000}
-            className="rounded-2xl desktop:w-1/2 shadow-md"
+            className="rounded-2xl h-full lg:w-1/2 shadow-md"
             onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
             onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
           />
-          <div className="md:w-1/2">
+          <div className="md:full">
             <p className="font-openSans leading-loose tracking-wide text-charcoal">
               We showcased our latest collection of handcrafted homeware at Expo
               Mart, featuring a stunning blend of contemporary design and
@@ -190,11 +190,11 @@ const AboutUs = () => {
 
       {/* Handcrafted Home Decor Section */}
       <div className="mb-16">
-        <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
-          Handcrafted Home Decor - Your Way
-        </h2>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col items-center md:flex-row gap-8">
           <div className="md:w-2/3">
+            <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
+              Handcrafted Home Decor - Your Way
+            </h2>
             <p className="font-openSans leading-loose tracking-wide text-charcoal">
               We offer a vast selection of the latest home decor, with endless
               possibilities for customization. Whether you prefer a specific
@@ -205,17 +205,21 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <div
-              className="bg-white shadow-md w-full h-48 rounded-lg"
+            <Image
+              src={"/homeDecor.jpeg"}
+              objectFit="contain"
+              width={1000}
+              height={1000}
+              className="shadow-md w-full lg:w-full h-full rounded-lg"
               onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
               onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
-            ></div>
+            />
           </div>
         </div>
       </div>
 
       {/* Your Vision, Our Craftsmanship Section */}
-      <div>
+      <div className="mx-auto">
         <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
           Your Vision, Our Craftsmanship
         </h2>
@@ -225,11 +229,15 @@ const AboutUs = () => {
           exact needs. No matter the market you cater to, we can create
           something special, just for you.
         </p>
-        <div
-          className="bg-white shadow-md w-full h-64 rounded-lg"
+        <Image
+          src={"/craftStore.png"}
+          width={1000}
+          height={1000}
+          unoptimized
+          className=" shadow-md w-full h-full  rounded-lg"
           onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
           onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
-        ></div>
+        />
       </div>
     </div>
   );
