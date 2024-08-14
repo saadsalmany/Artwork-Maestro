@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Heart, Archive, Diamond, BadgeCheck, User } from "lucide-react";
 
 const AboutUs = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -10,26 +11,31 @@ const AboutUs = () => {
       title: "Unique Charm",
       content:
         "We capture the essence of handcrafted items, offering pieces that are both vibrant and captivating.",
+      icon: <Heart />, // Use the imported Heart component
     },
     {
       title: "Modern Appeal",
       content:
         "Our designs reflect the spirit of the times, complementing contemporary living spaces.",
+      icon: <Archive />, // Use the imported Archive component
     },
     {
       title: "Unmatched Distinction",
       content:
         "Each Artwork Maestro piece is one-of-a-kind, standing out from the crowd.",
+      icon: <Diamond />, // Use the imported Diamond component
     },
     {
       title: "Quality Uncompromised",
       content:
         "We prioritize consistent, exceptional quality in every product we create.",
+      icon: <BadgeCheck />, // Use the imported Checkmark component
     },
     {
       title: "Customer-Centric",
       content:
         "Our commitment to your satisfaction drives everything we do, ensuring a seamless and positive experience.",
+      icon: <User />, // Use the imported User component
     },
   ];
 
@@ -106,10 +112,34 @@ const AboutUs = () => {
           Our Skilled Artisans
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
-          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
-          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
-          <div className="bg-white shadow-md aspect-square rounded-lg"></div>
+          <Image
+            src={"/artisans/1.jpg"}
+            objectFit="fit"
+            width={1000}
+            height={1000}
+            className="bg-white aspect-square shadow-md rounded-lg"
+          />
+          <Image
+            src={"/artisans/2.jpg"}
+            objectFit="fit"
+            width={1000}
+            height={1000}
+            className="bg-white aspect-square shadow-md rounded-lg"
+          />
+          <Image
+            src={"/artisans/3.jpeg"}
+            objectFit="fit"
+            width={1000}
+            height={1000}
+            className="bg-white aspect-square shadow-md rounded-lg"
+          />
+          <Image
+            src={"/artisans/4.jpeg"}
+            objectFit="fit"
+            width={1000}
+            height={1000}
+            className="bg-white aspect-square shadow-md rounded-lg"
+          />
         </div>
       </div>
 
@@ -129,15 +159,16 @@ const AboutUs = () => {
                 setActiveSection(activeSection === index ? null : index)
               }
             >
-              <h3 className="font-outfit text-secondary-blue text-xl mb-2">
-                {section.title}
+              <h3 className="font-outfit flex items-center gap-3 tracking-wide  text-secondary-blue text-xl mb-2">
+                <span className="text-primary-red">{section.icon}</span>
+                <span>{section.title}</span>
               </h3>
               {activeSection === index && (
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="font-openSans  text-charcoal"
+                  className="font-openSans px-10 leading-snug text-xs tracking-wide text-charcoal"
                 >
                   {section.content}
                 </motion.p>

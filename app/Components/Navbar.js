@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>
 
             <div className="hidden desktop:block">
-            <PrimaryBtn href="https://wa.me/8267925470" blank>Let's chat</PrimaryBtn>
+            <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
             </div>
 
             <div className="flex items-center desktop:hidden">
