@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import PrimaryBtn from "./PrimaryBtn";
-import Image from "next/image";
 import Logo from "./Logo";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,36 +21,55 @@ const Navbar = () => {
     const isActive = pathname === href;
 
     return (
-     <Link
-      href={href}
-      className={`
-        relative overflow-hidden 
-        ${
-          isMobile
-            ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out"
-            : "text-charcoal px-3 rounded-md transition-all duration-300 py-2"
-        }
-        ${
-          isActive
-            ? isMobile
-              ? "bg-secondary-blue text-white"
-              : "font-medium text-secondary-blue bg-blue-100"
-            : "hover:bg-blue-50"
-        }
-      `}
-      onClick={() => isMobile && setIsOpen(false)}
-    >
-      <span className="relative z-10">{label}</span>
-      {!isMobile && isActive && (
-        <span className="absolute bottom-0 left-0 w-full  bg-secondary-blue"></span>
-      )}
-    </Link>
+      <Link
+        href={href}
+        className={`
+          relative overflow-hidden 
+          ${
+            isMobile
+              ? "block px-3 py-3 mt-6 mx-3 rounded-md text-base font-normal font-outfit transition-colors duration-300 ease-in-out"
+              : "text-charcoal px-3 rounded-md transition-all duration-300 py-2"
+          }
+          ${
+            isActive
+              ? isMobile
+                ? "bg-secondary-blue text-white"
+                : "font-medium text-secondary-blue bg-blue-100"
+              : "hover:bg-blue-50"
+          }
+        `}
+        onClick={() => isMobile && setIsOpen(false)}
+      >
+        <span className="relative z-10">{label}</span>
+        {!isMobile && isActive && (
+          <span className="absolute bottom-0 left-0 w-full bg-secondary-blue"></span>
+        )}
+      </Link>
     );
+  };
+
+  const sidebarVariants = {
+    open: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+    closed: {
+      x: "-100%",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
   };
 
   return (
     <>
-      <nav className="fixed w-full desktop:mt-10 mobile:mt-9 z-50 font-light bg-white border-b-[2px] shadow-sm mobile:h-20 font-outfit tablet:h-24 desktop:h-20 py-3">
+      <nav className="fixed w-full desktop:mt-10 mobile:mt-9 z-40 font-light bg-white border-b-[2px] shadow-sm mobile:h-20 font-outfit tablet:h-24 desktop:h-20 py-3">
         <div className="max-w-7xl mx-auto px-6 tablet:px-16 desktop:px-26">
           <div className="flex justify-between items-center mt-1 tablet:mt-2.5 desktop:mt-1">
             <Logo />
@@ -64,16 +83,16 @@ const Navbar = () => {
             </div>
 
             <div className="hidden desktop:block">
-            <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
+              <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
             </div>
 
             <div className="flex items-center desktop:hidden">
               <div className="mr-5">
-              <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
+                <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
               </div>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-charcoal focus:outline-none transition-transform duration-300 hover:scale-110"
+                className="text-charcoal focus:outline-none transition-transform duration-300 hover:scale-110 z-50 relative"
               >
                 <span className="sr-only">
                   {isOpen ? "Close menu" : "Open menu"}
@@ -100,18 +119,39 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div
-          className={`
-            desktop:hidden overflow-hidden transition-all duration-300 shadow-md ease-in-out 
-            ${isOpen ? "max-h-68 opacity-100" : "max-h-0 opacity-0"} 
-          `}
-        >
-          <div className="px-2 pt-4 pb-5 space-y-2 bg-white ">
-            {navLinks.map((link) => (
-              <NavLink key={link.href} {...link} isMobile />
-            ))}
-          </div>
-        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={sidebarVariants}
+                className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg desktop:hidden z-50"
+              >
+                <div className="px-2 pt-20 pb-5 space-y-2">
+                  {navLinks.map((link) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <NavLink {...link} isMobile />
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                onClick={() => setIsOpen(false)}
+              />
+            </>
+          )}
+        </AnimatePresence>
       </nav>
       <div className="h-16"></div>
     </>
