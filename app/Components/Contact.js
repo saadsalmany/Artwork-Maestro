@@ -10,7 +10,7 @@ const ContactForm = () => {
     const form = e.target;
     const data = new FormData(form);
     try {
-      const response = await fetch('https://formspree.io/f/your_formspree_id', {
+      const response = await fetch('https://formspree.io/f/xldrnvbp', {
         method: 'POST',
         body: data,
         headers: {
@@ -30,13 +30,11 @@ const ContactForm = () => {
 
   return (
     <div className="bg-gradient-to-br from-white to-gray-100 min-h-screen font-outfit">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-secondary-blue text-center mb-12">Contact Us</h1>
-        
+      <div className="max-w-6xl mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="bg rounded-lg p-8 animate-fadeIn">
-            <h2 className="text-2xl font-semibold text-secondary-blue mb-6">Get in Touch</h2>
-            <div className="space-y-6">
+            <h2 className="text-3xl font-semibold text-secondary-blue mb-10">Contact Information</h2>
+            <div className="space-y-6 lg:space-y-12">
               {[
                 { icon: <User className="text-primary-red" />, text: "Shahzaib Alam" },
                 { icon: <Briefcase className="text-primary-red" />, text: "Altmash Alam" },
@@ -51,17 +49,6 @@ const ContactForm = () => {
               ))}
             </div>
             
-            <div className="flex space-x-4 mt-8">
-              {[
-                { Icon: Facebook, url: '#' },
-                { Icon: Instagram, url: '#' },
-                { Icon: Linkedin, url: '#' }
-              ].map(({ Icon, url }, index) => (
-                <a key={index} href={url} className="text-secondary-blue hover:text-primary-red transition duration-300">
-                  <Icon size={24} />
-                </a>
-              ))}
-            </div>
           </div>
           
           <div className="bg-white rounded-lg shadow-lg p-8 animate-fadeIn" style={{animationDelay: '0.2s'}}>
