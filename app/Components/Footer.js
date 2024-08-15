@@ -53,7 +53,9 @@ const Footer = () => {
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
               <a
-                href="tel:+919876543210"
+                href="https://wa.me/9045067866"
+                rel="noopener noreferrer"
+                target="_bank"
                 className="flex items-center space-x-2 group hover:text-primary-red transition-all duration-300 ease-in-out"
               >
                 <Phone
@@ -64,6 +66,8 @@ const Footer = () => {
               </a>
               <a
                 href="mailto:artworkmaestro@site.com"
+                rel="noopener noreferrer"
+                target="_bank"
                 className="flex items-center space-x-2 group hover:text-primary-red transition-all duration-300 ease-in-out mt-2"
               >
                 <Mail
@@ -81,6 +85,8 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
+                  rel="noopener noreferrer"
+                target="_bank"
                 className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Facebook"
               >
@@ -89,6 +95,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/artworkmaestro/"
                 target="_blank"
+                  rel="noopener noreferrer"
                 className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Instagram"
               >
@@ -96,6 +103,8 @@ const Footer = () => {
               </a>
               <a
                 href="https://wa.me/9045067866"
+                  rel="noopener noreferrer"
+                target="_bank"
                 className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="WhatsApp"
               >
@@ -104,6 +113,7 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/in/artworkmaestro/"
                 target="_blank"
+                  rel="noopener noreferrer"
                 className="text-secondary-blue hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Linkedin"
               >
@@ -119,9 +129,15 @@ const Footer = () => {
           <p className="mb-6 md:mb-0 text-center md:text-left">
             Copyright © {currentYear} Artwork Maestro, All rights reserved |
             Powered by{" "}
-            <span className="font-outfit underline text-primary-red cursor-pointer hover:text-secondary-blue transition-colors duration-300">
-              Saad Salmany
-            </span>
+            <a
+              href="https://saadsalmany.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="font-outfit underline text-primary-red cursor-pointer hover:text-secondary-blue transition-colors duration-300">
+                Saad Salmany
+              </span>
+            </a>
           </p>
           <div className="flex flex-wrap justify-center md:justify-end space-x-4">
             {["Certifications", "FAQs", "Privacy Policy"].map((item, index) => (
@@ -129,6 +145,8 @@ const Footer = () => {
                 {index > 0 && <span className="text-gray-300">|</span>}
                 <a
                   href="#"
+                    rel="noopener noreferrer"
+                target="_bank"
                   className="hover:text-primary-red transition-colors duration-300 ease-in-out relative group"
                 >
                   {item}

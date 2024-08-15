@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import PrimaryBtn from "./PrimaryBtn";
 import SecondaryBtn from "./SecondaryBtn";
+import DOMPurify from "dompurify";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([
@@ -42,7 +43,8 @@ const Testimonial = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewReview((prev) => ({ ...prev, [name]: value }));
+    const sanitizedValue = DOMPurify.sanitize(value);
+    setNewReview((prev) => ({ ...prev, [name]: sanitizedValue }));
   };
 
   const handleSubmit = async (e) => {

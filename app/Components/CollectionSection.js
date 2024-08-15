@@ -127,10 +127,22 @@ function CollectionSection() {
           ))}
         </div>
         <div className="mt-12 desktop:mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
-          <Link href="/">
+          <Link
+            linkProps={{
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }}
+            href="/about"
+          >
             <SecondaryBtn>Get Info</SecondaryBtn>
           </Link>
-          <Link href="/">
+          <Link
+            linkProps={{
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }}
+            href="/sdfsdf"
+          >
             <PrimaryBtn>
               <div className="flex flex-row items-center">
                 <RxDownload className="mr-2" />

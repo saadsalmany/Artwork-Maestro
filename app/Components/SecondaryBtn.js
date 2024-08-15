@@ -2,7 +2,14 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const SecondaryBtn = ({ href, children, type = "button", formReset, onClick, loadMore }) => {
+const SecondaryBtn = ({
+  href,
+  children,
+  type = "button",
+  formReset,
+  onClick,
+  loadMore,
+}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => setIsClicked(true);
@@ -18,7 +25,14 @@ const SecondaryBtn = ({ href, children, type = "button", formReset, onClick, loa
 
   if (href) {
     return (
-      <Link href={href} className="group relative inline-block">
+      <Link
+        linkProps={{
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }}
+        href={href}
+        className="group relative inline-block"
+      >
         <div className="relative">
           <button
             onMouseDown={handleMouseDown}

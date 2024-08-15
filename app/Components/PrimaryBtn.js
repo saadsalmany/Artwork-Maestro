@@ -16,7 +16,14 @@ const PrimaryBtn = ({
 
   if (href) {
     return (
-      <Link href={href} target={blank ? "_blank" : undefined}>
+      <Link
+        linkProps={{
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }}
+        href={href}
+        target={blank ? "_blank" : undefined}
+      >
         <div className="group relative inline-block">
           <button
             onClick={onClick}
