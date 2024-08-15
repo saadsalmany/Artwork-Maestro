@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white text-charcoal font-openSans">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-8 py-8 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo and Company Name */}
           <div className="flex flex-col items-center md:items-start">
@@ -113,10 +113,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-6 border-gray-200" />
+        <hr className="my-4 border-gray-200" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs">
-          <p className="mb-4 md:mb-0 text-center md:text-left">
+          <p className="mb-6 md:mb-0 text-center md:text-left">
             Copyright © {currentYear} Artwork Maestro, All rights reserved |
             Powered by{" "}
             <span className="font-outfit underline text-primary-red cursor-pointer hover:text-secondary-blue transition-colors duration-300">
