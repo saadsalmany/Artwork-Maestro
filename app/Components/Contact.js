@@ -51,7 +51,7 @@ const ContactForm = () => {
             
           </div>
           
-          <div className="bg-white rounded-lg shadow-lg p-8 animate-fadeIn" style={{animationDelay: '0.2s'}}>
+          <div className="bg-white rounded-lg shadow-lg p-8" style={{animationDelay: '0.2s'}}>
             <h2 className="text-2xl font-semibold text-secondary-blue mb-6">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
