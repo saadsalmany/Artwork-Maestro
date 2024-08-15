@@ -30,19 +30,18 @@ function ClientComponent({ params, products }) {
       <Navbar />
       <Marquee />
       <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 desktop:px-26 pb-56 mt-20 desktop:mt-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <div className="relative w-full pb-[80%] overflow-hidden rounded-lg bg-gray-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 desktop:-space-x-20">
+          <div className="space-y-6">
               {mainImage && (
                 <Image
                   src={mainImage}
                   alt={product.name}
-                  layout="fill"
+                  width={1000}
+                  height={1000}
                   objectFit="cover"
-                  className="absolute inset-0 w-full h-full object-center object-cover"
+                  className="w-full lg:w-[25rem] rounded-lg shadow-md aspect-square "
                 />
               )}
-            </div>
             <div className="grid grid-cols-4 gap-2">
               {product.images?.map((img, index) => (
                 <button
@@ -62,7 +61,7 @@ function ClientComponent({ params, products }) {
             </div>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-6 mt-4">
             <h1 className="text-3xl font-outfit font-bold text-secondary-blue">
               {product.name}
             </h1>
@@ -77,7 +76,7 @@ function ClientComponent({ params, products }) {
                 Tags: {product.tags.join(', ')}
               </span>
             </div>
-            <p className="text-sm desktop:text-lg font-openSans text-charcoal">
+            <p className="text-sm desktop:text-lg font-openSans text-charcoal pb-4">
               {product.description}
             </p>
             <PrimaryBtn href={'/contact'}>Send Enquiry</PrimaryBtn>
