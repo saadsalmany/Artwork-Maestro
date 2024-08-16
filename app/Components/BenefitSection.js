@@ -1,19 +1,48 @@
-import React from "react";
+"use client";
 import Image from "next/image";
+import { ScrollTrigger } from "gsap/all";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 function BenefitSection() {
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
   return (
     <div className="bg-zinc-100 py-16 px-4 tablet:px-8 desktop:px-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl leading-snug desktop:text-4xl font-outfit font-medium text-secondary-blue text-center mb-6">
+        <h2 className="text-4xl section leading-snug desktop:text-4xl font-outfit font-medium text-secondary-blue text-center mb-6">
           Where Nature Meets Artistry
         </h2>
-        <p className="text-center desktop:text-lg tracking-wider font-outfit mb-12">
+        <p className="text-center section desktop:text-lg tracking-wider font-outfit mb-12">
           <span className="text-green-600">Sustainable.</span>{" "}
           <span className="text-red-600">Durable.</span>{" "}
           <span className="text-yellow-600">Flavor-Enhancing.</span>
         </p>
-        <div className="grid grid-cols-1 tablet:grid-cols-1 desktop:grid-cols-4 gap-2 desktop:gap-0 desktop:pt-10 desktop:pb-12">
+        <div className="grid section grid-cols-1 tablet:grid-cols-1 desktop:grid-cols-4 gap-2 desktop:gap-0 desktop:pt-10 desktop:pb-12">
           <BenefitItem
             icon="/durable.svg"
             title="Durability"
@@ -43,10 +72,10 @@ function BenefitSection() {
 function BenefitItem({ icon, title, altText }) {
   return (
     <div className="flex flex-col items-center mb-8 desktop:mb-0">
-      <div className="w-32 h-32 bg-white rounded-full flex items-center  shadow-md justify-center mb-3 hover:scale-110 transition-transform duration-300 ease-in-out">
+      <div className="w-32 h-32 section bg-white rounded-full flex items-center  shadow-md justify-center mb-3 hover:scale-110 transition-transform duration-300 ease-in-out">
         <Image src={icon} alt={altText} width={70} height={70} />
       </div>
-      <p className="text-center text-charcoal font-outfit text-sm">{title}</p>
+      <p className="text-center section text-charcoal font-outfit text-sm">{title}</p>
     </div>
   );
 }

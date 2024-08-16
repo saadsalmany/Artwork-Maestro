@@ -1,9 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 import PrimaryBtn from "./PrimaryBtn";
 import SecondaryBtn from "./SecondaryBtn";
 import DOMPurify from "dompurify";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([
@@ -76,15 +78,41 @@ const Testimonial = () => {
     }
   };
 
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+    
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="bg-zinc-100 py-20">
       <div className="container max-w-7xl mx-auto px-10">
-        <h2 className="text-2xl desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32 animate-fade-in">
+        <h2 className="text-2xl section desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32 animate-fade-in">
           Customer Reviews and Testimonials
         </h2>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 tablet:gap-5 desktop:gap-8 
+          className="grid grid-cols-1 section md:grid-cols-2 lg:grid-cols-3 gap-8 tablet:gap-5 desktop:gap-8 
         tablet:w-[54rem] tablet:mx-auto  tablet:px-0 desktop:px-0 desktop:w-auto mb-16"
         >
           {testimonials.map((testimonial, index) => (
@@ -92,7 +120,7 @@ const Testimonial = () => {
           ))}
         </div>
 
-        <div className="bg-white rounded-lg max-w-4xl mx-auto shadow-lg p-8 animate-slide-up">
+        <div className="bg-white section rounded-lg max-w-4xl mx-auto shadow-lg p-8 animate-slide-up">
           <h3 className="text-2xl font-semibold text-center text-secondary-blue mb-8 font-outfit">
             Rate Our Products!
           </h3>
@@ -221,7 +249,7 @@ const Testimonial = () => {
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-105">
+  <div className="bg-white rounded-lg section shadow-lg p-8 flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-105">
     <div className="flex flex-col items-center mb-6">
       <p className="text-lg font-outfit text-center mb-2">
         "{testimonial.quote}"
