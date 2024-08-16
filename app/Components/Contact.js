@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DOMPurify from "dompurify";
 import {
   User,
@@ -12,7 +12,8 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 const ContactForm = () => {
   const [status, setStatus] = useState("");
 
@@ -44,16 +45,42 @@ const ContactForm = () => {
       setStatus("error");
     }
   };
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="bg-gradient-to-br from-white to-gray-100 min-h-screen font-outfit">
       <div className="max-w-6xl mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg rounded-lg p-8 animate-fadeIn">
-            <h2 className="text-3xl font-semibold text-secondary-blue mb-10">
+          <div className="bg rounded-lg p-8">
+            <h2 className="text-3xl section font-semibold text-secondary-blue mb-10">
               Contact Information
             </h2>
-            <div className="space-y-6 lg:space-y-12">
+            <div className="space-y-6 section lg:space-y-12">
               {[
                 {
                   icon: <User className="text-primary-red" />,
@@ -80,22 +107,22 @@ const ContactForm = () => {
                   <div className="bg-white shadow-md p-2 rounded-full mr-4">
                     {item.icon}
                   </div>
-                  <span className="text-charcoal">{item.text}</span>
+                  <span className="text-charcoal section">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div
-            className="bg-white rounded-lg shadow-lg p-8"
+            className="bg-white rounded-lg section shadow-lg p-8"
             style={{ animationDelay: "0.2s" }}
           >
-            <h2 className="text-2xl font-semibold text-secondary-blue mb-6">
+            <h2 className="text-2xl font-semibold section text-secondary-blue mb-6">
               Send us a Message
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 section">
               <div>
-                <label htmlFor="name" className="block text-charcoal mb-2">
+                <label htmlFor="name" className="block section text-charcoal mb-2">
                   Name
                 </label>
                 <input
@@ -103,11 +130,11 @@ const ContactForm = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  className="w-full p-3 border section border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-charcoal mb-2">
+                <label htmlFor="email" className="block section text-charcoal mb-2">
                   Email
                 </label>
                 <input
@@ -115,11 +142,11 @@ const ContactForm = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  className="w-full p-3 border section border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-charcoal mb-2">
+                <label htmlFor="message" className="block section text-charcoal mb-2">
                   Message
                 </label>
                 <textarea
@@ -127,18 +154,18 @@ const ContactForm = () => {
                   name="message"
                   rows="4"
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  className="w-full p-3 border section border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="bg-primary-red text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300"
+                className="bg-primary-red section text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300"
               >
                 Send Message
               </button>
             </form>
             {status === "success" && (
-              <p className="mt-4 text-green-600">
+              <p className="mt-4  text-green-600">
                 Thank you for your message. We'll get back to you soon!
               </p>
             )}

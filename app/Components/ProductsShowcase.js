@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { products } from "../data/Products";
 import SecondaryBtn from "./SecondaryBtn";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const categories = [
   {
@@ -125,13 +127,39 @@ const ProductShowcase = () => {
     setVisibleProducts((prev) => prev + 6);
   };
 
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+    
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="bg-gray-100 min-h-screen py-12">
       <div className="max-w-6xl px-8 tablet:px-16 desktop:px-0 mx-auto">
-        <h1 className="text-4xl leading-tight desktop:text-4xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-8">
+        <h1 className="text-4xl section leading-tight desktop:text-4xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-8">
           Our Exquisite Collection
         </h1>
-        <p className="text-sm font-openSans text-charcoal text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-sm section font-openSans text-charcoal text-center mb-12 max-w-3xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware
           products and elegant coasters. Each piece is a unique work of art,
           created with passion and skill by our master artisans.
@@ -139,7 +167,7 @@ const ProductShowcase = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Categories and Subcategories */}
-          <div className="desktop:w-1/4">
+          <div className="desktop:w-1/4 section">
             <h2 className="text-2xl text-charcoal font-outfit font-semibold mb-4">
               Categories
             </h2>
@@ -154,7 +182,7 @@ const ProductShowcase = () => {
               Show All Products
             </button>
             {categories.map((category) => (
-              <div key={category.name} className="mb-4 text-charcoal">
+              <div key={category.name} className="mb-4 section  text-charcoal">
                 <button
                   onClick={() => handleCategoryClick(category)}
                   className="w-full text-left font-outfit font-medium text-lg flex items-center justify-between bg-white p-3 rounded-lg shadow-md hover:bg-gray-50 transition-colors"
@@ -214,7 +242,7 @@ const ProductShowcase = () => {
           </div>
 
           {/* Product Listing */}
-          <div className="lg:w-3/4">
+          <div className="lg:w-3/4 section">
             <h2 className="text-2xl font-outfit text-charcoal font-semibold mb-4">
               Products
             </h2>
