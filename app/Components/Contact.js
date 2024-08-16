@@ -59,7 +59,7 @@ const ContactForm = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            start: "top 100%",
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
