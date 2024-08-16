@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SecondaryBtn from "./SecondaryBtn";
 import PrimaryBtn from "./PrimaryBtn";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -26,6 +28,7 @@ const products = [
 ];
 
 function CollectionSection() {
+
   const [ripple, setRipple] = useState({
     x: 0,
     y: 0,
@@ -46,18 +49,45 @@ function CollectionSection() {
     }, 1000);
   };
 
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <>
       <div className="w-full h-auto bg-zinc-100 text-white max-w-6xl px-8 mx-auto tablet:px-16 desktop:px-0 mobile:pb-16  flex-col ">
         <h6
-          className="text-center text-xs opacity-70 text-charcoal  mb-8 pt-5
+          className="text-center section text-xs opacity-70 text-charcoal  mb-8 pt-5
     desktop:mb-12"
         >
           Elevate
         </h6>
-        <div className="w-full h-min flex justify-center items-center">
+        <div className="w-full h-min section flex justify-center items-center">
           <h1
-            className="text-charcoal font-outfit text-[6.5vw] tablet:text-[4vw] 
+            className="text-charcoal section font-outfit text-[6.5vw] tablet:text-[4vw] 
       desktop:text-[3vw] desktop:w-[50vw] tablet:w-[70vw] font-bold mb-4 tablet:mb-10 opacity-90 text-center"
           >
             Discover Our <span className="text-primary-red">Handcrafted</span>{" "}
@@ -65,7 +95,7 @@ function CollectionSection() {
           </h1>
         </div>
         <p
-          className="mb-10 text-cha text-xs text-charcoal font-openSans mobile:leading-relaxed tracking-wide 
+          className="mb-10 section text-cha text-xs text-charcoal font-openSans mobile:leading-relaxed tracking-wide 
             desktop:hidden tablet:block text-center opacity-80 tablet:text-lg tablet:mb-20 tablet:leading-relaxed "
         >
           At Artwork Maestro, we curate a collection of exquisite hornware
@@ -75,7 +105,7 @@ function CollectionSection() {
           hornware.
         </p>
         <p
-          className="mobile:hidden text-charcoal font-openSans tablet:hidden desktop:block text-center
+          className="mobile:hidden section text-charcoal font-openSans tablet:hidden desktop:block text-center
         desktop:leading-loose desktop:tracking-wider  desktop:text-sm desktop:font-medium desktop:mt-2 desktop:px-14
         desktop:mb-20 "
         >
@@ -91,11 +121,11 @@ function CollectionSection() {
           discover the beauty and elegance of hornware, and experience the
           Artwork Maestro difference.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
+        <div className="grid grid-cols-1 section md:grid-cols-3 gap-10 ">
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl tablet:w-72 desktop:w-auto  flex cursor-pointer flex-col gap-2 justify-center items-center text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
+              className="bg-white shadow-xl tablet:w-72 desktop:w-auto section  flex cursor-pointer flex-col gap-2 justify-center items-center text-center h-[28rem] p-4  rounded-lg relative overflow-hidden"
               onClick={(event) => handleRipple(event, index)}
             >
               {ripple.active && ripple.index === index && (
@@ -126,7 +156,7 @@ function CollectionSection() {
             </div>
           ))}
         </div>
-        <div className="mt-12 desktop:mt-16 flex justify-center items-center md:flex-row mobile:gap-6 ">
+        <div className="mt-12 desktop:mt-16 flex section justify-center items-center md:flex-row mobile:gap-6 ">
           <Link
             linkProps={{
               target: "_blank",

@@ -58,10 +58,36 @@ const AboutUs = () => {
     });
   };
 
+  useEffect(() => {
+    const sectionsElements = gsap.utils.toArray(".section");
+    
+    sectionsElements.forEach((section, i) => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div className="text-center section mb-16">
         <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl mb-4 flex items-center justify-center">
           Artw
           <span className="inline-block relative">
@@ -92,13 +118,13 @@ const AboutUs = () => {
             <h1 className="ml-3 desktop:ml-6">Maestro</h1>
           </span>
         </h1>
-        <p className="font-openSans text-charcoal text-md desktop:text-xl">
+        <p className="font-openSans section text-charcoal text-md desktop:text-xl">
           Crafting Excellence, Inspiring Homes
         </p>
       </div>
 
       {/* Hornware Magic Section */}
-      <div className="mb-16">
+      <div className="mb-16 section">
         <h2 className="font-outfit text-secondary-blue text-2xl mb-6">
           Hornware Magic: A Glimpse from Our Expo
         </h2>
@@ -127,11 +153,11 @@ const AboutUs = () => {
       </div>
 
       {/* Our Skilled Artisans Section */}
-      <div className="mb-16">
-        <h2 className="font-outfit text-secondary-blue text-2xl mb-6">
+      <div className="mb-16 section">
+        <h2 className="font-outfit section text-secondary-blue text-2xl mb-6">
           Our Skilled Artisans
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid  grid-cols-2 md:grid-cols-4 gap-4">
           {[
             "/artisans/1.jpg",
             "/artisans/2.jpg",
@@ -153,7 +179,7 @@ const AboutUs = () => {
       </div>
 
       {/* Why Choose Artwork Maestro Section */}
-      <div className="mb-16">
+      <div className="mb-16 section">
         <h2 className="font-outfit text-secondary-blue text-3xl mb-6">
           Why Choose Artwork Maestro?
         </h2>
@@ -189,7 +215,7 @@ const AboutUs = () => {
       </div>
 
       {/* Handcrafted Home Decor Section */}
-      <div className="mb-16">
+      <div className="mb-16 section">
         <div className="flex flex-col items-center md:flex-row gap-8">
           <div className="md:w-2/3">
             <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
@@ -219,7 +245,7 @@ const AboutUs = () => {
       </div>
 
       {/* Your Vision, Our Craftsmanship Section */}
-      <div className="mx-auto">
+      <div className="mx-auto section">
         <h2 className="font-outfit text-secondary-blue text-3xl mb-4">
           Your Vision, Our Craftsmanship
         </h2>
