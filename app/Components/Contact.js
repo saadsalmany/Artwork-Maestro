@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import DOMPurify from "dompurify";
 import {
   User,
   Briefcase,
@@ -20,56 +19,63 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const data = new FormData(form);
-    // Sanitize user input using DOMPurify
-    const sanitizedData = {};
-    for (const [key, value] of data) {
-      sanitizedData[key] = DOMPurify.sanitize(value.toString());
-    }
+    const formData = new FormData(form);
+  
     try {
-      const formData = new FormData();
-      for (const [key, value] of Object.entries(sanitizedData)) {
-        formData.append(key, value);
-      }
+      console.log("Sending request to Formspree...");
       const response = await fetch("https://formspree.io/f/xldrnvbp", {
         method: "POST",
         body: formData,
+        headers: {
+          'Accept': 'application/json'
+        },
       });
+      console.log("Response received:", response);
+      console.log("Response status:", response.status);
+      console.log("Response OK:", response.ok);
+  
       if (response.ok) {
+        const responseData = await response.json();
+        console.log("Response data:", responseData);
         setStatus("success");
         form.reset();
       } else {
+        const errorText = await response.text();
+        console.error("Formspree error:", errorText);
         setStatus("error");
       }
     } catch (error) {
+      console.error("Fetch error:", error);
       setStatus("error");
     }
   };
   useEffect(() => {
-    const sectionsElements = gsap.utils.toArray(".section");
+    if (typeof window !== "undefined") {
+      const sectionsElements = gsap.utils.toArray(".section");
 
-    sectionsElements.forEach((section, i) => {
-      gsap.fromTo(
-        section,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 100%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+      sectionsElements.forEach((section, i) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 100%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    }
   }, []);
 
   return (
@@ -122,7 +128,10 @@ const ContactForm = () => {
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4 section">
               <div>
-                <label htmlFor="name" className="block section text-charcoal mb-2">
+                <label
+                  htmlFor="name"
+                  className="block section text-charcoal mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -134,7 +143,10 @@ const ContactForm = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block section text-charcoal mb-2">
+                <label
+                  htmlFor="email"
+                  className="block section text-charcoal mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -146,7 +158,10 @@ const ContactForm = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block section text-charcoal mb-2">
+                <label
+                  htmlFor="message"
+                  className="block section text-charcoal mb-2"
+                >
                   Message
                 </label>
                 <textarea
