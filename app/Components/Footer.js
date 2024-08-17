@@ -138,7 +138,7 @@ const Footer = () => {
                   className="hover:text-white transition-colors duration-300 ease-in-out relative group"
                 >
                   {item}
-                  <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
+                  <span className="absolute left-0 right-0 bottom-0 h-0.5  top-5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
                 </a>
               </React.Fragment>
             ))}
