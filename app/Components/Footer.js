@@ -47,22 +47,24 @@ const Footer = () => {
             <div>
               <p className="font-semibold text-base mb-1">Address</p>
               <p className="text-xs">
-                Mohalla Sarai Tarin, Sambhal, Uttar Pradesh, India
+                Area Sarai Tarin, Sambhal, Pincode 244303 Uttar Pradesh, India
               </p>
             </div>
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
               <a
-                href="https://wa.me/9045067866"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=artworkmaestro@site.com"
                 rel="noopener noreferrer"
-                target="_bank"
-                className="flex items-center w-min space-x-2 group hover:text-primary-red transition-all duration-300 ease-in-out"
+                target="_blank"
+                className="flex items-center w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
               >
                 <Mail
                   size={16}
                   className="text-white group-hover:animate-pulse"
                 />
-                <span className="text-xs">artworkmaestro@site.com</span>
+                <span className="text-xs underline">
+                  artworkmaestro@gmail.com
+                </span>
               </a>
             </div>
           </div>
@@ -73,7 +75,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                  rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 target="_bank"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Facebook"
@@ -83,7 +85,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/artworkmaestro/"
                 target="_blank"
-                  rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Instagram"
               >
@@ -91,7 +93,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://wa.me/9045067866"
-                  rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 target="_bank"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="WhatsApp"
@@ -101,7 +103,7 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/in/artworkmaestro/"
                 target="_blank"
-                  rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
                 aria-label="Linkedin"
               >
@@ -133,8 +135,8 @@ const Footer = () => {
                 {index > 0 && <span className="text-gray-300">|</span>}
                 <a
                   href="#"
-                    rel="noopener noreferrer"
-                target="_bank"
+                  rel="noopener noreferrer"
+                  target="_bank"
                   className="hover:text-white transition-colors duration-300 ease-in-out relative group"
                 >
                   {item}

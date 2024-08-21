@@ -127,39 +127,14 @@ const ProductShowcase = () => {
     setVisibleProducts((prev) => prev + 6);
   };
 
-  useEffect(() => {
-    const sectionsElements = gsap.utils.toArray(".section");
-    
-    sectionsElements.forEach((section, i) => {
-      gsap.fromTo(section, 
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
     <div className="bg-gray-100 min-h-screen py-12">
       <div className="max-w-6xl px-8 tablet:px-16 desktop:px-0 mx-auto">
-        <h1 className="text-4xl section leading-tight desktop:text-4xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-8">
+        <h1 className="text-4xl section leading-tight desktop:text-5xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-6">
           Our Exquisite Collection
         </h1>
-        <p className="text-sm section font-openSans text-charcoal text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-md section font-openSans text-charcoal text-center mb-12 max-w-2xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware
           products and elegant coasters. Each piece is a unique work of art,
           created with passion and skill by our master artisans.

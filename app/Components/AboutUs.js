@@ -58,31 +58,6 @@ const AboutUs = () => {
     });
   };
 
-  useEffect(() => {
-    const sectionsElements = gsap.utils.toArray(".section");
-    
-    sectionsElements.forEach((section, i) => {
-      gsap.fromTo(section, 
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">

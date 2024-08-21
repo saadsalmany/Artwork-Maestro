@@ -11,8 +11,6 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 const ContactForm = () => {
   const [status, setStatus] = useState("");
 
@@ -49,34 +47,6 @@ const ContactForm = () => {
       setStatus("error");
     }
   };
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const sectionsElements = gsap.utils.toArray(".section");
-
-      sectionsElements.forEach((section, i) => {
-        gsap.fromTo(
-          section,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 100%",
-              end: "bottom 20%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    }
-  }, []);
 
   return (
     <div className="bg-gradient-to-br from-white to-gray-100 min-h-screen font-outfit">
@@ -98,7 +68,7 @@ const ContactForm = () => {
                 },
                 {
                   icon: <Phone className="text-primary-red" />,
-                  text: "+91 - 9045 067 855",
+                  text: "+91 - 7452861066",
                 },
                 {
                   icon: <Mail className="text-primary-red" />,
@@ -106,7 +76,7 @@ const ContactForm = () => {
                 },
                 {
                   icon: <MapPin className="text-primary-red" />,
-                  text: "Area Mangal Pura Takhiya Colony, Sarai Tarin District Sambhal 244303 Moradabad, Uttar Pradesh, India",
+                  text: "Area Mangal Pura Takhiya Colony, Sarai Tarin District Sambhal, pincode 244303, Moradabad, Uttar Pradesh, India",
                 },
               ].map((item, index) => (
                 <div key={index} className="flex items-center">

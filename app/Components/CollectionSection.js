@@ -4,8 +4,6 @@ import { RxDownload } from "react-icons/rx";
 import React, { useState, useRef, useEffect } from "react";
 import SecondaryBtn from "./SecondaryBtn";
 import PrimaryBtn from "./PrimaryBtn";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 const products = [
   {
     title: "Beer Cups: Crafted with Precision",
@@ -49,32 +47,6 @@ function CollectionSection() {
     }, 1000);
   };
 
-  useEffect(() => {
-    const sectionsElements = gsap.utils.toArray(".section");
-
-    sectionsElements.forEach((section, i) => {
-      gsap.fromTo(
-        section,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   return (
     <>
@@ -164,19 +136,18 @@ function CollectionSection() {
             }}
             href="/about"
           >
-            <SecondaryBtn>Get Info</SecondaryBtn>
+            <SecondaryBtn>About Us</SecondaryBtn>
           </Link>
           <Link
             linkProps={{
               target: "_blank",
               rel: "noopener noreferrer",
             }}
-            href="/sdfsdf"
+            href="/contact"
           >
             <PrimaryBtn>
               <div className="flex flex-row items-center">
-                <RxDownload className="mr-2" />
-                <span>Brochure</span>
+                <span>Custom Order</span>
               </div>
             </PrimaryBtn>
           </Link>
