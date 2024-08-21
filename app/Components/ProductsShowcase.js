@@ -10,7 +10,7 @@ import { ScrollTrigger } from "gsap/all";
 
 const categories = [
   {
-    name: "Home Decor",
+    name: "Home Decor & Accessories",
     subcategories: [
       {
         name: "Vases",
@@ -41,10 +41,14 @@ const categories = [
         name: "Tissue Boxes",
         items: ["Bone Tissue Box"],
       },
+      {
+        name: "Personal Care",
+        items: ["Horn Comb"],
+      },
     ],
   },
   {
-    name: "Jewelry & Accessories",
+    name: "Fashion Jewellery",
     subcategories: [
       {
         name: "Jewelry Boxes",
@@ -53,10 +57,7 @@ const categories = [
           "Transparently Attractive Mini Jewellery Box",
         ],
       },
-      {
-        name: "Personal Care",
-        items: ["Horn Comb"],
-      },
+      
     ],
   },
   {
@@ -77,22 +78,11 @@ const categories = [
     ],
   },
   {
-    name: "Buffalo Horn Products",
+    name: "Horn, Vikings & Medieval Crafts",
     subcategories: [
       {
         name: "Drinking Horns",
         items: ["Drinking Horn"],
-      },
-    ],
-  },
-  {
-    name: "Coasters",
-    subcategories: [
-      {
-        name: "All Coasters",
-        items: products
-          .filter((product) => product.category === "Coasters")
-          .map((product) => product.name),
       },
     ],
   },

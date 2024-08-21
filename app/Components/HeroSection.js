@@ -18,15 +18,46 @@ const HeroSection = () => {
 
       // Initial animations
       tl.from(elementsRef.current.heading, { opacity: 0, y: 50, duration: 1 })
-        .from(elementsRef.current.subheading, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
-        .from(elementsRef.current.paragraph, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
-        .from(elementsRef.current.image, { opacity: 0, scale: 0.8, duration: 0.5 }, "-=0.5")
-        .from(elementsRef.current.mobileParagraph, { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
-        .from(elementsRef.current.mobileImage, { opacity: 0, scale: 0.8, duration: 0.5 }, "-=0.5")
-        .from(elementsRef.current.cta, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
-        .from(elementsRef.current.shipment, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
-        .from(elementsRef.current.marquee, { opacity: 0, y: 20, duration: 0.5 }, "-=0.3");
-
+        .from(
+          elementsRef.current.subheading,
+          { opacity: 0, y: 30, duration: 0.8 },
+          "-=0.5"
+        )
+        .from(
+          elementsRef.current.paragraph,
+          { opacity: 0, y: 30, duration: 0.8 },
+          "-=0.5"
+        )
+        .from(
+          elementsRef.current.image,
+          { opacity: 0, scale: 0.8, duration: 0.5 },
+          "-=0.5"
+        )
+        .from(
+          elementsRef.current.mobileParagraph,
+          { opacity: 0, y: 30, duration: 0.8 },
+          "-=0.5"
+        )
+        .from(
+          elementsRef.current.mobileImage,
+          { opacity: 0, scale: 0.8, duration: 0.5 },
+          "-=0.5"
+        )
+        .from(
+          elementsRef.current.cta,
+          { opacity: 0, y: 20, duration: 0.5 },
+          "-=0.3"
+        )
+        .from(
+          elementsRef.current.shipment,
+          { opacity: 0, y: 20, duration: 0.5 },
+          "-=0.3"
+        )
+        .from(
+          elementsRef.current.marquee,
+          { opacity: 0, y: 20, duration: 0.5 },
+          "-=0.3"
+        );
 
       // Subtle parallax effect for images
       gsap.to(elementsRef.current.image, {
@@ -65,10 +96,11 @@ const HeroSection = () => {
           </p>
           <p
             ref={(el) => (elementsRef.current.mobileParagraph = el)}
-            className="text-xs tablet:hidden font-openSans text-charcoal mb-4 tablet:mb-8"
+            className="text-xs tablet:hidden font-openSans text-charcoal mb-6 tablet:mb-8"
           >
-            Artwork Maestro offers exquisite hornware crafted from sustainable
-            materials such as beer cups, holders and explore more!
+            Exquisite home decors, handcrafted Indian jewelry & sustainable
+            products made from natural materials like horn, bone, resin, mother
+            of pearl, wood & marble.
           </p>
 
           <p
@@ -109,14 +141,9 @@ const HeroSection = () => {
             ref={(el) => (elementsRef.current.shipment = el)}
             className="flex items-center text-xs tablet:text-sm justify-center desktop:justify-start font-openSans text-charcoal"
           >
-            <Image
-              src="/plane.gif"
-              alt="Truck Icon"
-              width={20}
-              height={20}
-            />
+            <Image src="/plane.gif" alt="Truck Icon" width={20} height={20} />
             <p className="mx-2 desktop:text-sm tablet:text-lg ">
-              Initiated more than 100+ Shipment Successfully
+              Initiated more than 10000+ Shipment Successfully
             </p>
             <Image
               src="/successIcon.svg"
@@ -141,8 +168,6 @@ const HeroSection = () => {
           />
         </div>
       </section>
-
-    
     </>
   );
 };
