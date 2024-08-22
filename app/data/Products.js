@@ -52,79 +52,79 @@ export const products = [
     ],
     customSizes: true
   },
-  {
-    id: 4,
-    name: "Suri Box and Decorative Homeware",
-    slug: "suri-box-decorative-homeware",
-    category: "Home Decor",
-    tags: ["Box", "Suri", "Decorative", "Homeware"],
-    image: "/productsImages/AWM2448.jpeg",
-    description: "Elegant Suri box and decorative homeware piece, available in multiple sizes to suit your home decor needs.",
-    images: [
-      "/productsImages/AWM2448.jpeg",
-      "/productsImages/AWM2448_2.jpeg",
-      "/productsImages/AWM2448_3.jpeg",
-    ],
-    sizes: [
-      "Large - 19x19x16 cm",
-      "Medium - 13x13x12 cm",
-      "Small – 10x10x10 cm"
-    ],
-    customSizes: true
-  },
-  {
-    id: 5,
-    name: "Mini Jewellery Box",
-    slug: "mini-jewellery-box",
-    category: "Jewelry Storage",
-    tags: ["Box", "Jewelry", "Mini"],
-    image: "/productsImages/AWM2452.jpeg",
-    description: "Compact and elegant mini jewellery box, perfect for storing and displaying your precious items.",
-    images: [
-      "/productsImages/AWM2452.jpeg",
-      "/productsImages/AWM2452_2.jpeg",
-      "/productsImages/AWM2452_3.jpeg",
-    ],
-    sizes: ["6x4x1.75 Inches"],
-    customSizes: true
-  },
-  {
-    id: 6,
-    name: "Round Mini Suri Decorative Box",
-    slug: "round-mini-suri-decorative-box",
-    category: "Home Decor",
-    tags: ["Box", "Suri", "Decorative", "Round"],
-    image: "/productsImages/AWM2474.jpeg",
-    description: "Charming round mini Suri decorative box, adding a touch of elegance to any space.",
-    images: [
-      "/productsImages/AWM2474.jpeg",
-      "/productsImages/AWM2474_2.jpeg",
-      "/productsImages/AWM2474_3.jpeg",
-    ],
-    sizes: ["Height – 3.5 Inches", "Diameter – 6.5 Inches"],
-    customSizes: true
-  },
-  {
-    id: 7,
-    name: "Transparently Attractive Mini Jewellery Box",
-    slug: "transparent-mini-jewellery-box",
-    category: "Jewelry Storage",
-    tags: ["Box", "Jewelry", "Transparent", "Mini"],
-    image: "/productsImages/AWM2499.jpeg",
-    description: "Elegant transparent mini jewellery box, showcasing your precious items while keeping them protected.",
-    images: [
-      "/productsImages/AWM2499.jpeg",
-      "/productsImages/AWM2499_2.jpeg",
-      "/productsImages/AWM2499_3.jpeg",
-    ],
-    sizes: [
-      "4x4x1.5 Inches",
-      "6.5x5.5x2.5 Inches",
-      "7x5.5x1.5 Inches",
-      "8x4x2 Inches"
-    ],
-    customSizes: true
-  },
+  // {
+  //   id: 4,
+  //   name: "Suri Box and Decorative Homeware",
+  //   slug: "suri-box-decorative-homeware",
+  //   category: "Home Decor",
+  //   tags: ["Box", "Suri", "Decorative", "Homeware"],
+  //   image: "/productsImages/AWM2448.jpeg",
+  //   description: "Elegant Suri box and decorative homeware piece, available in multiple sizes to suit your home decor needs.",
+  //   images: [
+  //     "/productsImages/AWM2448.jpeg",
+  //     "/productsImages/AWM2448_2.jpeg",
+  //     "/productsImages/AWM2448_3.jpeg",
+  //   ],
+  //   sizes: [
+  //     "Large - 19x19x16 cm",
+  //     "Medium - 13x13x12 cm",
+  //     "Small – 10x10x10 cm"
+  //   ],
+  //   customSizes: true
+  // },
+  // {
+  //   id: 5,
+  //   name: "Mini Jewellery Box",
+  //   slug: "mini-jewellery-box",
+  //   category: "Jewelry Storage",
+  //   tags: ["Box", "Jewelry", "Mini"],
+  //   image: "/productsImages/AWM2452.jpeg",
+  //   description: "Compact and elegant mini jewellery box, perfect for storing and displaying your precious items.",
+  //   images: [
+  //     "/productsImages/AWM2452.jpeg",
+  //     "/productsImages/AWM2452_2.jpeg",
+  //     "/productsImages/AWM2452_3.jpeg",
+  //   ],
+  //   sizes: ["6x4x1.75 Inches"],
+  //   customSizes: true
+  // },
+  // {
+  //   id: 6,
+  //   name: "Round Mini Suri Decorative Box",
+  //   slug: "round-mini-suri-decorative-box",
+  //   category: "Home Decor",
+  //   tags: ["Box", "Suri", "Decorative", "Round"],
+  //   image: "/productsImages/AWM2474.jpeg",
+  //   description: "Charming round mini Suri decorative box, adding a touch of elegance to any space.",
+  //   images: [
+  //     "/productsImages/AWM2474.jpeg",
+  //     "/productsImages/AWM2474_2.jpeg",
+  //     "/productsImages/AWM2474_3.jpeg",
+  //   ],
+  //   sizes: ["Height – 3.5 Inches", "Diameter – 6.5 Inches"],
+  //   customSizes: true
+  // },
+  // {
+  //   id: 7,
+  //   name: "Transparently Attractive Mini Jewellery Box",
+  //   slug: "transparent-mini-jewellery-box",
+  //   category: "Jewelry Storage",
+  //   tags: ["Box", "Jewelry", "Transparent", "Mini"],
+  //   image: "/productsImages/AWM2499.jpeg",
+  //   description: "Elegant transparent mini jewellery box, showcasing your precious items while keeping them protected.",
+  //   images: [
+  //     "/productsImages/AWM2499.jpeg",
+  //     "/productsImages/AWM2499_2.jpeg",
+  //     "/productsImages/AWM2499_3.jpeg",
+  //   ],
+  //   sizes: [
+  //     "4x4x1.5 Inches",
+  //     "6.5x5.5x2.5 Inches",
+  //     "7x5.5x1.5 Inches",
+  //     "8x4x2 Inches"
+  //   ],
+  //   customSizes: true
+  // },
 //   {
 //     id: 8,
 //     name: "Bone Photo Frame",

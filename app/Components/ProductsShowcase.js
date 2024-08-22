@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import ProductCard from "./ProductCard";
@@ -12,78 +12,33 @@ const categories = [
   {
     name: "Home Decor & Accessories",
     subcategories: [
-      {
-        name: "Vases",
-        items: [],
-      },
-      {
-        name: "Bowls",
-        items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"],
-      },
-      {
-        name: "Boxes",
-        items: [
-          "Decorative and Multipurpose Box",
-          "Suri Box and Decorative Homeware",
-          "Round Mini Suri Decorative Box",
-          "Bone Decorative Mini Box",
-        ],
-      },
-      {
-        name: "Frames",
-        items: ["Bone Photo Frame"],
-      },
-      {
-        name: "Candle Holders",
-        items: ["Bone Light/Candle/Tea Light Holder"],
-      },
-      {
-        name: "Tissue Boxes",
-        items: ["Bone Tissue Box"],
-      },
-      {
-        name: "Personal Care",
-        items: ["Horn Comb"],
-      },
+      { name: "Vases", items: [] },
+      { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
+      { name: "Boxes", items: ["Decorative and Multipurpose Box", "Suri Box and Decorative Homeware", "Round Mini Suri Decorative Box", "Bone Decorative Mini Box"] },
+      { name: "Frames", items: ["Bone Photo Frame"] },
+      { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
+      { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
+      { name: "Personal Care", items: ["Horn Comb"] },
     ],
   },
   {
     name: "Fashion Jewellery",
     subcategories: [
-      {
-        name: "Jewelry Boxes",
-        items: [
-          "Mini Jewellery Box",
-          "Transparently Attractive Mini Jewellery Box",
-        ],
-      },
-      
+      { name: "Jewelry Boxes", items: ["Mini Jewellery Box", "Transparently Attractive Mini Jewellery Box"] },
     ],
   },
   {
     name: "Kitchenware",
     subcategories: [
-      {
-        name: "Serving Trays",
-        items: ["Bone Fancy Serving Tray"],
-      },
-      {
-        name: "Bowls",
-        items: ["Bone Multipurpose Bowl"],
-      },
-      {
-        name: "Organizers",
-        items: ["Bone Cutlery and Tissue Holder Set"],
-      },
+      { name: "Serving Trays", items: ["Bone Fancy Serving Tray"] },
+      { name: "Bowls", items: ["Bone Multipurpose Bowl"] },
+      { name: "Organizers", items: ["Bone Cutlery and Tissue Holder Set"] },
     ],
   },
   {
     name: "Horn, Vikings & Medieval Crafts",
     subcategories: [
-      {
-        name: "Drinking Horns",
-        items: ["Drinking Horn"],
-      },
+      { name: "Drinking Horns", items: ["Drinking Horn"] },
     ],
   },
 ];
@@ -92,6 +47,7 @@ const ProductShowcase = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [visibleProducts, setVisibleProducts] = useState(6);
+  const [isUnderConstruction, setIsUnderConstruction] = useState(true);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category === selectedCategory ? null : category);
@@ -100,9 +56,7 @@ const ProductShowcase = () => {
   };
 
   const handleSubcategoryClick = (subcategory) => {
-    setSelectedSubcategory(
-      subcategory === selectedSubcategory ? null : subcategory
-    );
+    setSelectedSubcategory(subcategory === selectedSubcategory ? null : subcategory);
     setVisibleProducts(6);
   };
 
@@ -117,9 +71,23 @@ const ProductShowcase = () => {
     setVisibleProducts((prev) => prev + 6);
   };
 
-
   return (
-    <div className="bg-gray-100 min-h-screen py-12">
+    <div className="bg-gray-100 min-h-screen py-12 relative">
+      {isUnderConstruction && (
+        <div className="absolute inset-0 backdrop-blur-md bg-white/30 z-10 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+            <h2 className="text-3xl font-bold text-secondary-blue mb-4">Under Construction</h2>
+            <p className="text-lg text-charcoal mb-6">
+              We're working hard to bring you an amazing product showcase. 
+              Please check back soon!
+            </p>
+            <SecondaryBtn onClick={() => setIsUnderConstruction(false)}>
+              See anyway
+            </SecondaryBtn>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-6xl px-8 tablet:px-16 desktop:px-0 mx-auto">
         <h1 className="text-4xl section leading-tight desktop:text-5xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-6">
           Our Exquisite Collection
@@ -137,7 +105,7 @@ const ProductShowcase = () => {
               Categories
             </h2>
             <button
-              className="text-sm flex gap-2  active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
+              className="text-sm flex gap-2 active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
               onClick={() => {
                 setSelectedCategory(null);
                 setSelectedSubcategory(null);
@@ -147,7 +115,7 @@ const ProductShowcase = () => {
               Show All Products
             </button>
             {categories.map((category) => (
-              <div key={category.name} className="mb-4 section  text-charcoal">
+              <div key={category.name} className="mb-4 section text-charcoal">
                 <button
                   onClick={() => handleCategoryClick(category)}
                   className="w-full text-left font-outfit font-medium text-lg flex items-center justify-between bg-white p-3 rounded-lg shadow-md hover:bg-gray-50 transition-colors"
@@ -225,7 +193,6 @@ const ProductShowcase = () => {
             )}
           </div>
         </div>
-
       </div>
     </div>
   );
