@@ -162,8 +162,8 @@ const AboutUs = () => {
                   width={1000}
                   height={600}
                   objectFit="cover"
-                  loading="lazy"
-                  quality={80}
+                  quality={60}
+                  layout="responsive"
                   className="rounded-xl shadow-lg"
                 />
               </SwiperSlide>
