@@ -3,6 +3,17 @@ import Image from "next/image";
 import { Heart, Archive, Diamond, BadgeCheck, User } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Autoplay,
+  Pagination,
+  Navigation,
+  EffectCoverflow,
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +52,12 @@ const AboutUs = () => {
     },
   ];
 
+  const expoImages = [
+    { src: "/expo.jpeg", alt: "This is an Expo Image" },
+    { src: "/expo2.png", alt: "This is an Expo Image" },
+    { src: "/expo3.png", alt: "This is an Expo Image" },
+  ];
+
   const hoverAnimation = (target) => {
     gsap.to(target, {
       scale: 1.05,
@@ -60,7 +77,7 @@ const AboutUs = () => {
   return (
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
-      <div className="text-center section mb-16">
+      <div className="text-center section mb-10">
         <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl desktop:mb-6 mb-4 -mt-4 flex items-center justify-center">
           Artw
           <span className="inline-block relative">
@@ -91,38 +108,94 @@ const AboutUs = () => {
             <h1 className="ml-3 desktop:ml-6">Maestro</h1>
           </span>
         </h1>
-        <p className="font-outfit tracking-wide mx-auto py-1 bg-primary-red desktop:w-[30rem] w-72 section rounded-full text-white text-sm md:text-lg md:w-96 desktop:text-2xl">
+        <p className="font-outfit tracking-wide  mx-auto py-1 bg-primary-red desktop:w-[30rem] w-72 section rounded-full text-white text-sm md:text-lg md:w-96 desktop:text-2xl">
           We never compromise with quality
         </p>
       </div>
 
       {/* Hornware Magic Section */}
       <div className="mb-16 section">
-        <h2 className="font-outfit text-secondary-blue text-2xl mb-6">
+        <h2 className="font-outfit desktop:text-center text-secondary-blue text-2xl desktop:text-2xl mb-6">
           Explore Our Recent Indian Handicraft Exhibitions
         </h2>
-        <div className="flex flex-col md:flex-col items-center lg:flex-row gap-8">
-          <Image
-            src={"/expo.jpeg"}
-            objectFit="contain"
-            width={1000}
-            height={1000}
-            loading="lazy"
-            quality={30}
-            className="rounded-2xl h-full lg:w-1/2 shadow-md"
-            onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
-            onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
-          />
-          <div className="md:full">
-            <p className="font-openSans leading-loose tracking-wide text-charcoal">
-              We showcased our latest collection of handcrafted homeware at Expo
-              Mart, featuring a stunning blend of contemporary design and
-              timeless elegance. This event wasn't just about products - it was
-              a chance to connect with design enthusiasts and share the passion
-              behind each meticulously crafted piece. As we continue to inspire
-              at these prestigious events, we remain committed to enriching
-              homes with exceptional decor and signature style.
-            </p>
+        <div className="flex flex-col items-center gap-8">
+          <Swiper
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 1.7,
+                spaceBetween: 30,
+              },
+            }}
+            effect={"coverflow"}
+            grabCursor={true}
+            initialSlide={1}
+            centeredSlides={true}
+            slidesPerView={1.5}
+            spaceBetween={50}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 20,
+              depth: 100,
+              modifier: 2,
+              slideShadows: true,
+            }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={false}
+            modules={[Autoplay, EffectCoverflow]}
+            className="mySwiper w-full desktop:w-full"
+          >
+            {expoImages.map((image, index) => (
+              <SwiperSlide key={index} className="flex w-96 justify-center">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={1000}
+                  height={600}
+                  objectFit="cover"
+                  loading="lazy"
+                  quality={80}
+                  className="rounded-xl shadow-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="md:full flex flex-wrap">
+            <div className="md:full flex flex-wrap">
+              <p className="font-openSans leading-loose tracking-wide text-charcoal w-full">
+                <span className="text-secondary-blue text-lg font-medium">
+                  ARTWORK MAESTRO
+                </span>{" "}
+                - Your Gateway to Indian Handicrafts
+                <br />
+                We proudly showcase India's{" "}
+                <span className="font-medium">
+                  rich cultural heritage
+                </span> at{" "}
+                <span className="font-medium">prestigious exhibitions</span>{" "}
+                like IHGF, DELHI FAIR, IFJAS, and many more. These events
+                provide a unique platform to connect with{" "}
+                <span className="font-medium">like-minded individuals</span> and{" "}
+                <span className="font-medium">foster a community</span> that
+                celebrates <span className="font-medium">traditional arts</span>
+                . We're deeply inspired by the{" "}
+                <span className="font-medium">vibrant creativity</span> and{" "}
+                <span className="font-medium">cultural significance</span> of
+                Indian handicrafts, and we're dedicated to{" "}
+                <span className="font-medium">preserving and promoting</span>{" "}
+                their <span className="font-medium">timeless beauty</span>{" "}
+                globally.
+              </p>
+            </div>
           </div>
         </div>
       </div>
