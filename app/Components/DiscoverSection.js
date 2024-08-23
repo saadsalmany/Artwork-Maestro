@@ -15,7 +15,7 @@ const ProductRangeCard = () => {
         >
           <div className="tablet:w-1/2 p-4 mt-4 flex flex-col desktop:gap-4 justify-center">
             <h2 className="section text-secondary-blue text-3xl tablet:text-4xl desktop:text-5xl desktop:w-full tablet:w-96  font-outfit font-bold mb-4">
-              Piscover our exquisite product range
+              Discover our exquisite product range
             </h2>
             <p className="text-charcoal section text-sm tablet:text-base tablet:w-96 font-openSans mb-6">
               Experience the beauty and craftsmanship of our handcrafted
@@ -33,7 +33,7 @@ const ProductRangeCard = () => {
           <div className="tablet:w-1/2 section">
             <div className="relative w-80 desktop:w-full">
               <Image
-                src="/craftStore.png"
+                src="/discover.png"
                 alt="Handcrafted hornware collection"
                 width={500}
                 height={0}
