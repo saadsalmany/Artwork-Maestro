@@ -37,6 +37,7 @@ const ProductRangeCard = () => {
                 alt="Handcrafted hornware collection"
                 width={500}
                 height={0}
+                
                 className="rounded-xl shadow-xl mt-4"
               />
             </div>

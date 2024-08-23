@@ -141,8 +141,8 @@ const HeroSection = () => {
             ref={(el) => (elementsRef.current.shipment = el)}
             className="flex items-center text-xs tablet:text-sm justify-center desktop:justify-start font-openSans text-charcoal"
           >
-            <Image src="/plane.gif" alt="Truck Icon" width={20} height={20} />
-            <p className="mx-2 desktop:text-sm tablet:text-lg ">
+            <Image src="/plane.gif" alt="Globe Plane icon" width={20} height={20} />
+            <p className="mx-1 mt-1 desktop:text-sm tablet:text-lg ">
               Initiated more than 10000+ Shipment Successfully
             </p>
             <Image
@@ -150,6 +150,7 @@ const HeroSection = () => {
               alt="Success Icon"
               width={20}
               height={20}
+              className="mt-1"
             />
           </div>
         </div>
