@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin, Phone, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
@@ -46,25 +46,37 @@ const Footer = () => {
           <div className="flex flex-col space-y-4">
             <div>
               <p className="font-semibold text-base mb-1">Address</p>
-              <p className="text-xs">
-                Area Sarai Tarin, Sambhal, Pincode 244303 Uttar Pradesh, India
-              </p>
+               
+              <p className="text-xs font-outfit ">
+                Area Mangal Pura Takhiya Colony, Sarai Tarin District Sambhal,
+                pincode 244303, Moradabad, Uttar Pradesh, India
+              </p> 
             </div>
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=artworkmaestro@site.com"
+                href="mailto:info@artworkmaestro.com?subject=Contact from Website&body=Hello, I have a question."
                 rel="noopener noreferrer"
                 target="_blank"
-                className="flex items-center w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
+                className="flex items-center underline w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
               >
                 <Mail
                   size={16}
                   className="text-white group-hover:animate-pulse"
                 />
-                <span className="text-xs underline">
-                  artworkmaestro@gmail.com
-                </span>
+                <span className="text-sm opacity-90 font-outfit">info@artworkmaestro.com</span>
+              </a>
+              <a
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@artworkmaestro.com"
+                rel="noopener noreferrer"
+                target="_blank"
+                className="flex items-center underline mt-1 w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
+              >
+                <Mail
+                  size={16}
+                  className="text-white group-hover:animate-pulse"
+                />
+                <span className="text-sm opacity-90 font-outfit">shahzaib@artworkmaestro.com</span>
               </a>
             </div>
           </div>
@@ -116,7 +128,7 @@ const Footer = () => {
         <hr className="my-4 border-gray-200" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs">
-          <p className="mb-6 md:mb-0 text-center md:text-left">
+          <p className="mb-6 md:mb-0 font-outfit text-center md:text-left">
             Copyright © {currentYear} Artwork Maestro, All rights reserved |
             Powered by{" "}
             <a
@@ -124,17 +136,17 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="font-outfit underline text-primary-red cursor-pointer hover:text-white transition-colors duration-300">
+              <span className="font-outfit underline text-yellow-400 cursor-pointer hover:text-primary-red transition-colors duration-300">
                 Saad Salmany
               </span>
             </a>
           </p>
-          <div className="flex flex-wrap justify-center md:justify-end space-x-4">
+          <div className="flex cursor-pointer font-outfit flex-wrap justify-center md:justify-end space-x-4">
             {["Certifications", "Privacy Policy"].map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <span className="text-gray-300">|</span>}
                 <a
-                  href="#"
+                  // href="#"
                   rel="noopener noreferrer"
                   target="_bank"
                   className="hover:text-white transition-colors duration-300 ease-in-out relative group"

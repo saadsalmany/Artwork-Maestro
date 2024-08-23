@@ -145,7 +145,7 @@ const AboutUs = () => {
               objectFit="fit"
               width={1000}
               height={1000}
-              className="bg-white aspect-square shadow-md rounded-lg"
+              className="bg-white  aspect-square shadow-md rounded-lg"
               onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
               onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
             />
