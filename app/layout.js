@@ -27,6 +27,7 @@ export const metadata = {
     "sustainable handicrafts",
     "luxury horn items",
   ],
+  canonical: "https://www.artworkmaestro.com",
   openGraph: {
     title: "Artwork Maestro | Handcrafted Hornware Products",
     description:
@@ -57,7 +58,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  canonical: "https://www.artworkmaestro.com",
+  
 };
 
 export default function RootLayout({ children }) {
