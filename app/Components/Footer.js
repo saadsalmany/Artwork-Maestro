@@ -141,7 +141,7 @@ const Footer = () => {
               </span>
             </a>
           </p>
-          <div className="flex cursor-pointer font-outfit flex-wrap justify-center md:justify-end space-x-4">
+          <div className="flex cursor-pointer  font-outfit flex-wrap justify-center md:justify-end space-x-4">
             {["Certifications", "Privacy Policy"].map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <span className="text-gray-300">|</span>}
