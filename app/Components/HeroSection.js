@@ -121,10 +121,11 @@ const HeroSection = () => {
             className="w-72 desktop:hidden tablet:w-[50vw] tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
-              src="/heroSvg.svg"
-              alt="Hero"
+              src="/heroImage.png"
+              alt="Viking drinking with hornmug"
               width={288}
               height={288}
+              layout="responsive"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -160,7 +161,7 @@ const HeroSection = () => {
           className="hidden desktop:block tablet:hidden flex-1 relative tablet:mt-8 desktop:mt-10 desktop:left-16"
         >
           <Image
-            src="/heroSvg.svg"
+            src="/heroImage.png"
             alt="Hero"
             width={500}
             height={500}
