@@ -7,9 +7,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
-  Instagram,
-  Linkedin,
 } from "lucide-react";
 const ContactForm = () => {
   const [status, setStatus] = useState("");

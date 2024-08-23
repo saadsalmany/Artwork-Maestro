@@ -57,7 +57,6 @@ const AboutUs = () => {
     });
   };
 
-
   return (
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
@@ -100,7 +99,7 @@ const AboutUs = () => {
       {/* Hornware Magic Section */}
       <div className="mb-16 section">
         <h2 className="font-outfit text-secondary-blue text-2xl mb-6">
-          Hornware Magic: A Glimpse from Our Expo
+          Explore Our Recent Indian Handicraft Exhibitions
         </h2>
         <div className="flex flex-col md:flex-col items-center lg:flex-row gap-8">
           <Image
