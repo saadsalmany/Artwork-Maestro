@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Heart, Archive, Diamond, BadgeCheck, User } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -63,7 +62,7 @@ const AboutUs = () => {
     <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
       <div className="text-center section mb-16">
-        <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl mb-4 flex items-center justify-center">
+        <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl desktop:mb-6 mb-4 -mt-4 flex items-center justify-center">
           Artw
           <span className="inline-block relative">
             <svg
@@ -93,8 +92,8 @@ const AboutUs = () => {
             <h1 className="ml-3 desktop:ml-6">Maestro</h1>
           </span>
         </h1>
-        <p className="font-openSans section text-charcoal text-md desktop:text-xl">
-          Crafting Excellence, Inspiring Homes
+        <p className="font-outfit tracking-wide mx-auto py-1 bg-primary-red desktop:w-[30rem] w-72 section rounded-full text-white text-sm md:text-lg md:w-96 desktop:text-2xl">
+          We never compromise with quality
         </p>
       </div>
 
@@ -109,6 +108,8 @@ const AboutUs = () => {
             objectFit="contain"
             width={1000}
             height={1000}
+            loading="lazy"
+            quality={30}
             className="rounded-2xl h-full lg:w-1/2 shadow-md"
             onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
             onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
