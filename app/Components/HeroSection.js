@@ -51,7 +51,8 @@ const HeroSection = () => {
               alt="Viking drinking with hornmug"
               width={288}
               height={288}
-              layout="responsive"
+              priority={true}
+              loading='eager'
               className="w-full h-auto object-cover"
             />
           </div>
@@ -88,7 +89,8 @@ const HeroSection = () => {
             alt="Hero"
             width={500}
             height={500}
-            quality={100}
+            loading="eager"
+            priority={true}
             className="w-full h-auto object-contain tablet:max-w-md tablet:mx-auto desktop:max-w-none desktop:w-[500px] desktop:h-[500px]"
           />
         </div>

@@ -36,7 +36,7 @@ export const metadata = {
     siteName: "Artwork Maestro",
     images: [
       {
-        url: "https://www.artworkmaestro.com/_next/image?url=%2Fexpo2.png&w=1920&q=60",
+        url: "https://www.canva.com/design/DAGOr9QW_S0/4Yavl1PKI2rcgoGl4d6CaA/view?utm_content=DAGOr9QW_S0&utm_campaign=designshare&utm_medium=link&utm_source=editor",
         width: 1200,
         height: 630,
       },
@@ -58,7 +58,6 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  
 };
 
 export default function RootLayout({ children }) {
@@ -68,7 +67,6 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
         <SpeedInsights />
-        
       </body>
     </html>
   );
