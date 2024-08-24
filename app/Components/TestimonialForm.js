@@ -1,44 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Star } from "lucide-react";
-import PrimaryBtn from "./PrimaryBtn";
-import SecondaryBtn from "./SecondaryBtn";
-import DOMPurify from "dompurify";
+import React, { useState } from 'react';
+import { Star, Mail } from 'lucide-react';
+import PrimaryBtn from './PrimaryBtn';
+import SecondaryBtn from './SecondaryBtn';
+import DOMPurify from 'dompurify';
 
-function TestimonialForm() {
-  const [testimonials, setTestimonials] = useState([
-    {
-      quote:
-        "I am absolutely thrilled with my new Viking hornware mug! The craftsmanship is exceptional and it's become my go-to drinkware.",
-      author: "Lars Jensen",
-      country: "Copenhagen, Denmark",
-      image: "/larsc2.png",
-      rating: 5,
-    },
-    {
-      quote:
-        "I purchased the Viking hornware necklace as a gift for my wife and she loves it! The quality is superb and it's a beautiful piece.",
-      author: "Pierre Dupont",
-      country: "Paris, France",
-      image: "/pierrec3.png",
-      rating: 5,
-    },
-    {
-      quote:
-        "I've always been fascinated by Viking history and the hornware products I've purchased have exceeded my expectations. Highly recommend!",
-      author: "Maria Rodriguez",
-      country: "Madrid, Spain",
-      image: "/Mariac1.png",
-      rating: 5,
-    },
-  ]);
-
+const TestimonialForm = () => {
   const [newReview, setNewReview] = useState({
-    quote: "",
-    author: "",
-    country: "",
-    rating: 5,
-    email: "",
+    quote: '',
+    author: '',
+    country: '',
+    rating: 0,
+    email: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -46,155 +21,122 @@ function TestimonialForm() {
     setNewReview((prev) => ({ ...prev, [name]: sanitizedValue }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("https://formspree.io/f/xpwadbpa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newReview),
-      });
-
-      if (response.ok) {
-        alert("Your review has been submitted for approval. Thank you!");
-      } else {
-        alert("There was an error submitting your review. Please try again.");
+    setIsSubmitting(true);
+    fetch(`https://formspree.io/f/xpwadbpa`, {
+      method: 'POST',
+      body: JSON.stringify(newReview),
+      headers: {
+        'Content-Type': 'application/json'
       }
-    } catch (error) {
-      console.error("Error submitting review:", error);
-      alert("An error occurred. Please try again.");
-    }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    })
+    .catch(error => {
+      console.error(error);
+      setIsSubmitting(false);
+    });
   };
 
   return (
-    <div>
-      <div className="bg-white section rounded-lg  p-8 animate-slide-up">
-        <h3 className=" text-2xl desktop:text-4xl my-4 font-semibold text-center text-secondary-blue mb-8 font-outfit">
-          Rate Our Products!
-        </h3>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="group">
-            <label
-              htmlFor="quote"
-              className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-            >
-              Your Review
-            </label>
-            <textarea
-              id="quote"
-              name="quote"
-              value={newReview.quote}
-              onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-              rows="4"
-              required
-            />
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="group">
-              <label
-                htmlFor="author"
-                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-              >
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="author"
-                name="author"
-                value={newReview.author}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                required
-              />
-            </div>
-            <div className="group">
-              <label
-                htmlFor="country"
-                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-              >
-                Country
-              </label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={newReview.country}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                required
-              />
-            </div>
-          </div>
-          <div className="group">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-            >
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={newReview.email}
-              onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-              required
-            />
-          </div>
-          <div className="group">
-            <label
-              htmlFor="rating"
-              className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-            >
-              Rating
-            </label>
-            <div className="flex items-center space-x-1">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  type="button"
-                  onClick={() =>
-                    setNewReview((prev) => ({ ...prev, rating: star }))
-                  }
-                  className="focus:outline-none transition-colors duration-300 ease-in-out hover:text-yellow-400"
-                >
-                  <Star
-                    className={`w-8 h-8 ${
-                      star <= newReview.rating
-                        ? "text-yellow-400"
-                        : "text-gray-300"
-                    }`}
-                    fill={star <= newReview.rating ? "currentColor" : "none"}
+    <div className="min-h-screen flex items-center justify-center  py-6">
+      <div className="w-full max-w-xl bg-white border-charcoal border-[1px] rounded-3xl overflow-hidden">
+        <div className="p-8">
+          <h2 className="text-4xl font-semibold text-secondary-blue font-outfit text-center mb-4">Share Your Experience</h2>
+          <p className="text-charcoal leading-snug font-medium font-openSans text-center mb-8">Your feedback shapes our future innovations.</p>
+          
+          {isSubmitted ? (
+            <p className="text-primary-red text-center mb-8">Thank you for submitting your review!</p>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="flex justify-center space-x-2 mb-6">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    onClick={() => setNewReview((prev) => ({ ...prev, rating: star }))}
+                    className="focus:outline-none transition-transform duration-300 ease-in-out hover:scale-110"
+                  >
+                    <Star
+                      size={32}
+                      className={`${star <= newReview.rating ? 'text-yellow-400' : 'text-secondary-blue'}`}
+                      fill={star <= newReview.rating ? 'currentColor' : 'none'}
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <div className="space-y-4">
+                <textarea
+                  name="quote"
+                  value={newReview.quote}
+                  onChange={handleInputChange}
+                  placeholder="Share your thoughts on our hornware..."
+                  className="w-full p-4  rounded-xl border-[1px] border-charcoal placeholder-gray-300 text-black focus:ring-[1px] focus:outline-none "
+                  rows="4"
+                />
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="author"
+                    value={newReview.author}
+                    onChange={handleInputChange}
+                    placeholder="Your Name"
+                    className="w-full p-4  rounded-xl border-[1px] border-charcoal placeholder-gray-300 text-charcoal focus:ring-[1px] focus:outline-none transition-all duration-300"
                   />
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="flex justify-start space-x-4 pt-4">
-            <PrimaryBtn>Submit Review</PrimaryBtn>
-            <SecondaryBtn
-              type="reset"
-              formReset={() =>
-                setNewReview({
-                  quote: "",
-                  author: "",
-                  country: "",
-                  rating: 5,
-                  email: "",
-                })
-              }
-            >
-              Reset
-            </SecondaryBtn>
-          </div>
-        </form>
+                  <input
+                    type="text"
+                    name="country"
+                    value={newReview.country}
+                    onChange={handleInputChange}
+                    placeholder="Country"
+                    className="w-full p-4   rounded-xl border-[1px] border-charcoal placeholder-gray-300 text-charcoal focus:ring-[1px] focus:outline-none transition-all duration-300"
+                  />
+                </div>
+                
+                <div className="relative">
+                  <Mail className="absolute top-1/2 transform -translate-y-1/2 left-4 h-5 w-5 text-gray-300" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={newReview.email}
+                    onChange={handleInputChange}
+                    placeholder="Your Email"
+                    className="w-full p-4 pl-12  rounded-xl border-[1px] border-charcoal placeholder-gray-300 text-charcoal focus:ring-[1px] focus:outline-none transition-all duration-300"
+                  />
+                </div>
+              </div>
+              <div className='flex gap-4'>
+                <PrimaryBtn type='submit' disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit Review'}
+                </PrimaryBtn>
+                <SecondaryBtn
+                  type="reset"
+                  formReset={() =>
+                    setNewReview({
+                      quote: "",
+                      author: "",
+                      country: "",
+                      rating: 5,
+                      email: "",
+                    })
+                  }
+                >
+                  Reset
+                </SecondaryBtn>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default TestimonialForm;

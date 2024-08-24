@@ -47,7 +47,7 @@ const HeroSection = () => {
             className="w-64 desktop:hidden tablet:w-[50vw] tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
-              src="/hero2.svg"
+              src="/hero2.webp"
               alt="Viking holding hornmug"
               width={1000}
               height={1000}
@@ -85,7 +85,7 @@ const HeroSection = () => {
           className="hidden desktop:block tablet:hidden flex-1 relative tablet:mt-8 desktop:mt-14 desktop:left-6"
         >
           <Image
-            src="/hero2.svg"
+            src="/hero2.webp"
             alt="Viking holding hornmug"
             width={500}
             height={500}

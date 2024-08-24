@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Artwork Maestro",
     images: [
       {
-        url: "https://www.artworkmaestro.com/viking.png",
+        url: "https://www.artworkmaestro.com/viking.webp",
         width: 1200,
         height: 630,
       },

@@ -8,7 +8,7 @@ import SecondaryBtn from "./SecondaryBtn";
 const ProductRangeCard = () => {
   return (
     <div className="parent-container w-full  bg-zinc-100 tablet:mb-16 desktop:mb-0">
-      <div className="max-w-6xl mx-auto py-12 desktop:py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto py-12 desktop:pt-0 desktop:py-20 overflow-hidden">
         <div
           className="flex flex-col px-4 items-center justify-center tablet:flex-row tablet:ml-24 tablet:mt-0
         desktop:ml-6 desktop:mt-0"
@@ -33,7 +33,7 @@ const ProductRangeCard = () => {
           <div className="tablet:w-1/2 section">
             <div className="relative w-80 desktop:w-full">
               <Image
-                src="/discover.svg"
+                src="/discover.webp"
                 alt="Handcrafted hornware collection"
                 width={1000}
                 height={1000}
@@ -44,13 +44,7 @@ const ProductRangeCard = () => {
           </div>
         </div>
       </div>
-      <Image
-          src={"/viking.png"}
-          width={1000}
-          height={1000}
-          unoptimized
-          className="w-full  desktop:w-[60rem] mx-auto mt-6 h-full"
-        />
+     
     </div>
   );
 };
