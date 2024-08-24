@@ -33,10 +33,10 @@ const ProductRangeCard = () => {
           <div className="tablet:w-1/2 section">
             <div className="relative w-80 desktop:w-full">
               <Image
-                src="/discover.jpg"
+                src="/discover.svg"
                 alt="Handcrafted hornware collection"
-                width={500}
-                height={0}
+                width={1000}
+                height={1000}
                 
                 className="rounded-xl shadow-xl mt-4"
               />
@@ -44,6 +44,13 @@ const ProductRangeCard = () => {
           </div>
         </div>
       </div>
+      <Image
+          src={"/viking.png"}
+          width={1000}
+          height={1000}
+          unoptimized
+          className="w-full  desktop:w-[60rem] mx-auto mt-6 h-full"
+        />
     </div>
   );
 };

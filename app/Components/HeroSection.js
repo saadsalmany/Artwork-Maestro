@@ -44,16 +44,16 @@ const HeroSection = () => {
 
           {/* HeroImage for mobile layout */}
           <div
-            className="w-72 desktop:hidden tablet:w-[50vw] tablet:block ml-10 mb-5 -mt-8"
+            className="w-64 desktop:hidden tablet:w-[50vw] tablet:block ml-10 mb-5 -mt-8"
           >
             <Image
-              src="/heroImage.png"
-              alt="Viking drinking with hornmug"
-              width={288}
-              height={288}
+              src="/hero2.svg"
+              alt="Viking holding hornmug"
+              width={1000}
+              height={1000}
               priority={true}
               loading='eager'
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
 
@@ -82,11 +82,11 @@ const HeroSection = () => {
         </div>
 
         <div
-          className="hidden desktop:block tablet:hidden flex-1 relative tablet:mt-8 desktop:mt-10 desktop:left-16"
+          className="hidden desktop:block tablet:hidden flex-1 relative tablet:mt-8 desktop:mt-14 desktop:left-6"
         >
           <Image
-            src="/heroImage.png"
-            alt="Hero"
+            src="/hero2.svg"
+            alt="Viking holding hornmug"
             width={500}
             height={500}
             loading="eager"

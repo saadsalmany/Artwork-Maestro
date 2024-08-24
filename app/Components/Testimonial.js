@@ -1,9 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, } from "react";
 import { Star } from "lucide-react";
-import PrimaryBtn from "./PrimaryBtn";
-import SecondaryBtn from "./SecondaryBtn";
-import DOMPurify from "dompurify";
+import TestimonialForm from "./TestimonialForm";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([
@@ -33,54 +31,13 @@ const Testimonial = () => {
     },
   ]);
 
-  const [newReview, setNewReview] = useState({
-    quote: "",
-    author: "",
-    country: "",
-    rating: 5,
-    email: "",
-  });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const sanitizedValue = DOMPurify.sanitize(value);
-    setNewReview((prev) => ({ ...prev, [name]: sanitizedValue }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("https://formspree.io/f/xpwadbpa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newReview),
-      });
-
-      if (response.ok) {
-        alert("Your review has been submitted for approval. Thank you!");
-        setNewReview({
-          quote: "",
-          author: "",
-          country: "",
-          rating: 5,
-          email: "",
-        });
-      } else {
-        alert("There was an error submitting your review. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting review:", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
 
 
   return (
     <div className="bg-zinc-100 py-20">
       <div className="container max-w-7xl mx-auto px-10">
-        <h2 className="text-2xl section desktop:text-5xl font-bold text-secondary-blue text-center mb-20 desktop:mb-32 animate-fade-in">
+        <h2 className="text-3xl section font-outfit desktop:text-5xl font-bold text-secondary-blue text-center mb-12 desktop:mb-24 animate-fade-in">
           Customer Reviews and Testimonials
         </h2>
 
@@ -92,137 +49,16 @@ const Testimonial = () => {
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
-
-        <div className="bg-white section rounded-lg max-w-4xl mx-auto  p-8 animate-slide-up">
-          <h3 className=" text-2xl desktop:text-4xl my-4 font-semibold text-center text-secondary-blue mb-8 font-outfit">
-            Rate Our Products!
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="group">
-              <label
-                htmlFor="quote"
-                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-              >
-                Your Review
-              </label>
-              <textarea
-                id="quote"
-                name="quote"
-                value={newReview.quote}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                rows="4"
-                required
-              />
-            </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="group">
-                <label
-                  htmlFor="author"
-                  className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="author"
-                  name="author"
-                  value={newReview.author}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                  required
-                />
-              </div>
-              <div className="group">
-                <label
-                  htmlFor="country"
-                  className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-                >
-                  Country
-                </label>
-                <input
-                  type="text"
-                  id="country"
-                  name="country"
-                  value={newReview.country}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                  required
-                />
-              </div>
-            </div>
-            <div className="group">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-              >
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={newReview.email}
-                onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary-blue focus:border-secondary-blue transition-all duration-300 ease-in-out hover:border-secondary-blue"
-                required
-              />
-            </div>
-            <div className="group">
-              <label
-                htmlFor="rating"
-                className="block text-sm font-medium text-gray-700 mb-1 transition-colors group-hover:text-secondary-blue"
-              >
-                Rating
-              </label>
-              <div className="flex items-center space-x-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    type="button"
-                    onClick={() =>
-                      setNewReview((prev) => ({ ...prev, rating: star }))
-                    }
-                    className="focus:outline-none transition-colors duration-300 ease-in-out hover:text-yellow-400"
-                  >
-                    <Star
-                      className={`w-8 h-8 ${
-                        star <= newReview.rating
-                          ? "text-yellow-400"
-                          : "text-gray-300"
-                      }`}
-                      fill={star <= newReview.rating ? "currentColor" : "none"}
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="flex justify-start space-x-4 pt-4">
-              <PrimaryBtn>Submit Review</PrimaryBtn>
-              <SecondaryBtn
-                type="reset"
-                formReset={() =>
-                  setNewReview({
-                    quote: "",
-                    author: "",
-                    country: "",
-                    rating: 5,
-                    email: "",
-                  })
-                }
-              >
-                Reset
-              </SecondaryBtn>
-            </div>
-          </form>
-        </div>
+        <TestimonialForm/>
       </div>
     </div>
   );
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-white rounded-lg section shadow-lg p-8 flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-105">
+  <div className="bg-white cursor-pointer rounded-[5rem] border-[1px] border-charcoal section s p-10 flex flex-col 
+  items-center transform transition-all duration-300 ease-in-out desktop:hover:scale-[102%]
+  desktop:hover:shadow-lg active:hover:scale-105">
     <div className="flex flex-col items-center mb-6">
       <p className="text-lg font-outfit text-center mb-2">
         "{testimonial.quote}"

@@ -137,11 +137,11 @@ const AboutUs = () => {
             slidesPerView={1.5}
             spaceBetween={50}
             coverflowEffect={{
-              rotate: 30,
-              stretch: 20,
-              depth: 100,
-              modifier: 2,
-              slideShadows: true,
+              rotate: 10,
+              stretch: 10,
+              depth: 10,
+              modifier: 1,
+              slideShadows: false,
             }}
             autoplay={{
               delay: 2000,
@@ -309,9 +309,8 @@ const AboutUs = () => {
           height={1000}
           unoptimized
           className=" shadow-md w-full h-full  rounded-lg"
-          onMouseEnter={(e) => hoverAnimation(e.currentTarget)}
-          onMouseLeave={(e) => leaveAnimation(e.currentTarget)}
         />
+       
       </div>
     </div>
   );

@@ -58,25 +58,25 @@ const Footer = () => {
                 href="mailto:info@artworkmaestro.com?subject=Contact from Website&body=Hello, I have a question."
                 rel="noopener noreferrer"
                 target="_blank"
-                className="flex items-center underline w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
+                className="flex items-center underline w-min space-x-1 group  transition-all duration-300 ease-in-out"
               >
                 <Mail
                   size={16}
-                  className="text-white group-hover:animate-pulse"
+                  className="text-white"
                 />
-                <span className="text-sm opacity-90 font-outfit">info@artworkmaestro.com</span>
+                <span className="text-sm hover:text-red-300 opacity-90 font-outfit">info@artworkmaestro.com</span>
               </a>
               <a
                 href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@artworkmaestro.com"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="flex items-center underline mt-1 w-min space-x-1 group hover:text-primary-red transition-all duration-300 ease-in-out"
+                className="flex items-center underline mt-1 w-min space-x-1 group  transition-all duration-300 ease-in-out"
               >
                 <Mail
                   size={16}
-                  className="text-white group-hover:animate-pulse"
+                  className="text-white"
                 />
-                <span className="text-sm opacity-90 font-outfit">shahzaib@artworkmaestro.com</span>
+                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">shahzaib@artworkmaestro.com</span>
               </a>
             </div>
           </div>
