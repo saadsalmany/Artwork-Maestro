@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Artwork Maestro | Handcrafted Hornware Products",
   description:
-    "Explore Artwork Maestro's exquisite collection of handcrafted hornware products. Discover unique beer cups, bone items, and artisanal holders. Premium quality for discerning international buyers.",
+  "Explore Artwork Maestro's exquisite collection of handcrafted hornware products. Discover unique beer cups, bone items, and artisanal holders. Premium quality for discerning international buyers.",
   keywords: [
     "hornware",
     "handcrafted",
@@ -27,7 +27,6 @@ export const metadata = {
     "sustainable handicrafts",
     "luxury horn items",
   ],
-  canonical: "https://www.artworkmaestro.com",
   openGraph: {
     title: "Artwork Maestro | Handcrafted Hornware Products",
     description:
@@ -58,6 +57,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  canonical: "https://www.artworkmaestro.com",
 };
 
 export default function RootLayout({ children }) {
