@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Artwork Maestro",
     images: [
       {
-        url: "https://www.canva.com/design/DAGOr9QW_S0/4Yavl1PKI2rcgoGl4d6CaA/view?utm_content=DAGOr9QW_S0&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+        url: "https://www.artworkmaestro.com/viking.png",
         width: 1200,
         height: 630,
       },
