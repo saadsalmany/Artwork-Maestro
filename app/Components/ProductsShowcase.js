@@ -1,12 +1,10 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown, ChevronRight } from "lucide-react";
+'use client'
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { products } from "../data/Products";
 import SecondaryBtn from "./SecondaryBtn";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 
 const categories = [
   {
@@ -38,41 +36,95 @@ const categories = [
   {
     name: "Horn, Vikings & Medieval Crafts",
     subcategories: [
-      { name: "Drinking Horns", items: ["Drinking Horn"] },
+      { name: "Drinking Horn", items: ["Drinking Horn"] },
     ],
   },
 ];
 
 const ProductShowcase = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedSubcategories, setSelectedSubcategories] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(6);
   const [isUnderConstruction, setIsUnderConstruction] = useState(true);
+  const [expandedCategories, setExpandedCategories] = useState([]);
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category === selectedCategory ? null : category);
-    setSelectedSubcategory(null);
-    setVisibleProducts(6);
+  // Updated toggleCategoryFilter function with subcategory selection logic
+  const toggleCategoryFilter = (category) => {
+    setSelectedCategories(prev => {
+      if (prev.includes(category)) {
+        // If category is being deselected, also deselect all its subcategories
+        const subcategoriesToRemove = categories.find(c => c.name === category)?.subcategories.map(sub => sub.name) || [];
+        setSelectedSubcategories(prevSub => prevSub.filter(sub => !subcategoriesToRemove.includes(sub)));
+        return prev.filter(c => c !== category);
+      } else {
+        // If category is being selected, also select all its subcategories
+        const subcategoriesToAdd = categories.find(c => c.name === category)?.subcategories.map(sub => sub.name) || [];
+        setSelectedSubcategories(prevSub => [...new Set([...prevSub, ...subcategoriesToAdd])]);
+        return [...prev, category];
+      }
+    });
   };
 
-  const handleSubcategoryClick = (subcategory) => {
-    setSelectedSubcategory(subcategory === selectedSubcategory ? null : subcategory);
-    setVisibleProducts(6);
+  const toggleCategory = (category) => {
+    setExpandedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
+  };
+
+  const toggleSubcategoryFilter = (subcategory) => {
+    setSelectedSubcategories(prev =>
+      prev.includes(subcategory)
+        ? prev.filter(s => s !== subcategory)
+        : [...prev, subcategory]
+    );
   };
 
   const filteredProducts = products.filter((product) => {
-    if (!selectedCategory) return true;
-    if (selectedCategory.name !== product.category) return false;
-    if (!selectedSubcategory) return true;
-    return selectedSubcategory.items.includes(product.name);
+    if (selectedCategories.length === 0 && selectedSubcategories.length === 0) return true;
+    
+    const categoryMatch = selectedCategories.includes(product.category);
+    const subcategoryMatch = selectedSubcategories.some(sub => 
+      categories.find(cat => cat.name === product.category)?.subcategories
+        .find(s => s.name === sub)?.items.includes(product.name)
+    );
+
+    return categoryMatch || subcategoryMatch;
   });
 
   const handleLoadMore = () => {
     setVisibleProducts((prev) => prev + 6);
   };
 
+  const clearFilters = () => {
+    setSelectedCategories([]);
+    setSelectedSubcategories([]);
+    setVisibleProducts(6);
+  };
+
+  const CustomCheckbox = ({ checked, onChange, label, className = "" }) => (
+    <label className={`flex items-center cursor-pointer group ${className}`}>
+      <div className="relative">
+        <input
+          type="checkbox"
+          className="sr-only"
+          checked={checked}
+          onChange={onChange}
+        />
+        <div className={`w-5 h-5 border-2 rounded-md transition-all duration-200 ${
+          checked ? 'bg-secondary-blue border-secondary-blue' : 'border-gray-300 group-hover:border-secondary-blue'
+        }`}>
+          {checked && (
+            <Check className="w-3 h-3 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+          )}
+        </div>
+      </div>
+      <span className="ml-3 text-sm font-medium text-gray-700 group-hover:text-secondary-blue transition-colors duration-200">{label}</span>
+    </label>
+  );
   return (
-    <div className="bg-gray-100 min-h-screen py-12 relative">
+    <div className="bg-gray-50 min-h-screen py-12 relative">
       {isUnderConstruction && (
         <div className="absolute inset-0 backdrop-blur-md bg-white/30 z-10 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center">
@@ -88,104 +140,86 @@ const ProductShowcase = () => {
         </div>
       )}
 
-      <div className="max-w-6xl px-8 tablet:px-16 desktop:px-0 mx-auto">
-        <h1 className="text-4xl section leading-tight desktop:text-5xl font-outfit font-bold pt-8 tablet:pt-16 desktop:pt-10 text-secondary-blue text-center mb-6">
+      <div className="max-w-7xl px-6 tablet:px-16 desktop:px-26 mx-auto">
+        <h1 className="text-5xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
           Our Exquisite Collection
         </h1>
-        <p className="text-md section font-openSans text-charcoal text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-lg font-openSans text-charcoal text-center mb-16 max-w-3xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware
           products and elegant coasters. Each piece is a unique work of art,
           created with passion and skill by our master artisans.
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-12">
           {/* Categories and Subcategories */}
-          <div className="desktop:w-1/4 section">
-            <h2 className="text-2xl text-charcoal font-outfit font-semibold mb-4">
+          <div className="lg:w-1/4">
+            <h2 className="text-3xl text-charcoal font-outfit font-bold mb-6 border-b-2 border-secondary-blue pb-2">
               Categories
             </h2>
-            <button
-              className="text-sm flex gap-2 active:bg-secondary-blue active:text-white desktop:hover:bg-secondary-blue desktop:hover:text-white items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full my-4 border border-secondary-blue transition-all desktop:duration-300 duration-0 ease-in-out"
-              onClick={() => {
-                setSelectedCategory(null);
-                setSelectedSubcategory(null);
-                setVisibleProducts(6);
-              }}
-            >
-              Show All Products
-            </button>
-            {categories.map((category) => (
-              <div key={category.name} className="mb-4 section text-charcoal">
-                <button
-                  onClick={() => handleCategoryClick(category)}
-                  className="w-full text-left font-outfit font-medium text-lg flex items-center justify-between bg-white p-3 rounded-lg shadow-md hover:bg-gray-50 transition-colors"
-                >
-                  {category.name}
-                  <ChevronDown
-                    className={`transform transition-transform ${
-                      selectedCategory === category ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {selectedCategory === category && (
-                  <div className="mt-2 ml-4">
-                    {category.subcategories.map((subcategory) => (
-                      <button
-                        key={subcategory.name}
-                        onClick={() => handleSubcategoryClick(subcategory)}
-                        className={`w-full text-left font-openSans my-1 font-medium text-md py-2 px-3 rounded-md transition-colors duration-200 ${
-                          selectedSubcategory === subcategory
-                            ? "shadow-md bg-white text-primary-red"
-                            : "hover:bg-gray-100 active:bg-white text-charcoal hover:text-primary-red"
-                        }`}
+            <div className="bg-white rounded-xl border-[1px] border-zinc-400 p-6">
+              {categories.map((category) => (
+                <div key={category.name} className="mb-6">
+                  <button
+                    onClick={() => toggleCategory(category.name)}
+                    className="w-full text-left font-outfit font-semibold text-lg flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-all duration-200"
+                  >
+                    <span className="text-secondary-blue">{category.name}</span>
+                    <ChevronDown
+                      className={`w-6 h-6 text-secondary-blue transform transition-all duration-300 ${
+                        expandedCategories.includes(category.name) ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedCategories.includes(category.name) && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-2 ml-4 border-l-2 border-gray-200 pl-4"
                       >
-                        {subcategory.name}
-                      </button>
-                    ))}
-                    {selectedSubcategory && (
-                      <button
-                        onClick={() => {
-                          setSelectedCategory(null);
-                          setSelectedSubcategory(null);
-                          setVisibleProducts(6);
-                        }}
-                        className="text-sm flex gap-2 mt-4 items-center px-6 py-2 bg-transparent text-secondary-blue font-outfit rounded-full border border-secondary-blue hover:text-white hover:bg-secondary-blue transition-all desktop:duration-300 mobile:duration-75 ease-in-out"
-                      >
-                        Remove Filters
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12"
+                        {category.subcategories.map((subcategory) => (
+                          <CustomCheckbox
+                            key={subcategory.name}
+                            checked={selectedSubcategories.includes(subcategory.name)}
+                            onChange={() => toggleSubcategoryFilter(subcategory.name)}
+                            label={subcategory.name}
+                            className="mb-2"
                           />
-                        </svg>
-                      </button>
+                        ))}
+                      </motion.div>
                     )}
-                  </div>
-                )}
-              </div>
-            ))}
+                  </AnimatePresence>
+                </div>
+              ))}
+              {(selectedCategories.length > 0 || selectedSubcategories.length > 0) && (
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  onClick={clearFilters}
+                  className="w-full text-sm flex justify-center items-center px-4 py-3 bg-gray-100 text-secondary-blue font-outfit font-medium rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out mt-4"
+                >
+                  Clear Filters
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </motion.button>
+              )}
+            </div>
           </div>
 
           {/* Product Listing */}
-          <div className="lg:w-3/4 section">
-            <h2 className="text-2xl font-outfit text-charcoal font-semibold mb-4">
+          <div className="lg:w-3/4">
+            <h2 className="text-3xl font-outfit text-charcoal font-bold mb-6 border-b-2 border-secondary-blue pb-2">
               Products
             </h2>
-            <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.slice(0, visibleProducts).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
             {visibleProducts < filteredProducts.length && (
-              <div className="mt-8 text-center">
+              <div className="mt-12 text-center">
                 <SecondaryBtn onClick={handleLoadMore}>
                   Load More...
                 </SecondaryBtn>
