@@ -75,7 +75,7 @@ const AboutUs = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 mt-24">
+    <div className="max-w-6xl mx-auto px-8 tablet:px-16 desktop:px-26 my-24">
       {/* Header */}
       <div className="text-center section mb-10">
         <h1 className="font-outfit font-semibold text-secondary-blue text-4xl sm:text-6xl lg:text-7xl desktop:mb-6 mb-4 -mt-4 flex items-center justify-center">
@@ -312,13 +312,6 @@ const AboutUs = () => {
         />
        
       </div>
-       <Image
-          src={"/viking.webp"}
-          width={1000}
-          height={1000}
-          unoptimized
-          className="w-full  desktop:w-[60rem] mx-auto h-full"
-        />
     </div>
   );
 };

@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <>
       <section
-        className="hero-section bg-zinc-100 desktop:mt-6 mb-12 desktop:mb-0 flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
+        className="hero-section bg-white desktop:mt-6 mb-12 desktop:mb-0 flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 tablet:px-16 desktop:px-26 max-w-7xl mx-auto relative"
       >
         <div className="content-wrapper desktop:gap-5  tablet:gap-7 gap-2 flex-1 pt-16 h-auto tablet:pt-28 desktop:pt-16 flex flex-col tablet:items-center desktop:items-start desktop:w-0">
           <h1
@@ -49,8 +49,8 @@ const HeroSection = () => {
             <Image
               src="/hero2.webp"
               alt="Viking holding hornmug"
-              width={1000}
-              height={1000}
+              width={500}
+              height={500}
               priority={true}
               loading='eager'
               className="w-full h-auto object-contain"

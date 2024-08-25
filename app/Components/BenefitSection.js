@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function BenefitSection() {
   return (
-    <div className="bg-zinc-100 py-16 px-4 tablet:px-8 desktop:px-16">
+    <div className="bg-white py-16 px-4 tablet:px-8 desktop:px-16">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl section leading-snug desktop:text-6xl font-outfit font-semibold text-secondary-blue text-center mb-6">
           Where Nature Meets Artistry
@@ -43,7 +43,7 @@ function BenefitSection() {
 function BenefitItem({ icon, title, altText }) {
   return (
     <div className="flex flex-col items-center mb-8 desktop:mb-0">
-      <div className="w-32 h-32 section bg-white rounded-full flex items-center desktop:hover:shadow-md  justify-center mb-6 hover:scale-110 transition-all duration-300 ease-in-out">
+      <div className="w-32 h-32 section border-[1px] bg-white rounded-full flex items-center desktop:hover:shadow-md  justify-center mb-6 hover:scale-110 transition-all duration-300 ease-in-out">
         <Image src={icon} alt={altText} width={70} height={70} />
       </div>
       <p className="text-center section text-black font-outfit text-md font-light desktop:text-lg ">{title}</p>

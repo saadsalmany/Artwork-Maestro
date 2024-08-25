@@ -50,13 +50,13 @@ function CollectionSection() {
 
   return (
     <>
-      <div className="w-full h-auto bg-zinc-100 text-white max-w-6xl px-8 mx-auto tablet:px-16 desktop:px-0 mobile:pb-16  flex-col ">
-        <h6
+      <div className="w-full h-auto bg-white max-w-6xl px-8 mx-auto tablet:px-16 desktop:px-0 mobile:pb-16  flex-col ">
+        <p
           className="text-center section text-xs opacity-70 text-charcoal  mb-8 pt-5
     desktop:mb-12"
         >
           Elevate
-        </h6>
+        </p>
         <div className="w-full h-min section flex justify-center items-center">
           <h1
             className="text-charcoal section font-outfit text-[6.5vw] tablet:text-[4vw] 
@@ -97,7 +97,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white desktop:hover:shadow-md transition-all duration-300 ease-in-out desktop:hover:scale-[102%] rounded-xl border-[1px] border-zinc-300 tablet:w-72 desktop:w-auto section  flex cursor-pointer 
+              className="bg-white desktop:hover:shadow-md transition-all duration-300 ease-in-out desktop:hover:scale-[102%] rounded-xl border-[1px] border-secondary-blue tablet:w-72 desktop:w-auto section  flex cursor-pointer 
               flex-col gap-2 justify-center items-center text-center h-[28rem] p-4 relative overflow-hidden"
             >
               <img

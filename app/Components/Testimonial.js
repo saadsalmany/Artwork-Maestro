@@ -35,7 +35,7 @@ const Testimonial = () => {
 
 
   return (
-    <div className="bg-zinc-100 py-20">
+    <div className="bg-white py-20">
       <div className="container max-w-7xl mx-auto px-10">
         <h2 className="text-3xl section font-outfit desktop:text-5xl font-bold text-secondary-blue text-center mb-12 desktop:mb-24 animate-fade-in">
           Customer Reviews and Testimonials

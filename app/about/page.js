@@ -8,7 +8,7 @@ import Footer from "../Components/Footer";
 const page = () => {
 
   return (
-    <div className="bg-zinc-100">
+    <div className="bg-white">
       <Marquee />
       <Navbar />
       <About />

@@ -10,7 +10,7 @@ import Footer from "./Components/Footer";
 
 function page() {
   return (
-    <main className="w-full bg-zinc-100 h-[400vh]">
+    <main className="w-full bg-white h-[400vh]">
       <Marquee />
       <Navbar />
       <HeroSection />
