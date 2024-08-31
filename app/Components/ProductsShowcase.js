@@ -136,7 +136,7 @@ const ProductShowcase = () => {
     <div className="bg-gray-50 min-h-screen py-12 relative">
       <div className="max-w-7xl px-8 tablet:px-16 desktop:px-26 mx-auto">
         <h1 className="text-5xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
-          Our Exquisite Collection
+          Our Handicraft Collection
         </h1>
         <p className="text-lg font-openSans text-charcoal text-center mb-16 max-w-3xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware

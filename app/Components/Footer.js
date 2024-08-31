@@ -86,7 +86,7 @@ const Footer = () => {
             <p className="font-semibold text-base mb-4">Connect With Us</p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/artworkmaestro/"
                 rel="noopener noreferrer"
                 target="_bank"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
