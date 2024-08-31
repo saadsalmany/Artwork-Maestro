@@ -10,8 +10,6 @@
         fontFamily: {
           openSans: ['Open Sans', 'sans-serif'],
           outfit: ['Outfit', 'sans-serif'],
-          caveat: ['Caveat', 'sans-serif'],
-          timesNewRoman: ['Times New Roman', 'serif'],
         },
         colors: {
           'secondary-blue': '#272C6E',
