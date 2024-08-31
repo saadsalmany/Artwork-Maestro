@@ -74,7 +74,6 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  canonical: "https://www.artworkmaestro.com/",
   twitter: {
     card: 'summary_large_image',
     title: 'Artwork Maestro | Handcrafted Hornware Products',
