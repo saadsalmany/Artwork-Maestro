@@ -45,6 +45,7 @@ export const metadata = {
   },
   robots: {
     index: true,
+    sitemap: 'https://www.artworkmaestro.com/sitemap.xml',
     follow: true,
     googleBot: {
       index: true,
@@ -57,7 +58,13 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  canonical: "https://www.artworkmaestro.com",
+  canonical: "https://www.artworkmaestro.com/",
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Artwork Maestro | Handcrafted Hornware Products',
+    description: 'Explore our collection of exquisite handcrafted hornware products. Find unique beer cups, bone items, holders, and more for international buyers.',
+    images: ['https://www.artworkmaestro.com/craftStore.webp'],
+  },
 };
 
 export default function RootLayout({ children }) {
