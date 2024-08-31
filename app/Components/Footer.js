@@ -76,7 +76,7 @@ const Footer = () => {
                   size={16}
                   className="text-white"
                 />
-                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">shahzaib@artworkmaestro.com</span>
+                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">help@artworkmaestro.com</span>
               </a>
             </div>
           </div>
