@@ -43,7 +43,7 @@ function BenefitSection() {
 function BenefitItem({ icon, title, altText }) {
   return (
     <div className="flex flex-col items-center mb-8 desktop:mb-0">
-      <div className="w-32 h-32 section border-[1px] bg-white rounded-full flex items-center desktop:hover:shadow-md  justify-center mb-6 hover:scale-110 transition-all duration-300 ease-in-out">
+      <div className="w-32 h-32 section border-[1px] bg-white rounded-full hover:shadow-md flex items-center desktop:hover:shadow-md  justify-center mb-6 hover:scale-110 transition-all duration-300 ease-in-out">
         <Image src={icon} alt={altText} width={70} height={70} />
       </div>
       <p className="text-center section text-black font-outfit text-md font-light desktop:text-lg ">{title}</p>

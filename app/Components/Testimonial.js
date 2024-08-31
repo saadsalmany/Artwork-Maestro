@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import { Star } from "lucide-react";
 import TestimonialForm from "./TestimonialForm";
 
@@ -7,7 +7,7 @@ const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([
     {
       quote:
-        "I am absolutely thrilled with my new Viking hornware mug! The craftsmanship is exceptional and it's become my go-to drinkware.",
+        "I am absolutely thrilled with my new handicrafted buffalo horn mug! The craftsmanship is exceptional and it's become my drinking aesthetic.",
       author: "Lars Jensen",
       country: "Copenhagen, Denmark",
       image: "/larsc2.png",
@@ -15,7 +15,7 @@ const Testimonial = () => {
     },
     {
       quote:
-        "I purchased the Viking hornware necklace as a gift for my wife and she loves it! The quality is superb and it's a beautiful piece.",
+        "I purchased the necklace for my wife and she loves it! The quality is superb and it's a beautiful piece.",
       author: "Pierre Dupont",
       country: "Paris, France",
       image: "/pierrec3.png",
@@ -30,9 +30,6 @@ const Testimonial = () => {
       rating: 5,
     },
   ]);
-
-
-
 
   return (
     <div className="bg-white py-20">
@@ -49,16 +46,18 @@ const Testimonial = () => {
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
-        <TestimonialForm/>
+        <TestimonialForm />
       </div>
     </div>
   );
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-white cursor-pointer rounded-[5rem] border-[1px] border-charcoal section s p-10 flex flex-col 
+  <div
+    className="bg-white cursor-pointer rounded-[5rem] border-[1px] border-charcoal section s p-10 flex flex-col 
   items-center transform transition-all duration-300 ease-in-out desktop:hover:scale-[102%]
-  desktop:hover:shadow-lg active:hover:scale-105">
+  desktop:hover:shadow-lg active:hover:scale-105"
+  >
     <div className="flex flex-col items-center mb-6">
       <p className="text-lg font-outfit text-center mb-2">
         "{testimonial.quote}"

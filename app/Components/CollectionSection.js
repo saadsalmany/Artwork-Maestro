@@ -97,7 +97,7 @@ function CollectionSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white desktop:hover:shadow-md transition-all duration-300 ease-in-out desktop:hover:scale-[102%] rounded-xl border-[1px] border-secondary-blue tablet:w-72 desktop:w-auto section  flex cursor-pointer 
+              className="bg-white desktop:hover:shadow-md transition-all duration-300 ease-in-out desktop:hover:scale-[102%] rounded-xl border-[1px] border-zinc-300 tablet:w-72 desktop:w-auto section  flex cursor-pointer 
               flex-col gap-2 justify-center items-center text-center h-[28rem] p-4 relative overflow-hidden"
             >
               <img
