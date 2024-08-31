@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
 import ProductCard from "./ProductCard";
@@ -16,7 +16,6 @@ const categories = [
       { name: "Frames", items: ["Bone Photo Frame"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
       { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
-      { name: "Personal Care", items: ["Horn Comb"] },
     ],
   },
   {
@@ -39,25 +38,27 @@ const categories = [
       { name: "Drinking Horn", items: ["Drinking Horn"] },
     ],
   },
+  {
+    name: "Personal Care",
+    subcategories: [
+      { name: "Combs", items: ["Horn Comb"] },
+    ],
+  },
 ];
 
 const ProductShowcase = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedSubcategories, setSelectedSubcategories] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(6);
-  const [isUnderConstruction, setIsUnderConstruction] = useState(true);
   const [expandedCategories, setExpandedCategories] = useState([]);
 
-  // Updated toggleCategoryFilter function with subcategory selection logic
   const toggleCategoryFilter = (category) => {
     setSelectedCategories(prev => {
       if (prev.includes(category)) {
-        // If category is being deselected, also deselect all its subcategories
         const subcategoriesToRemove = categories.find(c => c.name === category)?.subcategories.map(sub => sub.name) || [];
         setSelectedSubcategories(prevSub => prevSub.filter(sub => !subcategoriesToRemove.includes(sub)));
         return prev.filter(c => c !== category);
       } else {
-        // If category is being selected, also select all its subcategories
         const subcategoriesToAdd = categories.find(c => c.name === category)?.subcategories.map(sub => sub.name) || [];
         setSelectedSubcategories(prevSub => [...new Set([...prevSub, ...subcategoriesToAdd])]);
         return [...prev, category];
@@ -81,17 +82,24 @@ const ProductShowcase = () => {
     );
   };
 
-  const filteredProducts = products.filter((product) => {
-    if (selectedCategories.length === 0 && selectedSubcategories.length === 0) return true;
-    
-    const categoryMatch = selectedCategories.includes(product.category);
-    const subcategoryMatch = selectedSubcategories.some(sub => 
-      categories.find(cat => cat.name === product.category)?.subcategories
-        .find(s => s.name === sub)?.items.includes(product.name)
-    );
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      if (selectedCategories.length === 0 && selectedSubcategories.length === 0) return true;
+      
+      const categoryMatch = selectedCategories.includes(product.category);
+      const subcategoryMatch = selectedSubcategories.some(selectedSubcat => {
+        const category = categories.find(cat => cat.subcategories.some(sub => sub.name === selectedSubcat));
+        if (!category) return false;
+        
+        const subcategory = category.subcategories.find(sub => sub.name === selectedSubcat);
+        if (!subcategory) return false;
+        
+        return subcategory.items.some(item => product.tags.includes(item) || product.name === item);
+      });
 
-    return categoryMatch || subcategoryMatch;
-  });
+      return categoryMatch || subcategoryMatch;
+    });
+  }, [selectedCategories, selectedSubcategories]);
 
   const handleLoadMore = () => {
     setVisibleProducts((prev) => prev + 6);
@@ -123,24 +131,10 @@ const ProductShowcase = () => {
       <span className="ml-3 text-sm font-medium text-gray-700 group-hover:text-secondary-blue transition-colors duration-200">{label}</span>
     </label>
   );
+
   return (
     <div className="bg-gray-50 min-h-screen py-12 relative">
-      {isUnderConstruction && (
-        <div className="absolute inset-0 backdrop-blur-md bg-white/30 z-10 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-            <h2 className="text-3xl font-bold text-secondary-blue mb-4">Under Construction</h2>
-            <p className="text-lg text-charcoal mb-6">
-              We're working hard to bring you an amazing product showcase. 
-              Please check back soon!
-            </p>
-            <SecondaryBtn onClick={() => setIsUnderConstruction(false)}>
-              See anyway
-            </SecondaryBtn>
-          </div>
-        </div>
-      )}
-
-      <div className="max-w-7xl px-6 tablet:px-16 desktop:px-26 mx-auto">
+      <div className="max-w-7xl px-8 tablet:px-16 desktop:px-26 mx-auto">
         <h1 className="text-5xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
           Our Exquisite Collection
         </h1>
