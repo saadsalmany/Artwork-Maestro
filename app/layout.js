@@ -80,6 +80,9 @@ export const metadata = {
     description: 'Explore our collection of exquisite handcrafted hornware products. Find unique beer cups, bone items, holders, and more for international buyers.',
     images: ['https://www.artworkmaestro.com/craftStore.webp'],
   },
+  alternates: {
+    canonical: 'https://artworkmaestro.com',
+  },
 };
 
 export default function RootLayout({ children }) {

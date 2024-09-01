@@ -8,7 +8,22 @@ import Testimonial from "./Components/Testimonial";
 import DiscoverSection from "./Components/DiscoverSection";
 import Footer from "./Components/Footer";
 
-function page() {
+export const metadata = {
+  title: 'Artwork Maestro | Home',
+  description: 'Welcome to Artwork Maestro - Your destination for handcrafted hornware products',
+  alternates: {
+    canonical: 'https://artworkmaestro.com',
+  },
+  images: [
+    {
+      url: "https://www.artworkmaestro.com/productsImages/p1.png",
+      width: 1200,
+      height: 630,
+    },
+  ],
+};
+
+function Page() {
   return (
     <main className="w-full bg-white h-[400vh]">
       <Marquee />
@@ -23,4 +38,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
