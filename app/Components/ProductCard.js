@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
     <div className="bg-white rounded-xl p-4 shadow-lg overflow-hidden flex flex-col w-full h-[28rem] ">
       <div className="relative w-full h-56 shadow-md rounded-lg overflow-hidden">
         <Image
-          src={product.image}
+          src={product.images[0]}
           alt={product.name}
           layout="fill"
           objectFit="cover"

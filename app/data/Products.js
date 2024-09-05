@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 1,
-    name: "Drinking Horn",
+    name: "Viking Mugs",
     slug: "drinking-horn",
     category: "Buffalo Horn Products",
     tags: ["Drinking Horn", "Horn"],
@@ -16,42 +16,58 @@ export const products = [
   },
   {
     id: 2,
-    name: "Horn Comb",
-    slug: "horn-comb",
-    category: "Personal Care",
-    tags: ["Comb", "Horn"],
-    image: "/images/horn-comb.jpg",
-    description: "Our handcrafted horn comb is the perfect blend of functionality and beauty. Made from genuine buffalo horn, each comb is unique with its natural variations in color. The smooth edges and anti-static properties of horn make it ideal for all hair types, reducing frizz and promoting healthy, shiny hair.",
-    images: [
-      "/images/horn-comb-1.jpg",
-      "/images/horn-comb-2.jpg",
-      "/images/horn-comb-3.jpg"
-    ]
-  },
-  {
-    id: 3,
-    name: "Decorative and Multipurpose Box",
-    slug: "decorative-multipurpose-box",
+    name: "Picture Frames",
+    slug: "picture-frames",
     category: "Home Decor",
-    tags: ["Box", "Decorative", "Multipurpose"],
-    image: "/productsImages/AWM2447.jpeg",
-    description: "A versatile decorative and multipurpose box available in various sizes. Perfect for storage and home decoration.",
+    tags: ["Frames", "Photo Frame"],
+    image: "/productsImages/DH2.jpeg",
+    description:
+      "Discover the elegance of our picture frames, a stunning blend of resin, natural bone inlay, mother of pearl, buffalo horn, marble, and metal. Each piece is crafted with precision, combining luxurious materials for a timeless and sophisticated look. We ensure top quality with meticulous attention to detail and offer customization to match your size and design preferences. Elevate your cherished memories with a picture frame that's uniquely yours.",
     images: [
-      "/productsImages/AWM2447.jpeg",
-      "/productsImages/AWM2447_2.jpeg",
-      "/productsImages/AWM2447_3.jpeg",
+      "/productsImages/PF1.jpg",
+      "/productsImages/PF2.jpg",
+      "/productsImages/PF3.jpg",
     ],
-    sizes: [
-      "4x6x2 Inches",
-      "5x7x3 Inches",
-      "6x4x2 Inches",
-      "6x8x2 Inches",
-      "7x5x3 Inches",
-      "8x6x3 Inches",
-      "10x6x4 Inches"
-    ],
-    customSizes: true
   },
+
+  // {
+  //   id: 2,
+  //   name: "Horn Comb",
+  //   slug: "horn-comb",
+  //   category: "Personal Care",
+  //   tags: ["Comb", "Horn"],
+  //   image: "/images/horn-comb.jpg",
+  //   description: "Our handcrafted horn comb is the perfect blend of functionality and beauty. Made from genuine buffalo horn, each comb is unique with its natural variations in color. The smooth edges and anti-static properties of horn make it ideal for all hair types, reducing frizz and promoting healthy, shiny hair.",
+  //   images: [
+  //     "/images/horn-comb-1.jpg",
+  //     "/images/horn-comb-2.jpg",
+  //     "/images/horn-comb-3.jpg"
+  //   ]
+  // },
+  // {
+  //   id: 3,
+  //   name: "Decorative and Multipurpose Box",
+  //   slug: "decorative-multipurpose-box",
+  //   category: "Home Decor",
+  //   tags: ["Box", "Decorative", "Multipurpose"],
+  //   image: "/productsImages/AWM2447.jpeg",
+  //   description: "A versatile decorative and multipurpose box available in various sizes. Perfect for storage and home decoration.",
+  //   images: [
+  //     "/productsImages/AWM2447.jpeg",
+  //     "/productsImages/AWM2447_2.jpeg",
+  //     "/productsImages/AWM2447_3.jpeg",
+  //   ],
+  //   sizes: [
+  //     "4x6x2 Inches",
+  //     "5x7x3 Inches",
+  //     "6x4x2 Inches",
+  //     "6x8x2 Inches",
+  //     "7x5x3 Inches",
+  //     "8x6x3 Inches",
+  //     "10x6x4 Inches"
+  //   ],
+  //   customSizes: true
+  // },
 //     }
   // ... Add more products here
 ];

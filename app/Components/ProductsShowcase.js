@@ -2,9 +2,9 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronRight, Check } from "lucide-react";
-import ProductCard from "./ProductCard";
 import { products } from "../data/Products";
 import SecondaryBtn from "./SecondaryBtn";
+import ProductCard from "./ProductCard";
 
 const categories = [
   {
@@ -13,7 +13,7 @@ const categories = [
       { name: "Vases", items: [] },
       { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
       { name: "Boxes", items: ["Decorative and Multipurpose Box", "Suri Box and Decorative Homeware", "Round Mini Suri Decorative Box", "Bone Decorative Mini Box"] },
-      { name: "Frames", items: ["Bone Photo Frame"] },
+      { name: "Frames", items: ["Photo Frame"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
       { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
     ],
@@ -135,10 +135,10 @@ const ProductShowcase = () => {
   return (
     <div className="bg-gray-50 min-h-screen py-12 relative">
       <div className="max-w-7xl px-8 tablet:px-16 desktop:px-26 mx-auto">
-        <h1 className="text-5xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
+        <h1 className="text-4xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
           Our Handicraft Collection
         </h1>
-        <p className="text-lg font-openSans text-charcoal text-center mb-16 max-w-3xl mx-auto">
+        <p className="text-base font-openSans text-charcoal text-center mb-16 max-w-3xl mx-auto">
           Discover the beauty and craftsmanship of our handcrafted hornware
           products and elegant coasters. Each piece is a unique work of art,
           created with passion and skill by our master artisans.
