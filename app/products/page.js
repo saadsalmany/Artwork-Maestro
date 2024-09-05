@@ -13,7 +13,7 @@ export const Metadata = {
   },
   images: [
     {
-      url: "https://www.artworkmaestro.com/productsImages/DH3.jpeg",
+      url: "https://www.artworkmaestro.com/productsImages/PF1.jpg",
       width: 1200,
       height: 630,
     },

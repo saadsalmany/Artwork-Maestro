@@ -1,7 +1,9 @@
+
+
 'use client'
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronRight, Check } from "lucide-react";
+import { ChevronDown, ChevronRight, Check, Filter } from "lucide-react";
 import { products } from "../data/Products";
 import SecondaryBtn from "./SecondaryBtn";
 import ProductCard from "./ProductCard";
@@ -51,6 +53,7 @@ const ProductShowcase = () => {
   const [selectedSubcategories, setSelectedSubcategories] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState(6);
   const [expandedCategories, setExpandedCategories] = useState([]);
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
 
   const toggleCategoryFilter = (category) => {
     setSelectedCategories(prev => {
@@ -134,77 +137,88 @@ const ProductShowcase = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen py-12 relative">
-      <div className="max-w-7xl px-8 tablet:px-16 desktop:px-26 mx-auto">
-        <h1 className="text-4xl leading-tight lg:text-6xl font-outfit font-bold pt-8 lg:pt-10 text-secondary-blue text-center mb-6">
+      <div className="max-w-6xl px-6 tablet:px-16 desktop:px-26 pt-4 desktop:pt-8 mx-auto">
+        <h1 className="text-4xl sm:text-4xl lg:text-5xl font-outfit font-bold text-secondary-blue text-center mb-4">
           Our Handicraft Collection
         </h1>
-        <p className="text-base font-openSans text-charcoal text-center mb-16 max-w-3xl mx-auto">
-          Discover the beauty and craftsmanship of our handcrafted hornware
-          products and elegant coasters. Each piece is a unique work of art,
-          created with passion and skill by our master artisans.
+        <p className="text-sm desktop:text-base font-openSans text-charcoal text-center mb-8 max-w-2xl mx-auto">
+          Discover the beauty and craftsmanship of our handcrafted hornware products and elegant coasters. Each piece is a unique work of art, created with passion and skill by our master artisans.
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Mobile Filter Toggle */}
+          <div className="lg:hidden mb-4">
+            <button
+              onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+              className="w-full flex items-center justify-center space-x-2 bg-secondary-blue text-white py-2 px-4 rounded-md"
+            >
+              <Filter className="w-5 h-5" />
+              <span>Filter Products</span>
+            </button>
+          </div>
+
           {/* Categories and Subcategories */}
-          <div className="lg:w-1/4">
-            <h2 className="text-3xl text-charcoal font-outfit font-bold mb-6 border-b-2 border-secondary-blue pb-2">
-              Categories
-            </h2>
-            <div className="bg-white rounded-xl border-[1px] border-zinc-400 p-6">
-              {categories.map((category) => (
-                <div key={category.name} className="mb-6">
-                  <button
-                    onClick={() => toggleCategory(category.name)}
-                    className="w-full text-left font-outfit font-semibold text-lg flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-all duration-200"
+          <div className={`lg:w-1/4 ${isMobileFilterOpen ? 'block' : 'hidden'} lg:block`}>
+            <div className="sticky top-32">
+              <h2 className="text-2xl text-charcoal font-outfit font-bold mb-4 border-b-2 border-secondary-blue pb-2">
+                Categories
+              </h2>
+              <div className="bg-white rounded-xl shadow-md p-4">
+                {categories.map((category) => (
+                  <div key={category.name} className="mb-4">
+                    <button
+                      onClick={() => toggleCategory(category.name)}
+                      className="w-full text-left font-outfit font-semibold text-lg flex items-center justify-between p-2 rounded-md hover:bg-gray-50 transition-all duration-200"
+                    >
+                      <span className="text-secondary-blue">{category.name}</span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-secondary-blue transform transition-all duration-300 ${
+                          expandedCategories.includes(category.name) ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {expandedCategories.includes(category.name) && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="mt-2 ml-4 border-l-2 border-gray-200 pl-4"
+                        >
+                          {category.subcategories.map((subcategory) => (
+                            <CustomCheckbox
+                              key={subcategory.name}
+                              checked={selectedSubcategories.includes(subcategory.name)}
+                              onChange={() => toggleSubcategoryFilter(subcategory.name)}
+                              label={subcategory.name}
+                              className="mb-2"
+                            />
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+                {(selectedCategories.length > 0 || selectedSubcategories.length > 0) && (
+                  <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    onClick={clearFilters}
+                    className="w-full text-sm flex justify-center items-center px-4 py-3 bg-gray-100 text-secondary-blue font-outfit font-medium rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out mt-4"
                   >
-                    <span className="text-secondary-blue">{category.name}</span>
-                    <ChevronDown
-                      className={`w-6 h-6 text-secondary-blue transform transition-all duration-300 ${
-                        expandedCategories.includes(category.name) ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {expandedCategories.includes(category.name) && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-2 ml-4 border-l-2 border-gray-200 pl-4"
-                      >
-                        {category.subcategories.map((subcategory) => (
-                          <CustomCheckbox
-                            key={subcategory.name}
-                            checked={selectedSubcategories.includes(subcategory.name)}
-                            onChange={() => toggleSubcategoryFilter(subcategory.name)}
-                            label={subcategory.name}
-                            className="mb-2"
-                          />
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-              {(selectedCategories.length > 0 || selectedSubcategories.length > 0) && (
-                <motion.button
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  onClick={clearFilters}
-                  className="w-full text-sm flex justify-center items-center px-4 py-3 bg-gray-100 text-secondary-blue font-outfit font-medium rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out mt-4"
-                >
-                  Clear Filters
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </motion.button>
-              )}
+                    Clear Filters
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </motion.button>
+                )}
+              </div>
             </div>
           </div>
 
           {/* Product Listing */}
           <div className="lg:w-3/4">
-            <h2 className="text-3xl font-outfit text-charcoal font-bold mb-6 border-b-2 border-secondary-blue pb-2">
+            <h2 className="text-2xl font-outfit text-charcoal font-bold mb-4 border-b-2 border-secondary-blue pb-2">
               Products
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,9 +227,9 @@ const ProductShowcase = () => {
               ))}
             </div>
             {visibleProducts < filteredProducts.length && (
-              <div className="mt-12 text-center">
+              <div className="mt-8 text-center">
                 <SecondaryBtn onClick={handleLoadMore}>
-                  Load More...
+                  Load More Products
                 </SecondaryBtn>
               </div>
             )}

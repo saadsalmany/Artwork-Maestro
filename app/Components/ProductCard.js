@@ -5,17 +5,17 @@ import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white rounded-xl p-4 shadow-lg overflow-hidden flex flex-col w-full h-[28rem] ">
-      <div className="relative w-full h-56 shadow-md rounded-lg overflow-hidden">
+    <div className="bg-white rounded-xl p-4 shadow-lg overflow-hidden flex flex-col w-full h-full ">
+      <div className="relative aspect-square overflow-hidden">
         <Image
           src={product.images[0]}
           alt={product.name}
           layout="fill"
           objectFit="cover"
-          className="rounded-lg "
+          className="rounded-lg aspect-square "
         />
       </div>
-      <div className="p-4 flex-grow flex flex-col justify-between">
+      <div className="px-2 py-4 flex-grow flex flex-col justify-between">
         <div>
           <h3 className="text-lg font-outfit font-semibold text-gray-800 mb-2">
             {product.name}

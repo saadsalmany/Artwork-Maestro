@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Artwork Maestro | Handcrafted Hornware Products",
+  title: "Artwork Maestro | Handcrafted Products",
   description:
   "Explore Artwork Maestro's exquisite collection of handicraft products. Discover unique beer cups, bone items, and artisanal holders. Premium quality for discerning international buyers.",
   keywords: [
@@ -46,7 +46,7 @@ export const metadata = {
   openGraph: {
     title: "Artwork Maestro | Handcrafted Hornware Products",
     description:
-      "Explore our collection of exquisite handcrafted hornware products. Find unique beer cups, bone items, holders, and more for international buyers.",
+      "Explore our collection of exquisite handicraft products. Find unique beer cups, bone items, holders, and more for international buyers.",
     url: "https://www.artworkmaestro.com",
     siteName: "Artwork Maestro",
     images: [
@@ -76,12 +76,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Artwork Maestro | Handcrafted Hornware Products',
-    description: 'Explore our collection of exquisite handcrafted hornware products. Find unique beer cups, bone items, holders, and more for international buyers.',
+    title: 'Artwork Maestro | Handicraft Products',
+    description: 'Explore our collection of exquisite handicraft products. Find unique beer cups, bone items, holders, and more for international buyers.',
     images: ['https://www.artworkmaestro.com/craftStore.webp'],
   },
   alternates: {
-    canonical: 'https://artworkmaestro.com',
+    canonical: 'https://www.artworkmaestro.com',
   },
 };
 
