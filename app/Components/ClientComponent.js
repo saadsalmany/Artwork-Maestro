@@ -34,8 +34,8 @@ function ClientComponent({ params, products }) {
     <div className="bg-zinc-100 flex flex-col">
       <Navbar />
       <Marquee />
-      <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 desktop:px-26 pb-56 mt-20 desktop:mt-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 desktop:-space-x-20">
+      <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 tablet:mt-32 desktop:px-26 pb-56 mt-20 desktop:mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 desktop:-space-x-32">
           <div className="space-y-6">
             {mainImage && (
               <Image
@@ -44,17 +44,17 @@ function ClientComponent({ params, products }) {
                 width={1000}
                 height={1000}
                 objectFit="cover"
-                className="w-full lg:w-[26rem] rounded-lg shadow-md aspect-square transition-all duration-300"
+                className="w-full lg:w-[25rem] rounded-lg shadow aspect-square transition-all duration-300"
               />
             )}
             <div className="grid grid-cols-4 gap-4 desktop:gap-0">
               {product.images?.map((img, index) => (
                 <button
                   key={index}
-                  className={`relative w-[5rem] transition-all duration-300 desktop:w-[8rem] aspect-square overflow-hidden rounded-md ${
+                  className={`relative w-[5rem] transition-all duration-150 desktop:w-[8rem] aspect-square overflow-hidden rounded-md ${
                     img === mainImage
-                      ? "drop-shadow-lg border-[1px] border-charcoal"
-                      : "scale-95 opacity-70"
+                      ? "drop-shadow-lg"
+                      : "scale-95 opacity-60"
                   }`}
                   onClick={() => setMainImage(img)}
                 >
@@ -63,7 +63,7 @@ function ClientComponent({ params, products }) {
                     alt={`${product.name} ${index + 1}`}
                     layout="fill"
                     objectFit="cover"
-                    className="absolute inset-0 w-full h-full object-center object-cover transition-all duration-300"
+                    className="absolute inset-0 w-full h-full object-center object-cover transition-all duration-150"
                   />
                 </button>
               ))}
@@ -71,7 +71,7 @@ function ClientComponent({ params, products }) {
           </div>
 
           <div className="space-y-6 mt-4">
-            <h1 className="text-3xl font-outfit font-bold text-secondary-blue">
+            <h1 className="text-3xl tablet:text-4xl desktop:text-5xl font-outfit font-bold text-secondary-blue">
               {product.name}
             </h1>
             <div className="flex flex-wrap gap-2">
@@ -83,7 +83,7 @@ function ClientComponent({ params, products }) {
                 Tags: {product.tags.join(", ")}
               </span>
             </div>
-            <p className="text-sm desktop:text-lg font-openSans text-charcoal pb-4">
+            <p className="text-sm  desktop:text-lg font-openSans text-charcoal pb-4">
               {product.description}
             </p>
             <PrimaryBtn href={"/contact"}>Send Enquiry</PrimaryBtn>

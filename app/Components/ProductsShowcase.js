@@ -137,8 +137,8 @@ const ProductShowcase = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen py-12 relative">
-      <div className="max-w-6xl px-6 tablet:px-16 desktop:px-26 pt-4 desktop:pt-8 mx-auto">
-        <h1 className="text-4xl sm:text-4xl lg:text-5xl font-outfit font-bold text-secondary-blue text-center mb-4">
+      <div className="max-w-6xl px-6 tablet:px-16 desktop:px-26 pt-4 tablet:pt-16 desktop:pt-8 mx-auto">
+        <h1 className="text-4xl sm:text-4xl lg:text-6xl font-outfit font-bold text-secondary-blue text-center mb-4">
           Our Handicraft Collection
         </h1>
         <p className="text-sm desktop:text-base font-openSans text-charcoal text-center mb-8 max-w-2xl mx-auto">
@@ -163,7 +163,7 @@ const ProductShowcase = () => {
               <h2 className="text-2xl text-charcoal font-outfit font-bold mb-4 border-b-2 border-secondary-blue pb-2">
                 Categories
               </h2>
-              <div className="bg-white rounded-xl shadow-md p-4">
+              <div className="bg-white rounded-xl shadow p-4">
                 {categories.map((category) => (
                   <div key={category.name} className="mb-4">
                     <button
@@ -221,7 +221,7 @@ const ProductShowcase = () => {
             <h2 className="text-2xl font-outfit text-charcoal font-bold mb-4 border-b-2 border-secondary-blue pb-2">
               Products
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredProducts.slice(0, visibleProducts).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
