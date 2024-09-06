@@ -149,6 +149,7 @@ function ClientComponent({ params, products }) {
               </h3>
               <ProductHighlights
                 heading="Durable"
+                highlights={product.highlights}
                 subheading="High-quality build"
                 icon={<Shield />}
                 bgColor="blue"

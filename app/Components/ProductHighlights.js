@@ -1,26 +1,26 @@
 import React from "react";
 import { Star, Truck, RefreshCw, Shield } from "lucide-react";
 
-function ProductHighlights({ heading, subheading, icon, bgColor }) {
+function ProductHighlights({ highlights = [] }) {
   return (
-    <div>
-      <div className="mt-4 font-openSans list-decimal leading-loose text-gray-500">
-        <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <div className="mt-10 border-gray-200 pt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+      {highlights.map((highlight, index) => (
+        <div key={index} className="mt-">
           <div
-            className={`bg-${bgColor}-50 border border-gray-200 rounded-lg p-6 text-center`}
+            className={`bg-${highlight.bgColor}-50 border border-gray-200 rounded-lg p-6 text-center`}
           >
             <dt>
-              <div className="flex justify-center">{icon}</div>
-              <span className="text-sm font-outfit font-medium text-gray-900">
-                {heading}
+              <div className="flex justify-center text-charcoal mb-4">{highlight.icon}</div>
+              <span className="text-sm font-outfit tracking-wide font-medium text-charcoal">
+                {highlight.heading}
               </span>
             </dt>
             <dd className="mt-1 text-sm font-openSans text-gray-500">
-              {subheading}
+              {highlight.subheading}
             </dd>
           </div>
-        </dl>
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

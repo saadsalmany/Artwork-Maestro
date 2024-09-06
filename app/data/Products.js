@@ -1,3 +1,4 @@
+import { Shield, Star, RefreshCw } from "lucide-react";
 export const products = [
   {
     id: 1,
@@ -22,13 +23,26 @@ export const products = [
     tags: ["Frames", "Photo Frame"],
     image: "/productsImages/DH2.jpeg",
     description:
-      "Discover the elegance of our picture frames, a stunning blend of resin, natural bone inlay, mother of pearl, buffalo horn, marble, and metal. Each piece is crafted with precision, combining luxurious materials for a timeless and sophisticated look. We ensure top quality with meticulous attention to detail and offer customization to match your size and design preferences. Elevate your cherished memories with a picture frame that's uniquely yours.",
+      "Discover the elegance of our picture frames, a stunning blend of resin, natural bone inlay, mother of pearl, buffalo horn, marble, and metal. Each piece is crafted with precision, combining luxurious materials for a timeless and sophisticated look. We ensure top quality with meticulous attention to detail and offer customization to match your size and design preferences. Elevate your cherished memories with a picture frame that's uniquely yours.",
     images: [
       "/productsImages/PF1.jpg",
       "/productsImages/PF2.jpg",
       "/productsImages/PF3.jpg",
     ],
-    
+    highlights: [
+      {
+        heading: "Durable",
+        subheading: "High-quality build",
+        icon: <Shield />,
+        bgColor: "blue",
+      },
+      {
+        heading: "Customization",
+        subheading: "Picture Perfect, Any Size",
+        icon: <RefreshCw />,
+        bgColor: "yellow",
+      },
+    ],
   },
 
   // {
