@@ -80,9 +80,6 @@ export const metadata = {
     description: 'Explore our collection of exquisite handicraft products. Find unique beer cups, bone items, holders, and more for international buyers.',
     images: ['https://www.artworkmaestro.com/craftStore.webp'],
   },
-  alternates: {
-    canonical: 'https://www.artworkmaestro.com',
-  },
 };
 
 export default function RootLayout({ children }) {

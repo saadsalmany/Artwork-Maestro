@@ -83,12 +83,12 @@ const Navbar = () => {
             </div>
 
             <div className="hidden desktop:block">
-              <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
+              <PrimaryBtn href="https://wa.me/7452861066" blank>Let's chat</PrimaryBtn>
             </div>
 
             <div className="flex items-center desktop:hidden">
               <div className="mr-5">
-                <PrimaryBtn href="https://wa.me/9045067866" blank>Let's chat</PrimaryBtn>
+                <PrimaryBtn href="https://wa.me/7452861066" blank>Let's chat</PrimaryBtn>
               </div>
               <button
                 onClick={() => setIsOpen(!isOpen)}

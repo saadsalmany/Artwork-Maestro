@@ -11,9 +11,6 @@ import Footer from "./Components/Footer";
 export const metadata = {
   title: 'Artwork Maestro | Home',
   description: 'Welcome to Artwork Maestro - Your destination for handcrafted hornware products',
-  alternates: {
-    canonical: 'https://artworkmaestro.com',
-  },
   images: [
     {
       url: "https://www.artworkmaestro.com/productsImages/p1.png",

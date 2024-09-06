@@ -55,7 +55,7 @@ const Footer = () => {
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
               <a
-                href="mailto:info@artworkmaestro.com?subject=Contact from Website&body=Hello, I have a question."
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@artworkmaestro.com"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="flex items-center underline w-min space-x-1 group  transition-all duration-300 ease-in-out"
@@ -67,7 +67,7 @@ const Footer = () => {
                 <span className="text-sm hover:text-red-300 opacity-90 font-outfit">info@artworkmaestro.com</span>
               </a>
               <a
-                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@artworkmaestro.com"
+                href="mailto:info@artworkmaestro.com"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="flex items-center underline mt-1 w-min space-x-1 group  transition-all duration-300 ease-in-out"
@@ -76,7 +76,7 @@ const Footer = () => {
                   size={16}
                   className="text-white"
                 />
-                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">help@artworkmaestro.com</span>
+                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">info@artworkmaestro.com</span>
               </a>
             </div>
           </div>
@@ -104,7 +104,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a
-                href="https://wa.me/9045067866"
+                href="https://wa.me/7452861066"
                 rel="noopener noreferrer"
                 target="_bank"
                 className="text-white hover:text-primary-red transition-all duration-300 ease-in-out transform hover:scale-110"
