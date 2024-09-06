@@ -3,31 +3,28 @@ import ProductShowcase from "../Components/ProductsShowcase";
 import Marquee from "../Components/Marquee";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import Head from "next/head";
 
-// export const Metadata = {
-//   title: "Explore Our handicraft products",
-//   description:
-//     "Unique, handcrafted hornware products and coasters, made with passion and skill",
-//   alternates: {
-//     canonical: "https://artworkmaestro.com/products",
-//   },
-//   images: [
-//     {
-//       url: "https://www.artworkmaestro.com/productsImages/PF1.jpg",
-//       width: 1200,
-//       height: 630,
-//     },
-//   ],
-// };
-function page() {
+function ProductPage() {
   return (
-    <div className="bg-zinc-100">
-      <Marquee />
-      <Navbar />
-      <ProductShowcase />
-      <Footer />
-    </div>
+    <>
+      <Head>
+        <title>Artwork Maestro - Exclusive Art Collections</title>
+        <meta
+          name="description"
+          content="Explore exclusive art collections, featuring unique artwork from emerging artists. Discover your next masterpiece!"
+        />
+        <link rel="canonical" href="https://www.artworkmaestro.com/products" />
+        <meta name="keywords" content="artwork maestro, art collections, exclusive artwork, emerging artists" />
+      </Head>
+      <div className="bg-zinc-100">
+        <Marquee />
+        <Navbar />
+        <ProductShowcase />
+        <Footer />
+      </div>
+    </>
   );
 }
 
-export default page;
+export default ProductPage;

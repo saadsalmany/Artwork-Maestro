@@ -1,35 +1,30 @@
-"use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Marquee from "../Components/Marquee";
 import Navbar from "../Components/Navbar";
 import About from "../Components/AboutUs";
 import Footer from "../Components/Footer";
+import Head from "next/head";
 
-// export const Metadata = {
-//   title: "About Artwork Maestro",
-//   description:
-//     "Know more about Artwork Maestro and our handcrafted hornware products",
-//   alternates: {
-//     canonical: "https://artworkmaestro.com/about",
-//   },
-//   images: [
-//     {
-//       url: "https://www.artworkmaestro.com/productsImages/expo2.png",
-//       width: 1200,
-//       height: 630,
-//     },
-//   ],
-// };
-
-const page = () => {
+const AboutPage = () => {
   return (
-    <div className="bg-white">
-      <Marquee />
-      <Navbar />
-      <About />
-      <Footer />
-    </div>
+    <>
+      <Head>
+        <title>About Artwork Maestro - About Us</title>
+        <meta
+          name="description"
+          content="Learn about Artwork Maestro's story, mission, and values. Discover how we're revolutionizing the art world."
+        />
+        <link rel="canonical" href="https://www.artworkmaestro.com/about" />
+        <meta name="keywords" content="artwork maestro, about us, our story, mission, values" />
+      </Head>
+      <div className="bg-white">
+        <Marquee />
+        <Navbar />
+        <About />
+        <Footer />
+      </div>
+    </>
   );
 };
 
-export default page;
+export default AboutPage;
