@@ -14,6 +14,14 @@ export const products = [
       "/productsImages/DH3.jpeg",
       "/productsImages/DH4.jpeg",
     ],
+    highlights: [
+      {
+        heading: "Durable",
+        subheading: "High-quality build",
+        icon: <Shield />,
+        bgColor: "blue",
+      },
+    ],
   },
   {
     id: 2,
