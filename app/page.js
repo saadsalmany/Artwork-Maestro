@@ -7,32 +7,29 @@ import BenefitSection from "./Components/BenefitSection";
 import Testimonial from "./Components/Testimonial";
 import DiscoverSection from "./Components/DiscoverSection";
 import Footer from "./Components/Footer";
+import Head from "next/head";
 
-export const metadata = {
-  title: 'Artwork Maestro | Home',
-  description: 'Welcome to Artwork Maestro - Your destination for handcrafted hornware products',
-  images: [
-    {
-      url: "https://www.artworkmaestro.com/productsImages/p1.png",
-      width: 1200,
-      height: 630,
-    },
-  ],
-};
-
-function Page() {
+function HomePage() {
   return (
-    <main className="w-full bg-white h-[400vh]">
-      <Marquee />
-      <Navbar />
-      <HeroSection />
-      <CollectionSection />
-      <BenefitSection />
-      <Testimonial />
-      <DiscoverSection />
-      <Footer />
-    </main>
+    <>
+      <Head>
+        <title>Artwork Maestro - Explore Handicraft Items</title>
+        <meta name="description" content="Explore unique handicraft artwork collections, discover emerging artists, and get exclusive benefits at Artwork Maestro." />
+        <link rel="canonical" href="https://www.artworkmaestro.com/" />
+        <meta name="keywords" content="artwork, handicraft, bone, mother of pearl, artworkmaestro, art collections, emerging artists, exclusive benefits" />
+      </Head>
+      <main className="w-full bg-white h-[400vh]">
+        <Marquee />
+        <Navbar />
+        <HeroSection />
+        <CollectionSection />
+        <BenefitSection />
+        <Testimonial />
+        <DiscoverSection />
+        <Footer />
+      </main>
+    </>
   );
 }
 
-export default Page;
+export default HomePage;
