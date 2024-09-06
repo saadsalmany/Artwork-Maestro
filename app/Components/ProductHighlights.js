@@ -7,7 +7,7 @@ function ProductHighlights({ highlights = [] }) {
       {highlights.map((highlight, index) => (
         <div key={index} className="mt-">
           <div
-            className={`bg-${highlight.bgColor}-50 border border-gray-200 rounded-lg p-6 text-center`}
+            className={`bg-blue-50 border border-gray-200 rounded-lg p-6 text-center`}
           >
             <dt>
               <div className="flex justify-center text-charcoal mb-4">{highlight.icon}</div>
