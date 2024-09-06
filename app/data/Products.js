@@ -28,6 +28,7 @@ export const products = [
       "/productsImages/PF2.jpg",
       "/productsImages/PF3.jpg",
     ],
+    
   },
 
   // {

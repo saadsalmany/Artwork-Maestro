@@ -26,7 +26,6 @@ const products = [
 ];
 
 function CollectionSection() {
-
   const [ripple, setRipple] = useState({
     x: 0,
     y: 0,
@@ -46,7 +45,6 @@ function CollectionSection() {
       setRipple({ x: 0, y: 0, active: false, index: null });
     }, 1000);
   };
-
 
   return (
     <>
@@ -121,13 +119,26 @@ function CollectionSection() {
         </div>
         <div className="mt-12 desktop:mt-16 flex section justify-center items-center md:flex-row mobile:gap-6 ">
           <Link
-            linkProps={{
-              target: "_blank",
-              rel: "noopener noreferrer",
+            href=""
+            onClick={(event) => {
+              event.preventDefault();
+              const form = document.getElementById("form");
+              const viewportHeight = window.innerHeight;
+              const formTop = form.getBoundingClientRect().top;
+              const formHeight = form.offsetHeight;
+              const adjustment =
+                window.innerWidth < 768
+                  ? 30
+                  : window.innerWidth < 1024
+                  ? 100
+                  : 50;
+              window.scrollBy({
+                top: formTop - (viewportHeight - formHeight) / 2 - adjustment,
+                behavior: "smooth",
+              });
             }}
-            href="/about"
           >
-            <SecondaryBtn>About Us</SecondaryBtn>
+            <SecondaryBtn>Give Feedback</SecondaryBtn>
           </Link>
           <Link
             linkProps={{

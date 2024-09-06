@@ -36,9 +36,9 @@ function ClientComponent({ params, products }) {
   return (
     <div className="bg-white">
       <main className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-0 lg:items-start">
           {/* Left column */}
-          <div className="flex flex-col-reverse">
+          <div className="flex px-4 flex-col-reverse">
             {/* Image grid */}
             <div className="mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
               <div
@@ -71,7 +71,7 @@ function ClientComponent({ params, products }) {
               </div>
             </div>
 
-            <div className="w-full aspect-w-1 aspect-h-1">
+            <div className="w-full desktop:w-96 tablet:w-96 aspect-square">
               <Image
                 src={mainImage}
                 alt={product.name}
@@ -84,7 +84,7 @@ function ClientComponent({ params, products }) {
           </div>
 
           {/* Right column */}
-          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt">
+          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-4">
             <h1 className="text-3xl font-outfit font-bold tracking-tight text-secondary-blue">
               {product.name}
             </h1>
@@ -102,7 +102,9 @@ function ClientComponent({ params, products }) {
                     <Star
                       key={rating}
                       className={`${
-                        4 > rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                        4 > rating
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-gray-200"
                       } h-5 w-5 flex-shrink-0`}
                       aria-hidden="true"
                     />
@@ -145,11 +147,13 @@ function ClientComponent({ params, products }) {
               <h3 className=" font-outfit font-medium text-secondary-blue">
                 Highlights
               </h3>
-              <ProductHighlights/>
+              <ProductHighlights
+                heading="Durable"
+                subheading="High-quality build"
+                icon={<Shield />}
+                bgColor="blue"
+              />
             </div>
-
-
-          
           </div>
         </div>
       </main>
