@@ -1,17 +1,16 @@
-// Import necessary components and hooks
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import PrimaryBtn from "./PrimaryBtn";
+import { Star, Truck, RefreshCw, Shield } from "lucide-react";
+import SecondaryBtn from "./SecondaryBtn";
+import ProductHighlights from "./ProductHighlights";
 
-// Define the ClientComponent function
 function ClientComponent({ params, products }) {
-  // State variables for product, main image, and loading status
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch product data when component mounts
   useEffect(() => {
     if (products && params.slug) {
       const foundProduct = products.find((p) => p.slug === params.slug);
@@ -21,65 +20,136 @@ function ClientComponent({ params, products }) {
     }
   }, [products, params.slug]);
 
-  // Conditional rendering for loading and product not found states
-  if (loading) return <div>Loading...</div>;
-  if (!product) return <div>Product not found</div>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <SecondaryBtn>Loading...</SecondaryBtn>
+      </div>
+    );
+  if (!product)
+    return (
+      <div className="flex justify-center items-center font-openSans text-secondary-blue font-bold text-2xl h-screen">
+        Product not found
+      </div>
+    );
 
   return (
-    <div className="bg-zinc-100 flex flex-col">
-      <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 tablet:mt-32 desktop:px-26 pb-56 mt-20 desktop:mt-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 desktop:-space-x-32">
-          <div className="space-y-6">
-            {mainImage && (
+    <div className="bg-white">
+      <main className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+          {/* Left column */}
+          <div className="flex flex-col-reverse">
+            {/* Image grid */}
+            <div className="mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+              <div
+                className="grid grid-cols-4 gap-6"
+                aria-orientation="horizontal"
+                role="tablist"
+              >
+                {product.images?.map((img, index) => (
+                  <button
+                    key={index}
+                    className={`relative h-24 rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 transition-all duration-150 ${
+                      img === mainImage
+                        ? "shadow-md border-[1px] border-gray-400 transition-all scale-105 duration-200"
+                        : "ring-1 ring-gray-300 opacity-50"
+                    }`}
+                    onClick={() => setMainImage(img)}
+                  >
+                    <span className="sr-only">{product.name}</span>
+                    <span className="absolute inset-0 overflow-hidden rounded-md">
+                      <Image
+                        src={img}
+                        alt=""
+                        layout="fill"
+                        objectFit="cover"
+                        className="w-full h-full object-center object-cover"
+                      />
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full aspect-w-1 aspect-h-1">
               <Image
                 src={mainImage}
                 alt={product.name}
-                width={1000}
-                height={1000}
-                objectFit="cover"
-                className="w-full lg:w-[25rem] rounded-lg shadow aspect-square transition-all duration-300"
+                layout="responsive"
+                width={600}
+                height={600}
+                className="w-full h-full object-center object-cover sm:rounded-lg"
               />
-            )}
-            <div className="grid grid-cols-4 gap-4 desktop:gap-0">
-              {product.images?.map((img, index) => (
-                <button
-                  key={index}
-                  className={`relative w-[5rem] transition-all duration-150 desktop:w-[8rem] aspect-square overflow-hidden rounded-md ${
-                    img === mainImage
-                      ? "drop-shadow-lg"
-                      : "scale-95 opacity-60"
-                  }`}
-                  onClick={() => setMainImage(img)}
-                >
-                  <Image
-                    src={img}
-                    alt={`${product.name} ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute inset-0 w-full h-full object-center object-cover transition-all duration-150"
-                  />
-                </button>
-              ))}
             </div>
           </div>
 
-          <div className="space-y-6 mt-4">
-            <h1 className="text-3xl tablet:text-4xl desktop:text-5xl font-outfit font-bold text-secondary-blue">
+          {/* Right column */}
+          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt">
+            <h1 className="text-3xl font-outfit font-bold tracking-tight text-secondary-blue">
               {product.name}
             </h1>
-            <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-openSans text-gray-600">
-                Category: {product.category}
-              </span>
-              <span className="text-sm font-openSans text-gray-600">|</span>
-              <span className="text-sm font-openSans text-gray-600">
-                Tags: {product.tags.join(", ")}
-              </span>
+
+            <div className="mt-3">
+              <h2 className="sr-only">Product information</h2>
             </div>
-            <p className="text-sm  desktop:text-lg font-openSans text-charcoal pb-4">
-              {product.description}
-            </p>
-            <PrimaryBtn href={"/contact"}>Send Enquiry</PrimaryBtn>
+
+            {/* Reviews */}
+            <div className="mt-3">
+              <h3 className="sr-only">Reviews</h3>
+              <div className="flex items-center">
+                <div className="flex items-center">
+                  {[0, 1, 2, 3, 4].map((rating) => (
+                    <Star
+                      key={rating}
+                      className={`${
+                        4 > rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                      } h-5 w-5 flex-shrink-0`}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <p className="sr-only">4 out of 5 stars</p>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="sr-only">Description</h3>
+              <p className="text-base font-openSans text-gray-700">
+                {product.description}
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex items-center space-x-2 text-sm text-gray-500">
+                <span className="inline-flex font-outfit items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                  {product.category}
+                </span>
+                {product.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+              <PrimaryBtn href={"/contact"} className="w-full">
+                Send Enquiry
+              </PrimaryBtn>
+            </div>
+
+            <div className="mt-10 border-t border-gray-200 pt-10">
+              <h3 className=" font-outfit font-medium text-secondary-blue">
+                Highlights
+              </h3>
+              <ProductHighlights/>
+            </div>
+
+
+          
           </div>
         </div>
       </main>

@@ -4,9 +4,9 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronRight, Check, Filter } from "lucide-react";
-import { products } from "../data/Products";
 import SecondaryBtn from "./SecondaryBtn";
 import ProductCard from "./ProductCard";
+import { products } from "../data/Products";
 
 const categories = [
   {
