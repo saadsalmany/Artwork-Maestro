@@ -2,10 +2,6 @@
 'use client'
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronRight, Link, } from "lucide-react";
-import Navbar from "./Navbar";
-import Marquee from "./Marquee";
-import Footer from "./Footer";
 import PrimaryBtn from "./PrimaryBtn";
 
 // Define the ClientComponent function
@@ -29,11 +25,8 @@ function ClientComponent({ params, products }) {
   if (loading) return <div>Loading...</div>;
   if (!product) return <div>Product not found</div>;
 
-  // Return the product component
   return (
     <div className="bg-zinc-100 flex flex-col">
-      <Navbar />
-      <Marquee />
       <main className="flex-grow container max-w-7xl mx-auto px-8 tablet:px-16 tablet:mt-32 desktop:px-26 pb-56 mt-20 desktop:mt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 desktop:-space-x-32">
           <div className="space-y-6">
@@ -90,7 +83,6 @@ function ClientComponent({ params, products }) {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
