@@ -18,8 +18,9 @@ const Navbar = () => {
   ];
 
   const NavLink = ({ href, label, isMobile }) => {
-    const isActive = pathname === href;
-
+    const pathname = usePathname();
+    const isActive = pathname === href || (href === '/products' && pathname.includes('/products/'));
+    
     return (
       <Link
         href={href}

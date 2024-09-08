@@ -1,5 +1,12 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
@@ -46,37 +53,35 @@ const Footer = () => {
           <div className="flex flex-col space-y-4">
             <div>
               <p className="font-semibold text-base mb-1">Address</p>
-               
+
               <p className="text-xs font-outfit ">
                 Area Mangal Pura Takhiya Colony, Sarai Tarin District Sambhal,
                 pincode 244303, Moradabad, Uttar Pradesh, India
-              </p> 
+              </p>
             </div>
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
               <a
-                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@artworkmaestro.com"
+                href="tel:7452861066"
                 rel="noopener noreferrer"
                 target="_blank"
-                className="flex items-center underline w-min space-x-1 group  transition-all duration-300 ease-in-out"
+                className="flex items-center underline space-x-1 group  transition-all duration-300 ease-in-out"
               >
-                <Mail
-                  size={16}
-                  className="text-white"
-                />
-                <span className="text-sm hover:text-red-300 opacity-90 font-outfit">info@artworkmaestro.com</span>
+                <Phone size={16} className="text-white" />
+                <span className="text-sm hover:text-red-300 opacity-90 font-outfit">
+                +91-7452861066
+                </span>
               </a>
               <a
-                href="mailto:info@artworkmaestro.com"
+                href="mailto:info@artworkmaestro.com?subject=From Artowrk Maestro Website&body="
                 rel="noopener noreferrer"
                 target="_blank"
-                className="flex items-center underline mt-1 w-min space-x-1 group  transition-all duration-300 ease-in-out"
+                className="flex items-center underline w-min space-x-1 group mt-1  transition-all duration-300 ease-in-out"
               >
-                <Mail
-                  size={16}
-                  className="text-white"
-                />
-                <span className="text-sm hover:text-red-300  opacity-90 font-outfit">info@artworkmaestro.com</span>
+                <Mail size={16} className="text-white" />
+                <span className="text-sm hover:text-red-300 opacity-90 font-outfit">
+                  info@artworkmaestro.com
+                </span>
               </a>
             </div>
           </div>
