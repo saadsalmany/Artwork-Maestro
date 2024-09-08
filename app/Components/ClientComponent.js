@@ -139,7 +139,7 @@ function ClientComponent({ params, products }) {
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
               <PrimaryBtn href={"/contact"} className="w-full">
-                Send Enquiry
+                Request Order
               </PrimaryBtn>
             </div>
 
