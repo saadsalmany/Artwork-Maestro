@@ -14,8 +14,8 @@ const categories = [
     subcategories: [
       { name: "Vases", items: [] },
       { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
-      { name: "Boxes", items: ["Decorative and Multipurpose Box", "Suri Box and Decorative Homeware", "Round Mini Suri Decorative Box", "Bone Decorative Mini Box"] },
-      { name: "Frames", items: ["Picture Frame"] },
+      { name: "Boxes", items: ["Decorative Box","Boxes", "Multipurpose Boxes"] },
+      { name: "Picture Frames", items: ["Picture Frame"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
       { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
     ],
@@ -23,7 +23,7 @@ const categories = [
   {
     name: "Fashion Jewellery",
     subcategories: [
-      { name: "Jewelry Boxes", items: ["Mini Jewellery Box", "Transparently Attractive Mini Jewellery Box"] },
+      { name: "Jewelry Boxes", items: ["Jewellery Box",] },
     ],
   },
   {
