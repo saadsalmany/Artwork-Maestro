@@ -38,11 +38,43 @@ function ClientComponent({ params, products }) {
       <main className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-0 desktop:mx-12 lg:items-start">
           {/* Left column */}
+          {/*Mobile Layout */}
+         <div className="md:hidden mb-8">
+         <h1 className="text-3xl px-4 sm:px-6 lg:px-8 font-outfit font-bold tracking-tight text-secondary-blue">
+              {product.name}
+            </h1>
+
+            <div className="mt-3">
+              <h2 className="sr-only">Product information</h2>
+            </div>
+
+            {/* Reviews */}
+            <div className="mt-3 px-4 sm:px-6 lg:px-8">
+              <h3 className="sr-only">Reviews</h3>
+              <div className="flex items-center">
+                <div className="flex items-center">
+                  {[0, 1, 2, 3, 4].map((rating) => (
+                    <Star
+                      key={rating}
+                      className={`${
+                        4 > rating
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-gray-200"
+                      } h-5 w-5 flex-shrink-0`}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <p className="sr-only">4 out of 5 stars</p>
+              </div>
+            </div>
+         </div>
           <div className="flex w-full px-4 mt-4 flex-col-reverse">
+            
             {/* Image grid */}
-            <div className="mt-8 tablet:w-96 tablet:h-full desktop:w-[28rem]  sm:block desktop:max-w-none">
+            <div className="mt-8 tablet:w-96 tablet:h-full desktop:w-[28rem] sm:block desktop:max-w-none">
               <div
-                className="grid grid-cols-5 tablet:grid-cols-4  desktop:grid-cols-5 gap-3 lg:gap-3"
+                className="grid grid-cols-5 tablet:grid-cols-4 desktop:grid-cols-5 gap-3 lg:gap-3"
                 aria-orientation="horizontal"
                 role="tablist"
               >
@@ -63,7 +95,7 @@ function ClientComponent({ params, products }) {
                         alt=""
                         layout="fill"
                         objectFit="cover"
-                        className="w-full h-full  object-center object-cover"
+                        className="w-full h-full object-center object-cover"
                       />
                     </span>
                   </button>
@@ -84,8 +116,8 @@ function ClientComponent({ params, products }) {
           </div>
 
           {/* Right column */}
-          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-4">
-            <h1 className="text-3xl font-outfit font-bold tracking-tight text-secondary-blue">
+          <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-4 order-first lg:order-last">
+            <h1 className="text-3xl hidden md:block font-outfit font-bold tracking-tight text-secondary-blue">
               {product.name}
             </h1>
 
@@ -94,7 +126,7 @@ function ClientComponent({ params, products }) {
             </div>
 
             {/* Reviews */}
-            <div className="mt-3">
+            <div className="mt-3 hidden md:block">
               <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
                 <div className="flex items-center">
@@ -144,12 +176,10 @@ function ClientComponent({ params, products }) {
             </div>
 
             <div className="mt-10 border-t border-gray-200 pt-10">
-              <h3 className=" font-outfit font-medium text-secondary-blue">
+              <h3 className="font-outfit font-medium text-secondary-blue">
                 Highlights
               </h3>
-              <ProductHighlights
-                highlights={product.highlights}
-              />
+              <ProductHighlights highlights={product.highlights} />
             </div>
           </div>
         </div>

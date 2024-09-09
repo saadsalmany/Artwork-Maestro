@@ -15,7 +15,7 @@ const categories = [
       { name: "Vases", items: [] },
       { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
       { name: "Boxes", items: ["Decorative and Multipurpose Box", "Suri Box and Decorative Homeware", "Round Mini Suri Decorative Box", "Bone Decorative Mini Box"] },
-      { name: "Frames", items: ["Photo Frame"] },
+      { name: "Frames", items: ["Picture Frame"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
       { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
     ],
