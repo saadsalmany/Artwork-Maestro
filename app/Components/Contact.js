@@ -159,7 +159,7 @@ const ContactPage = () => {
                 </p>
                 <div className="flex gap-4">
                   <PrimaryBtn type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Submit Review"}
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </PrimaryBtn>
                   <SecondaryBtn
                     type="reset"
