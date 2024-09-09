@@ -36,13 +36,13 @@ function ClientComponent({ params, products }) {
   return (
     <div className="bg-white">
       <main className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-x-0 lg:items-start">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-0 desktop:mx-12 lg:items-start">
           {/* Left column */}
-          <div className="flex px-4 flex-col-reverse">
+          <div className="flex w-full px-4 mt-4 flex-col-reverse">
             {/* Image grid */}
-            <div className="mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+            <div className="mt-8 tablet:w-96 tablet:h-full desktop:w-[28rem]  sm:block desktop:max-w-none">
               <div
-                className="grid grid-cols-4 gap-6"
+                className="grid grid-cols-5 tablet:grid-cols-4  desktop:grid-cols-5 gap-3 lg:gap-3"
                 aria-orientation="horizontal"
                 role="tablist"
               >
@@ -51,8 +51,8 @@ function ClientComponent({ params, products }) {
                     key={index}
                     className={`relative h-24 rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 transition-all duration-150 ${
                       img === mainImage
-                        ? "shadow-md border-[1px] border-gray-400 transition-all scale-105 duration-200"
-                        : "ring-1 ring-gray-300 opacity-50"
+                        ? "shadow-md border-[1px] border-primary-red transition-all scale-105 duration-200"
+                        : "ring-1 ring-gray-300 opacity-70"
                     }`}
                     onClick={() => setMainImage(img)}
                   >
@@ -63,7 +63,7 @@ function ClientComponent({ params, products }) {
                         alt=""
                         layout="fill"
                         objectFit="cover"
-                        className="w-full h-full object-center object-cover"
+                        className="w-full h-full  object-center object-cover"
                       />
                     </span>
                   </button>
@@ -71,14 +71,14 @@ function ClientComponent({ params, products }) {
               </div>
             </div>
 
-            <div className="w-full desktop:w-96 tablet:w-96 aspect-square">
+            <div className="w-full desktop:w-[28rem] shadow rounded-2xl tablet:w-96 aspect-square">
               <Image
                 src={mainImage}
                 alt={product.name}
                 layout="responsive"
-                width={600}
-                height={600}
-                className="w-full h-full object-center object-cover sm:rounded-lg"
+                width={300}
+                height={300}
+                className="w-full object-center object-cover rounded-2xl"
               />
             </div>
           </div>

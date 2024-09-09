@@ -32,9 +32,23 @@ export const products = [
     description:
       "Discover the elegance of our picture frames, a stunning blend of resin, natural bone inlay, mother of pearl, buffalo horn, marble, and metal. Each piece is crafted with precision, combining luxurious materials for a timeless and sophisticated look. We ensure top quality with meticulous attention to detail and offer customization to match your size and design preferences. Elevate your cherished memories with a picture frame that's uniquely yours.",
     images: [
-      "/productsImages/PF1.jpg",
-      "/productsImages/PF2.jpg",
-      "/productsImages/PF3.jpg",
+      "/productsImages/PF/PF1.jpg",
+      "/productsImages/PF/PF2.jpg",
+      "/productsImages/PF/PF3.jpg",
+      "/productsImages/PF/PF4.jpg",
+      "/productsImages/PF/PF5.jpg",
+      "/productsImages/PF/PF6.jpg",
+      "/productsImages/PF/PF7.jpg",
+      "/productsImages/PF/PF8.jpg",
+      "/productsImages/PF/PF9.jpg",
+      "/productsImages/PF/PF10.jpg",
+      "/productsImages/PF/PF11.jpg",
+      "/productsImages/PF/PF12.jpg",
+      "/productsImages/PF/PF13.jpg",
+      "/productsImages/PF/PF14.jpg",
+      "/productsImages/PF/PF15.jpg",
+      "/productsImages/PF/PF16.jpg",
+
     ],
     highlights: [
       {
@@ -43,8 +57,8 @@ export const products = [
         icon: <Shield />,
       },
       {
-        heading: "Customization",
-        subheading: "Picture Perfect, Any Size",
+        heading: "Standard Sizes",
+        subheading:"4x6 | 5x7 | 8x10 | 11x14 | 16x20 inches",
         icon: <RefreshCw />,
       },
     ],
