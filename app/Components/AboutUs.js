@@ -206,16 +206,23 @@ const AboutUs = () => {
         <h2 className="font-outfit section text-secondary-blue text-2xl mb-6">
           Our Skilled Artisans
         </h2>
-        <div className="grid  grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid  grid-cols-2 md:grid-cols-5 gap-4">
           {[
-            "/artisans/1.jpg",
-            "/artisans/2.jpg",
-            "/artisans/3.jpeg",
-            "/artisans/4.jpeg",
+            "/artisans/A1.jpg",
+            "/artisans/A2.jpg",
+            "/artisans/A3.jpg",
+            "/artisans/A4.jpg",
+            "/artisans/A5.jpg",
+            "/artisans/A6.jpg",
+            "/artisans/A7.jpg",
+            "/artisans/A8.jpg",
+            "/artisans/A9.jpg",
+            "/artisans/A10.jpg",
           ].map((src, index) => (
             <Image
               key={index}
               src={src}
+              alt="This is an artisan image"
               objectFit="fit"
               width={1000}
               height={1000}
