@@ -148,20 +148,20 @@ function ClientComponent({ params, products }) {
 
             <div className="mt-6">
               <h3 className="sr-only">Description</h3>
-              <p className="text-base font-openSans text-gray-700">
+              <p className="text-base leading-wide font-openSans text-gray-700">
                 {product.description}
               </p>
             </div>
 
             <div className="mt-6">
-              <div className="flex items-center space-x-2 text-sm text-gray-500">
-                <span className="inline-flex font-outfit items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+              <div className="flex gap-3 flex-wrap  text-sm text-gray-500">
+                <span className="inline-flex font-outfit items-center px-4 py-2 text-center rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
                   {product.category}
                 </span>
                 {product.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                   >
                     {tag}
                   </span>
