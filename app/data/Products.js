@@ -127,7 +127,7 @@ export const products = [
     ],
   },
   {
-    "id": 3,
+    "id": 4,
     "name": "Cufflinks",
     "slug": "cufflinks",
     "category": "Handmade Fashion Jewelry",
