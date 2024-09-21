@@ -51,6 +51,7 @@ const Footer = () => {
 
           {/* Contact Information */}
           {/* Contact Information */}
+          {/* Contact Information */}
           <div className="flex flex-col space-y-4">
             <div>
               <p className="font-semibold text-base mb-1">Address</p>
