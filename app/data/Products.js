@@ -103,6 +103,10 @@ export const products = [
       "/productsImages/Bangles/B4.jpg",
       "/productsImages/Bangles/B5.jpg",
       "/productsImages/Bangles/B6.jpg",
+      "/productsImages/Bangles/B7.jpg",
+      "/productsImages/Bangles/B8.jpg",
+      "/productsImages/Bangles/B9.jpg",
+      "/productsImages/Bangles/B10.jpg",
     ],
     highlights: [
       {
