@@ -54,10 +54,10 @@ const Footer = () => {
             <div>
               <p className="font-semibold text-base mb-1">Address</p>
 
-              {/* <p className="text-xs font-outfit ">
+              <p className="text-xs font-outfit ">
                 Area Mangal Pura Takhiya Colony, Sarai Tarin District Sambhal,
                 pincode 244303, Moradabad, Uttar Pradesh, India
-              </p> */}
+              </p>
             </div>
             <div>
               <p className="font-semibold text-base mb-1">Contact</p>
