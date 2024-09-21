@@ -1,4 +1,4 @@
-import { Shield, Star, RefreshCw, Ruler, Hand, Gem, Frame } from "lucide-react";
+import { Shield, Star, RefreshCw, Ruler, Hand, Gem, Frame, Diamond, Brush } from "lucide-react";
 export const products = [
   {
     id: 1,
@@ -45,12 +45,12 @@ export const products = [
     name: "Decorative Boxes",
     slug: "decorative-boxes",
     category: "Home Decor",
-    tags: ["Boxes", "Multipurpose Boxes", "Jewellery Box"],
+    tags: ["Boxes", "Multipurpose Boxes", "Jewelry Box"],
     images: ["/productsImages/DB/DB1.jpg"],
 
     description:
       "Discover the charm of our decorative boxes, each a testament to Indian craftsmanship and ethical artistry. Handmade by skilled artisans, these versatile boxes serve as both functional storage solutions and exquisite home decor pieces. Crafted from a blend of buffalo horn, bone, wood, resin, metal, and mother of pearl, each box features intricate designs adorned with carefully cut and placed crystals. These unique accents add a touch of sophistication to any space while reflecting a commitment to sustainable and ethical materials. Elevate your home with these beautiful, handcrafted treasures.",
-      
+
     images: [
       "/productsImages/DB/DB1.jpg",
       "/productsImages/DB/DB2.jpg",
@@ -84,6 +84,42 @@ export const products = [
         subheading:
           "4x6x2 Inches | 5x7x3 Inches | 6x4x2 Inches | 6x8x2 Inches | 7x5x3 Inches |  10x6x4 Inches - (All sizes other than these are also available)",
         icon: <Frame />,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Bangles",
+    slug: "bangles",
+    category: "Handmade Fashion Jewelry",
+    tags: ["Bangles", "Jewelry", "Accessories"],
+    image: "/productsImages/Bangles/B1.jpeg",
+    description:
+      "At Artwork Maestro, we take pride in offering exquisite bangles and a diverse range of fashion jewelry and accessories crafted by skilled Indian artisans. Our collection features unique pieces made from natural horn, bone, wood, resin art, mother of pearl, brass, and copper. Each item reflects the latest trends while ensuring that every step of the production process is legal and government-approved, prioritizing the safety and well-being of our artisans. Experience the artistry and ethical craftsmanship behind our stunning jewelry.",
+    images: [
+      "/productsImages/Bangles/B1.jpg",
+      "/productsImages/Bangles/B2.jpg",
+      "/productsImages/Bangles/B3.jpg",
+      "/productsImages/Bangles/B4.jpg",
+      "/productsImages/Bangles/B5.jpg",
+      "/productsImages/Bangles/B6.jpg",
+    ],
+    highlights: [
+      {
+        heading: "Standard Sizes",
+        subheading: "60mm | 65mm | 68mm | 70mm | Size and design customisation available",
+        icon: <RefreshCw />,
+      },
+
+      {
+        heading: "Intricate Designs",
+        subheading: "Sophisticated Traditional Charm",
+        icon: <Brush />,
+      },
+      {
+        heading: "Durable",
+        subheading: "Long-lasting quality",
+        icon: <Shield />,
       },
     ],
   },

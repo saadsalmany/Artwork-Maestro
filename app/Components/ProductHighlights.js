@@ -10,12 +10,12 @@ function ProductHighlights({ highlights = [] }) {
             className={`bg-blue-50 border border-gray-200 rounded-lg p-6 text-center`}
           >
             <dt>
-              <div className="flex justify-center text-charcoal mb-4">{highlight.icon}</div>
-              <span className="text-sm font-outfit tracking-wide font-medium text-charcoal">
+              <div className="flex justify-center text-secondary-blue mb-4">{highlight.icon}</div>
+              <span className="text-base font-outfit tracking-wide font-semibold text-secondary-blue">
                 {highlight.heading}
               </span>
             </dt>
-            <dd className="mt-1 text-sm font-openSans text-gray-500">
+            <dd className="mt-1 text-sm font-medium font-openSans leading-loose text-charcoal tracking-wide">
               {highlight.subheading}
             </dd>
           </div>

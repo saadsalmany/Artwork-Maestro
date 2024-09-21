@@ -161,7 +161,7 @@ function ClientComponent({ params, products }) {
                 {product.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    className="inline-flex font-outfit items-center px-4 py-2 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                   >
                     {tag}
                   </span>

@@ -51,7 +51,7 @@ export const metadata = {
     siteName: "Artwork Maestro",
     images: [
       {
-        url: "https://www.artworkmaestro.com/craftStore.webp",
+        url: "https://www.artworkmaestro.com/expo.jpeg",
         width: 1200,
         height: 630,
       },
@@ -78,7 +78,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Artwork Maestro | Handicraft Products',
     description: 'Explore our collection of exquisite handicraft products. Find unique beer cups, bone items, holders, and more for international buyers.',
-    images: ['https://www.artworkmaestro.com/craftStore.webp'],
+    images: ['https://www.artworkmaestro.com/expo.jpeg'],
   },
 };
 

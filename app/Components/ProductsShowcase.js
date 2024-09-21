@@ -21,15 +21,14 @@ const categories = [
     ],
   },
   {
-    name: "Handmade Fashion Jewellery",
+    name: "Handmade Fashion jewelry",
     subcategories: [
-      { name: "Jewellery Boxes", items: ["Jewellery Box","Jewellery", "Boxes"] },
-      { name: "Bangles", items: ["Bangles", "Jewellery"] },
-      { name: "Cufflinks", items: ["Cufflinks", "Jewellery"] },
-      { name: "Earrings", items: ["Ear rings", "Jewellery"] },
-      { name: "Necklaces", items: ["Necklaces", "Jewellery"] },
-      { name: "Finger Rings", items: ["Finger Rings", "Jewellery"] },
-      { name: "Hand Clutch Bags", items: ["Hand Clutch Bags", "Jewellery"] },
+      { name: "Bangles", items: ["Bangles", "jewelry"] },
+      { name: "Cufflinks", items: ["Cufflinks", "jewelry"] },
+      { name: "Earrings", items: ["Ear rings", "jewelry"] },
+      { name: "Necklaces", items: ["Necklaces", "jewelry"] },
+      { name: "Finger Rings", items: ["Finger Rings", "jewelry"] },
+      { name: "Hand Clutch Bags", items: ["Hand Clutch Bags", "jewelry"] },
     ],
   },
   {
