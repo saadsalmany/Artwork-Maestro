@@ -15,7 +15,7 @@ const categories = [
       { name: "Vases", items: [] },
       { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
       { name: "Boxes", items: ["Decorative Box","Boxes", "Multipurpose Boxes"] },
-      { name: "Picture Frames", items: ["Picture Frame"] },
+      { name: "Picture Frames", items: ["Picture Frames", "Frames"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
       { name: "Tissue Boxes", items: ["Bone Tissue Box"] },
     ],
