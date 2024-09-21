@@ -48,5 +48,9 @@
     <loc>https://www.artworkmaestro.com/products/bangles</loc>
     <priority>0.90</priority>
   </url>
+  <url>
+    <loc>https://www.artworkmaestro.com/products/cufflinks</loc>
+    <priority>0.90</priority>
+  </url>
 
 </urlset>

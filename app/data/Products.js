@@ -6,7 +6,7 @@ export const products = [
     slug: "picture-frames",
     category: "Home Decor",
     tags: ["Picture Frames", "Frames"],
-    image: "/productsImages/DH2.jpeg",
+    image: "/productsImages/DH2.jpg",
     description:
       "Discover the elegance of our picture frames, a stunning blend of resin, natural bone inlay, mother of pearl, buffalo horn, marble, and metal. Each piece is crafted with precision, combining luxurious materials for a timeless and sophisticated look. We ensure top quality with meticulous attention to detail and offer customization to match your size and design preferences. Elevate your cherished memories with a picture frame that's uniquely yours.",
     images: [
@@ -92,8 +92,8 @@ export const products = [
     name: "Bangles",
     slug: "bangles",
     category: "Handmade Fashion Jewelry",
-    tags: ["Bangles", "Jewelry", "Accessories"],
-    image: "/productsImages/Bangles/B1.jpeg",
+    tags: ["Bangles", "Accessories"],
+    image: "/productsImages/Bangles/B1.jpg",
     description:
       "At Artwork Maestro, we take pride in offering exquisite bangles and a diverse range of fashion jewelry and accessories crafted by skilled Indian artisans. Our collection features unique pieces made from natural horn, bone, wood, resin art, mother of pearl, brass, and copper. Each item reflects the latest trends while ensuring that every step of the production process is legal and government-approved, prioritizing the safety and well-being of our artisans. Experience the artistry and ethical craftsmanship behind our stunning jewelry.",
     images: [
@@ -106,7 +106,6 @@ export const products = [
       "/productsImages/Bangles/B7.jpg",
       "/productsImages/Bangles/B8.jpg",
       "/productsImages/Bangles/B9.jpg",
-      "/productsImages/Bangles/B10.jpg",
     ],
     highlights: [
       {
@@ -127,4 +126,43 @@ export const products = [
       },
     ],
   },
+  {
+    "id": 3,
+    "name": "Cufflinks",
+    "slug": "cufflinks",
+    "category": "Handmade Fashion Jewelry",
+    "tags": ["Cufflinks", "Accessories"],
+    "image": "/productsImages/Cufflinks/C1.jpg",
+    "description": 
+      "Elevate your style with our exquisite Cufflinks, crafted from high-quality materials like Natural Horn, Bone, Resin art, Mother of pearl, wood and metal. Our designs blend traditional elegance with modern sophistication, ensuring a perfect fit for any occasion. With attention to detail and precision craftsmanship, our Cufflinks make a statement.",
+    "images": [
+      "/productsImages/Cufflinks/C1.jpg",
+      "/productsImages/Cufflinks/C2.jpg",
+      "/productsImages/Cufflinks/C3.jpg",
+      "/productsImages/Cufflinks/C4.jpg",
+      "/productsImages/Cufflinks/C5.jpg",
+      "/productsImages/Cufflinks/C6.jpg",
+      "/productsImages/Cufflinks/C7.jpg",
+      "/productsImages/Cufflinks/C8.jpg",
+      "/productsImages/Cufflinks/C9.jpg",
+      "/productsImages/Cufflinks/C10.jpg",
+    ],
+    "highlights": [
+      {
+        "heading": "Premium Materials",
+        "subheading": "Horn, Bone, Brass, and precious materials",
+        "icon": <Diamond />,
+      },
+      {
+        "heading": "Intricate Designs",
+        "subheading": "Traditional elegance meets modern sophistication",
+        "icon": <Brush />,
+      },
+      {
+        "heading": "Durable",
+        "subheading": "Long-lasting quality",
+        "icon": <Shield />,
+      },
+    ],
+  }
 ];
