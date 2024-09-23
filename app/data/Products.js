@@ -42,8 +42,8 @@ export const products = [
   },
   {
     id: 2,
-    name: "Decorative Boxes",
-    slug: "decorative-boxes",
+    name: "Boxes",
+    slug: "boxes",
     category: "Home Decor",
     tags: ["Boxes", "Multipurpose Boxes", "Jewelry Box"],
     images: ["/productsImages/DB/DB1.jpg"],

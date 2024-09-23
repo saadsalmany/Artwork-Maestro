@@ -39,8 +39,8 @@ function ClientComponent({ params, products }) {
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-0 desktop:mx-12 lg:items-start">
           {/* Left column */}
           {/*Mobile Layout */}
-         <div className="md:hidden mb-8">
-         <h1 className="text-3xl px-4 sm:px-6 lg:px-8 font-outfit font-bold tracking-tight text-secondary-blue">
+          <div className="md:hidden mb-8">
+            <h1 className="text-3xl px-4 sm:px-6 lg:px-8 font-outfit font-bold tracking-tight text-secondary-blue">
               {product.name}
             </h1>
 
@@ -68,9 +68,8 @@ function ClientComponent({ params, products }) {
                 <p className="sr-only">4 out of 5 stars</p>
               </div>
             </div>
-         </div>
+          </div>
           <div className="flex w-full px-4 mt-4 flex-col-reverse">
-            
             {/* Image grid */}
             <div className="mt-8 tablet:w-96 tablet:h-full desktop:w-[28rem] sm:block desktop:max-w-none">
               <div
@@ -92,7 +91,7 @@ function ClientComponent({ params, products }) {
                     <span className="absolute inset-0 overflow-hidden rounded-md">
                       <Image
                         src={img}
-                        alt=""
+                        alt={product.name}
                         layout="fill"
                         objectFit="cover"
                         className="w-full h-full object-center object-cover"
