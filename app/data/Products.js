@@ -164,5 +164,41 @@ export const products = [
         "icon": <Shield />,
       },
     ],
+  },
+  {
+    "id": 5,
+    "name": "Hand Clutch Bags",
+    "slug": "hand-clutch-bags",
+    "category": "Handmade Fashion Jewellery",
+    "tags": ["Ladies Bags", "Resin Bags"],
+    "image": "/productsImages/HCB/H1.jpg",
+    "description": 
+      "Elevate your style with our exquisite hand clutch bags, crafted from high-quality materials like Natural Horn, Bone, Resin art, Mother of pearl, wood and metal. Our designs blend traditional elegance with modern sophistication, ensuring a perfect fit for any occasion. With attention to detail and precision craftsmanship, our Cufflinks make a statement.",
+    "images": [
+      "/productsImages/HCB/H1.jpg",
+      "/productsImages/HCB/H2.jpg",
+      "/productsImages/HCB/H3.jpg",
+      "/productsImages/HCB/H4.jpg",
+      "/productsImages/HCB/H5.jpg",
+      "/productsImages/HCB/H6.jpg",
+      "/productsImages/HCB/H7.jpg",
+    ],
+    "highlights": [
+      {
+        "heading": "Premium Materials",
+        "subheading": "Horn, Bone, Brass, and precious materials",
+        "icon": <Diamond />,
+      },
+      {
+        heading: "Standard Sizes",
+        "subheading": "5x7 | 5x5 | 7x7",
+        icon: <RefreshCw />,
+      },
+      {
+        "heading": "Durable",
+        "subheading": "Long-lasting quality",
+        "icon": <Shield />,
+      },
+    ],
   }
 ];
