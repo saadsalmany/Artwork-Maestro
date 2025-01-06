@@ -42,7 +42,6 @@ const ContactPage = () => {
       });
   };
 
-
   return (
     <div className="bg-gray-100 w-full">
       <div className="max-w-6xl mx-auto py-8 mt-8 md:py-16 px-6 tablet:px-16 desktop:px-26">
@@ -103,15 +102,13 @@ const ContactPage = () => {
             <p className="mb-4 font-openSans text-charcoal text-sm md:mb-6 md:text-base">
               Let's chat with our live experts to get answer your questions.
             </p>
-            <Link
-              linkProps={{
-                target: "_blank",
-                rel: "noopener noreferrer",
-              }}
+            <a
+              rel="noopener noreferrer"
+              target="_bank"
               href="https://wa.me/9045067866"
             >
               <PrimaryBtn>Live Chat</PrimaryBtn>
-            </Link>
+            </a>
           </div>
           <div className="md:w-2/3 mx-auto">
             <h3 className="text-4xl text-center font-outfit text-secondary-blue font-bold mb-8 md:text-3xl lg:text-4xl">
@@ -161,11 +158,7 @@ const ContactPage = () => {
                   <PrimaryBtn type="submit" disabled={isSubmitting}>
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </PrimaryBtn>
-                  <SecondaryBtn
-                    type="reset"
-                  >
-                    Reset
-                  </SecondaryBtn>
+                  <SecondaryBtn type="reset">Reset</SecondaryBtn>
                 </div>
               </div>
             </form>
@@ -182,7 +175,6 @@ const ContactPage = () => {
             )}
           </div>
         </div>
-
       </div>
     </div>
   );
