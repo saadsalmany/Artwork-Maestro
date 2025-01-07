@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
               </span>
             ))}
           </div>
-          <p className="text-xs desktop:text-sm font-openSans text-gray-600 mb-3 line-clamp-3">
+          <p className="text-xs desktop:text-sm font-outfit text-gray-700 mb-3 line-clamp-3">
             {product.description}
           </p>
         </div>

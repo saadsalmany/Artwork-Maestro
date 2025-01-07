@@ -14,6 +14,7 @@ const categories = [
     subcategories: [
       { name: "Vases", items: [] },
       { name: "Bowls", items: ["Bone Decorative Bowls", "Bone Multipurpose Bowl"] },
+      { name: "Resin Art", items: ["Resin Art", "Decorative Resin"] },
       { name: "Boxes", items: ["Decorative Box","Boxes", "Multipurpose Boxes"] },
       { name: "Picture Frames", items: ["Picture Frames", "Frames"] },
       { name: "Candle Holders", items: ["Bone Light/Candle/Tea Light Holder"] },
@@ -42,13 +43,14 @@ const categories = [
   {
     name: "Horn, Vikings & Medieval Crafts",
     subcategories: [
-      { name: "Drinking Horn", items: ["Drinking Horn"] },
+      { name: "Horn Mugs", items: ["Drinking Horn", "Horn Mugs"] },
+      { name: "Plates", items: ["Horn Plates",] },
     ],
   },
   {
     name: "Personal Care",
     subcategories: [
-      { name: "Combs", items: ["Horn Comb"] },
+      { name: "Combs", items: ["Hair Care", "Combs"] },
     ],
   },
 ];

@@ -147,7 +147,7 @@ function ClientComponent({ params, products }) {
 
             <div className="mt-6">
               <h3 className="sr-only">Description</h3>
-              <p className="text-base leading-wide font-openSans text-gray-700">
+              <p className="text-base leading-loose font-outfit text-gray-800">
                 {product.description}
               </p>
             </div>
