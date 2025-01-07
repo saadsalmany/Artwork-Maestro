@@ -21,15 +21,15 @@ const HeroSection = () => {
   return (
     <>
       <section className="hero-section bg-white desktop:mt-12 mb-12 desktop:mb-0 flex flex-col tablet:items-center desktop:flex-row items-stretch justify-between px-6 desktop:px-16 tablet:pb-6 desktop:pb-24 max-w-7xl mx-auto relative">
-        <div className="content-wrapper desktop:gap-12 tablet:gap-7 gap-2 flex-1 pt-16 h-auto tablet:pt-28 desktop:pt-20 flex flex-col tablet:items-center desktop:items-start">
+        <div className="content-wrapper desktop:gap- tablet:gap-7 gap-2 flex-1 pt-16 h-auto tablet:pt-28 desktop:pt-20 flex flex-col tablet:items-center desktop:items-start desktop:mt-9">
           <h1 className="text-4xl tablet:text-[6vw] desktop:text-[3vw] font-bold font-outfit mb-0  text-secondary-blue tablet:text-center desktop:text-left">
             Simplify Sourcing With Us:
           </h1>
-          <p className="text-xl desktop:w-[45rem] tablet:text-3xl tablet:w-[40rem] font-outfit leading-tight font-normal desktop:mt-0 desktop:text-4xl text-secondary-blue tablet:text-center desktop:text-left">
+          <h2 className="text-2xl desktop:w-[45rem] tablet:text-3xl tablet:w-[40rem] font-outfit leading-tight font-normal desktop:mt-0 desktop:text-4xl text-secondary-blue tablet:text-center desktop:text-left">
             We're one-stop trusted source
-          </p>
+          </h2>
           <p className="text-xs tablet:text-2xl tablet:w-[45rem] tablet:text-center font-openSans font-medium text-charcoal desktop:mb-0 mb-2 tablet:mb-8
-          desktop:text-lg desktop:w-[35rem] desktop:text-left ">
+          desktop:text-base desktop:w-[35rem] desktop:text-left ">
             Exquisite home decors, handcrafted Indian jewelry & sustainable
             products made from natural materials like horn, bone, resin, mother
             of pearl, wood & marble.
