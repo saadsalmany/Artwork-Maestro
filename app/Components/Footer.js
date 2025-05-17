@@ -137,7 +137,7 @@ const Footer = () => {
             Copyright © {currentYear} Artwork Maestro, All rights reserved |
             Powered by{" "}
             <a
-              href="https://www.linkedin.com/in/saadsalmany/"
+              href="https://www.saadsalmany.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
