@@ -105,7 +105,7 @@ const ContactPage = () => {
             <a
               rel="noopener noreferrer"
               target="_bank"
-              href="https://wa.me/9045067866"
+              href="https://wa.me/7452861066"
             >
               <PrimaryBtn>Live Chat</PrimaryBtn>
             </a>
