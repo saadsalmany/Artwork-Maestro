@@ -1,28 +1,24 @@
-# Artwork Maestro – Optimized Global Content Delivery
+# Artwork Maestro | Professional Client Project
 
-A high-performance storefront architected for global availability and sub-second page loads. This project serves as a case study in implementing cloud-native hosting principles, including Edge Computing, Automated CI/CD, and Secure Content Delivery.
+This is a product showcase website I built and deployed for a client business during my college years. I designed the UI in Figma and developed the application using React and Next.js with Tailwind CSS. My primary goal was to create a high-performance, SEO-optimized platform to represent the brand professionally.
 
-## ☁️ Infrastructure & Deployment Architecture
+### Cloud & Network Infrastructure
+As part of this project, I managed the end-to-end deployment and network configuration:
+- **Serverless Hosting:** Deployed via Vercel to leverage serverless computing, removing the need for traditional server management while ensuring high availability.
+- **Custom Domain Management:** Purchased the domain through Hostinger and successfully delegated the Nameservers to Vercel's Edge Network.
+- **DNS Configuration:** Manually configured the CNAME and A records to ensure seamless routing from the custom domain to the Vercel deployment.
+- **SSL/TLS Security:** Implemented automated SSL termination through Vercel to ensure all client data and traffic are encrypted over HTTPS.
 
-While the frontend is built with Next.js, the deployment strategy focuses on minimizing latency and maximizing reliability through a Managed Cloud Platform (Vercel).
+### SEO & Search Performance
+- **AI-Enhanced SEO:** Used AI tools to refine metadata, headers, and keyword density.
+- **Search Rankings:** Successfully improved the site's indexing to the point where it now ranks #1 for the "Artwork Maestro" search query.
+- **Performance Optimization:** Utilized Next.js for Static Site Generation (SSG) to ensure lightning-fast load times and better crawlability for search engines.
 
-* **Global Edge Network:** The application is deployed across a distributed Content Delivery Network (CDN). By utilizing **Anycast routing**, user requests are automatically directed to the nearest Point of Presence (PoP), significantly reducing Time to First Byte (TTFB).
-* **Compute Strategy (SSG/SSR):** Leveraging Next.js for **Static Site Generation (SSG)** allows the HTML to be pre-rendered at build time. This minimizes server-side compute during request time and enables 100% cache hits at the Edge.
-* **Secure Communication:** Enforces end-to-end encryption via automated **SSL/TLS termination**. The infrastructure is hardened against Layer 3 and Layer 4 DDoS attacks through the platform's built-in mitigation layer.
+### Development Workflow
+- **Design:** UI/UX designed in Figma with AI-assisted layout guidance.
+- **Version Control:** Managed the entire development lifecycle through Git and GitHub to maintain code integrity and version history.
+- **Automation:** Set up a CI/CD pipeline where Vercel automatically deploys updates upon every GitHub commit.
 
-
-
-## 🛠️ DevOps & CI/CD Workflow
-
-The project implements a modern DevOps lifecycle to ensure code quality and deployment stability:
-
-* **Continuous Integration:** Automated build checks are triggered on every GitHub commit to ensure binary compatibility and linting standards.
-* **Continuous Deployment:** Successful builds on the `main` branch are automatically promoted to the production environment, while feature branches generate isolated **Preview Deployments** for staging.
-* **Infrastructure as Code (Abstraction):** The deployment utilizes framework-defined infrastructure, where the platform automatically provisions the necessary serverless functions and routing rules based on the repository structure.
-
-## 🚀 Performance & Networking Metrics
-
-* **Image Optimization:** Automated delivery of optimized assets via the Edge, serving WebP/AVIF formats based on client headers to reduce bandwidth egress.
-* **Minification:** JavaScript and CSS assets are automatically minified and compressed (Brotli/Gzip) to reduce packet size and speed up transmission over high-latency networks.
-* **SEO & Crawlability:** Server-side rendering ensures that search engine crawlers receive fully-formed HTML, improving indexation without requiring client-side JavaScript execution.
+### Key Takeaways
+This project was my first experience managing "Production" level infrastructure. It taught me the importance of DNS management, the benefits of serverless architecture, and how SEO strategies directly impact business visibility on the web.
 ![66bf161688c37b3074776b68](https://github.com/user-attachments/assets/a39c8d82-fe28-49e3-b91d-f3bbe0b49401)
